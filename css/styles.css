@@ -10506,8 +10506,8 @@ a.button {
 }
 
 .parallax-searchs.thome-1 {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(../images/bg/bg-h-1.png) no-repeat center top !important;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/bg/bg-h-1.png) no-repeat center top !important;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(../images/bg/bg-h-1.png) no-repeat center top !important; */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/bg/bg-h-1.png) no-repeat center top !important; */
   background-size: cover;
   background-attachment: fixed !important;
   width: 100%;
