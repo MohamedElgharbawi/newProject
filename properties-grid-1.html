@@ -782,7 +782,7 @@
                                         <div class="form-group looking">
                                             <div class="first-select wide">
                                                 <div class="main-search-input-item">
-                                                    <input type="text" placeholder="Enter Keyword..." value="" />
+                                                    <input type="text" placeholder="Enter Keyword..." value="" id="search-input" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1359,6 +1359,7 @@
 
     <script>
         async function handleSearch() {
+            const searchInput = document.getElementById("search-input");
             const location = document.querySelector("#location ul");
             location.innerHTML = "";
             const response = await fetch("https://hre-group.net/api/search?lang=ar_001");
