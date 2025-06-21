@@ -45,7 +45,7 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="index.html"><img src="" alt=""></a>
+                            <a href="index.html"><img src="images/logo-grid-view.jpg" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
                         <div class="mmenu-trigger">
@@ -788,10 +788,10 @@
                                         </div>
                                         <!--/ End Form Lookin for -->
                                         <!-- Form Location -->
-                                        <div class="form-group location">
+                                        <div class="form-group location" id="location">
                                             <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-map-marker"></i>Location</span>
                                                 <ul class="list">
-                                                    <li data-value="1" class="option selected ">New York</li>
+                                                    <li data-value="1" class="option selected">New York</li>
                                                     <li data-value="2" class="option">Los Angeles</li>
                                                     <li data-value="3" class="option">Chicago</li>
                                                     <li data-value="3" class="option">Philadelphia</li>
@@ -1351,11 +1351,27 @@
         <script src="js/searched.js"></script>
         <script src="js/ajaxchimp.min.js"></script>
         <script src="js/newsletter.js"></script>
-        <script src="js/inner.js"></script>
+        <script src="js/inner.js"></script> 
         <script src="js/color-switcher.js"></script>
 
     </div>
     <!-- Wrapper / End -->
+
+    <script>
+        async function handleSearch() {
+            const location = document.querySelector("#location ul");
+            location.innerHTML = "";
+            const response = await fetch("https://hre-group.net/api/search?lang=ar_001");
+            const data = await response.json();
+            console.log(data);
+            for(let i = 0 ; i < data.locations.length;i++ ) {
+                location.innerHTML += `<li data-value="${data.locations[i].name}" class="option ${i ? "" : "selected"}">${data.locations[i].name}</li>`
+            }
+        }
+        handleSearch();
+    </script>
+
+
 </body>
 
 </html>
