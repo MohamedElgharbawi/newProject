@@ -29,6 +29,37 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" id="color" href="css/default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
+    <style>
+        .noUi-connect {
+        background: #ff3c6e;
+        }
+
+        .noUi-target {
+        background: #e0e0e0;
+        border-radius: 10px;
+        height: 8px;
+        border: none;
+        }
+        .noUi-horizontal .noUi-handle {
+            right: -10px;
+        }
+        .noUi-handle {
+        background: #ffffff;
+        border: 2px solid #ff3c6e;
+        border-radius: 50%;
+        width: 18px !important;
+        height: 18px !important;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        }
+
+        .noUi-handle:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3);
+        }
+
+    </style>
 </head>
 
 <body class="inner-pages listing homepage-4 agents hd-white">
@@ -803,7 +834,7 @@
                                         </div>
                                         <!--/ End Form Location -->
                                         <!-- Form Categories -->
-                                        <div class="form-group categories">
+                                        <div class="form-group categories" id="property-type">
                                             <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-home" aria-hidden="true"></i>Property Type</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected ">House</li>
@@ -817,17 +848,17 @@
                                         </div>
                                         <!--/ End Form Categories -->
                                         <!-- Form Property Status -->
-                                        <div class="form-group categories">
+                                        <div class="form-group categories" id="property-status">
                                             <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-home"></i>Property Status</span>
                                                 <ul class="list">
-                                                    <li data-value="1" class="option selected ">For Sale</li>
-                                                    <li data-value="2" class="option">For Rent</li>
+                                                    <li data-value="For Sale" class="option selected">For Sale</li>
+                                                    <li data-value="For Rent" class="option">For Rent</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <!--/ End Form Property Status -->
                                         <!-- Form Bedrooms -->
-                                        <div class="form-group beds">
+                                        <div class="form-group beds" id="bedrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -845,7 +876,7 @@
                                         </div>
                                         <!--/ End Form Bedrooms -->
                                         <!-- Form Bathrooms -->
-                                        <div class="form-group bath">
+                                        <div class="form-group bath" id="bathrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -867,53 +898,89 @@
                                 <!--/ End Search Form -->
                                 <!-- Price Fields -->
                                 <div class="main-search-field-2">
+                                    <!-- Area Size -->
+                                    <div class="mb-5">
+                                        <label for="area-slider">Area Size</label>
+                                        <div id="area-slider" class="mb-4"></div>
+                                        <div class="d-flex justify-content-between items-center">
+                                            <span id="area-min">0 sq ft</span> 
+                                            <span id="area-max">1300 sq ft</span>
+                                        </div>
+                                    </div>
+                                    <!-- Price Range -->
+                                    <div>
+                                        <label for="price-slider">Price Range</label>
+                                        <div id="price-slider" class="mb-4"></div>
+                                        <div class="d-flex justify-content-between items-center">
+                                            <span id="price-min">$0</span>
+                                            <span id="price-max">$600,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
                                     <!-- Area Range -->
+                                    <!--
                                     <div class="range-slider">
                                         <label>Area Size</label>
                                         <div id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <br>
+                                    -->
+                                    <!-- <br> -->
                                     <!-- Price Range -->
+                                    <!--
                                     <div class="range-slider">
-                                        <label>Price Range</label>
+                                        <label>Price Range</label> 
                                         <div id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
+                                        <div class="clearfix"></div> 
+                                    </div> 
+                                    -->
                                 </div>
                                 <!-- More Search Options -->
                                 <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30" data-open-title="Advanced Features" data-close-title="Advanced Features"></a>
-
                                 <div class="more-search-options relative">
                                     <!-- Checkboxes -->
                                     <div class="checkboxes one-in-row margin-bottom-10">
-                                        <input id="check-2" type="checkbox" name="check">
+                                        <input id="check-2" type="checkbox" name="air_conditioning">
                                         <label for="check-2">Air Conditioning</label>
-                                        <input id="check-3" type="checkbox" name="check">
+
+                                        <input id="check-3" type="checkbox" name="swimming_pool">
                                         <label for="check-3">Swimming Pool</label>
-                                        <input id="check-4" type="checkbox" name="check">
+
+                                        <input id="check-4" type="checkbox" name="central_heating">
                                         <label for="check-4">Central Heating</label>
-                                        <input id="check-5" type="checkbox" name="check">
+
+                                        <input id="check-5" type="checkbox" name="laundry_room">
                                         <label for="check-5">Laundry Room</label>
-                                        <input id="check-6" type="checkbox" name="check">
+
+                                        <input id="check-6" type="checkbox" name="gym">
                                         <label for="check-6">Gym</label>
-                                        <input id="check-7" type="checkbox" name="check">
+
+                                        <input id="check-7" type="checkbox" name="alarm">
                                         <label for="check-7">Alarm</label>
-                                        <input id="check-8" type="checkbox" name="check">
+
+                                        <input id="check-8" type="checkbox" name="window_covering">
                                         <label for="check-8">Window Covering</label>
-                                        <input id="check-9" type="checkbox" name="check">
+
+                                        <input id="check-9" type="checkbox" name="wifi">
                                         <label for="check-9">WiFi</label>
-                                        <input id="check-10" type="checkbox" name="check">
+
+                                        <input id="check-10" type="checkbox" name="tv_cable">
                                         <label for="check-10">TV Cable</label>
-                                        <input id="check-11" type="checkbox" name="check">
+
+                                        <input id="check-11" type="checkbox" name="dryer">
                                         <label for="check-11">Dryer</label>
-                                        <input id="check-12" type="checkbox" name="check">
+
+                                        <input id="check-12" type="checkbox" name="microwave">
                                         <label for="check-12">Microwave</label>
-                                        <input id="check-13" type="checkbox" name="check">
+
+                                        <input id="check-13" type="checkbox" name="washer">
                                         <label for="check-13">Washer</label>
-                                        <input id="check-14" type="checkbox" name="check">
+
+                                        <input id="check-14" type="checkbox" name="refrigerator">
                                         <label for="check-14">Refrigerator</label>
-                                        <input id="check-15" type="checkbox" name="check">
+
+                                        <input id="check-15" type="checkbox" name="outdoor_shower">
                                         <label for="check-15">Outdoor Shower</label>
                                     </div>
                                     <!-- Checkboxes / End -->
@@ -921,7 +988,7 @@
                                 <!-- More Search Options / End -->
                                 <div class="col-lg-12 no-pds">
                                     <div class="at-col-default-mar">
-                                        <button class="btn btn-default hvr-bounce-to-right" type="submit">Search</button>
+                                        <button class="btn btn-default hvr-bounce-to-right" id="search-data" type="submit">Search</button>
                                     </div>
                                 </div>
                             </div>
@@ -1357,19 +1424,257 @@
     </div>
     <!-- Wrapper / End -->
 
+    <!-- !! -->
+    <!-- أضف مكتبة noUiSlider -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+    <!-- !! -->
+
     <script>
+        /*
         async function handleSearch() {
-            const searchInput = document.getElementById("search-input");
+            const searchBtn = document.getElementById("search-data");
+            const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
             const location = document.querySelector("#location ul");
+            const propertyType = document.querySelector("#property-type ul");
+            const propertyStatus = document.querySelector("#property-status ul");
+            const bedrooms = document.querySelector("#bedrooms ul");
+            const bathrooms = document.querySelector("#bathrooms ul");
             location.innerHTML = "";
+            propertyType.innerHTML = "";
             const response = await fetch("https://hre-group.net/api/search?lang=ar_001");
             const data = await response.json();
             console.log(data);
             for(let i = 0 ; i < data.locations.length;i++ ) {
-                location.innerHTML += `<li data-value="${data.locations[i].name}" class="option ${i ? "" : "selected"}">${data.locations[i].name}</li>`
+                location.innerHTML += `<li data-value="${data.locations[i].id}" class="option ${i ? "" : "selected"}">${data.locations[i].name}</li>`;
+            }
+            for(let i = 0 ; i < data.property_main_types.length;i++ ) {
+                propertyType.innerHTML += `<li data-value="${data.property_main_types[i].id}" class="option ${i ? "" : "selected"}">${data.property_main_types[i].name}</li>`;
+            }
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // Area Size Slider
+                var areaSlider = document.getElementById('area-slider');
+                noUiSlider.create(areaSlider, {
+                    start: [0, data.advanced_filters.max_area_size],
+                    connect: true,
+                    range: {
+                        'min': 0,
+                        'max': data.advanced_filters.max_area_size
+                    },
+                    step: 1,
+                    format: {
+                        to: value => Math.round(value),
+                        from: value => parseInt(value)
+                    }
+                });
+                
+                areaSlider.noUiSlider.on('update', function(values) {
+                    document.getElementById('area-min').innerText = values[0] + ' sq ft';
+                    document.getElementById('area-max').innerText = values[1] + ' sq ft';
+                });
+                
+                // Price Slider
+                var priceSlider = document.getElementById('price-slider');
+                noUiSlider.create(priceSlider, {
+                    start: [0, data.advanced_filters.max_price],
+                    connect: true,
+                    range: {
+                        'min': 0,
+                        'max': data.advanced_filters.max_price
+                    },
+                    step: 1,
+                    format: {
+                        to: value => Math.round(value),
+                        from: value => parseInt(value)
+                    }
+                });
+                
+                priceSlider.noUiSlider.on('update', function(values) {
+                    document.getElementById('price-min').innerText = '$' + values[0];
+                    document.getElementById('price-max').innerText = '$' + values[1];
+                });
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            const locationChildren = location.children;
+            const propertyTypeChildren = propertyType.children;
+            const propertyStatusChildren = propertyStatus.children;
+            const bedroomsChildren = bedrooms.children;
+            const bathroomsChildren = bathrooms.children;
+
+            const locationChildrenCount = location.children.length;
+            const propertyTypeChildrenCount = propertyType.children.length;
+            const propertyStatusChildrenCount = propertyStatus.children.length;
+            const bedroomsChildrenCount = bedrooms.children.length;
+            const bathroomsChildrenCount = bathrooms.children.length;
+
+            const selectedFeatures = {};
+
+            checkBoxs.forEach(checkbox => {
+                selectedFeatures[checkbox.name] = checkbox.checked;
+            });
+
+            console.log(selectedFeatures);
+            
+            searchBtn.onclick = async function (e) {
+                e.preventDefault();
+                let selectedLocation;
+                let selectedPropertyType;
+                let selectedPropertyStatus;
+                let selectedBedrooms;
+                let selectedBathrooms;
+                const searchInput = document.getElementById("search-input");
+                for(let i =0 ; i < locationChildrenCount; i++) {
+                    if(locationChildren[i].classList.contains("selected")) {
+                        selectedLocation = locationChildren[i].getAttribute("data-value");
+                    }
+                }
+                for(let i =0 ; i < propertyTypeChildrenCount; i++) {
+                    if(propertyTypeChildren[i].classList.contains("selected")) {
+                        selectedPropertyType = propertyTypeChildren[i].getAttribute("data-value");
+                    }
+                }
+                for(let i =0 ; i < propertyStatusChildrenCount; i++) {
+                    if(propertyStatusChildren[i].classList.contains("selected")) {
+                        selectedPropertyStatus = propertyStatusChildren[i].getAttribute("data-value");
+                    }
+                }
+                for(let i =0 ; i < bedroomsChildrenCount; i++) {
+                    if(bedroomsChildren[i].classList.contains("selected")) {
+                        selectedBedrooms = bedroomsChildren[i].getAttribute("data-value");
+                    }
+                }
+                for(let i =0 ; i < bathroomsChildrenCount; i++) {
+                    if(bathroomsChildren[i].classList.contains("selected")) {
+                        selectedBathrooms = bathroomsChildren[i].getAttribute("data-value");
+                    }
+                }
+                
+                const request = {
+                    "keyword":searchInput.value,
+                    "bedrooms":selectedBedrooms,
+                    "state_id":selectedLocation,
+                    "property_type_id":selectedPropertyStatus,
+                    "price_min":document.getElementById('price-min').innerText,
+                    "price_max":document.getElementById('price-max').innerText,
+                    ...selectedFeatures
+                }
+
+                const response = await fetch("https://hre-group.net/api/property/search", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(request)
+                });
+                const data = await response.json();
+                console.log(data);
             }
         }
         handleSearch();
+        */
+
+        async function handleSearch() {
+            const searchBtn = document.getElementById("search-data");
+            const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
+
+            const locationList = document.querySelector("#location ul");
+            const propertyTypeList = document.querySelector("#property-type ul");
+            const propertyStatusList = document.querySelector("#property-status ul");
+            const bedroomsList = document.querySelector("#bedrooms ul");
+            const bathroomsList = document.querySelector("#bathrooms ul");
+
+            locationList.innerHTML = "";
+            propertyTypeList.innerHTML = "";
+
+            const response = await fetch("https://hre-group.net/api/search?lang=ar_001");
+            const data = await response.json();
+
+            data.locations.forEach((location, i) => {
+                locationList.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+            });
+
+            data.property_main_types.forEach((type, i) => {
+                propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+            });
+
+            const areaSlider = document.getElementById("area-slider");
+            noUiSlider.create(areaSlider, {
+                start: [0, data.advanced_filters.max_area_size],
+                connect: true,
+                range: {
+                    min: 0,
+                    max: data.advanced_filters.max_area_size,
+                },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            areaSlider.noUiSlider.on("update", (values) => {
+                document.getElementById("area-min").innerText = values[0] + " sq ft";
+                document.getElementById("area-max").innerText = values[1] + " sq ft";
+            });
+
+            const priceSlider = document.getElementById("price-slider");
+            noUiSlider.create(priceSlider, {
+                start: [0, data.advanced_filters.max_price],
+                connect: true,
+                range: {
+                    min: 0,
+                    max: data.advanced_filters.max_price,
+                },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            priceSlider.noUiSlider.on("update", (values) => {
+                document.getElementById("price-min").innerText = "$" + values[0];
+                document.getElementById("price-max").innerText = "$" + values[1];
+            });
+
+            searchBtn.onclick = async function (e) {
+                e.preventDefault();
+
+            const getSelectedValue = (ul) => {
+                const selected = ul.querySelector(".selected");
+                return selected ? selected.getAttribute("data-value") : null;
+            };
+
+            const selectedFeatures = {};
+            checkBoxs.forEach((checkbox) => {
+                selectedFeatures[checkbox.name] = checkbox.checked;
+            });
+
+        const request = {
+            keyword: document.getElementById("search-input").value,
+            bedrooms: getSelectedValue(bedroomsList),
+            bathrooms: getSelectedValue(bathroomsList),
+            state_id: getSelectedValue(locationList),
+            property_type_id: getSelectedValue(propertyStatusList),
+            property_main_type_id: getSelectedValue(propertyTypeList),
+            price_min: document.getElementById("price-min").innerText.replace("$", ""),
+            price_max: document.getElementById("price-max").innerText.replace("$", ""),
+            ...selectedFeatures,
+        };
+
+        const searchResponse = await fetch("https://hre-group.net/api/property/search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(request),
+        });
+
+        const searchData = await searchResponse.json();
+        console.log(searchData);
+    };
+}
+
+handleSearch();
+
     </script>
 
 
