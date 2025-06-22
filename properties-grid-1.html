@@ -1596,9 +1596,80 @@
             }
         };
     }
-
     handleSearch();
 
+    document.addEventListener("DOMContentLoaded", async () => {
+        const countSearchData = document.getElementById("count");
+        const rowsOfData = document.querySelectorAll(".search-data");
+        const searchResponse = await fetch("https://hre-group.net/api/property/search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        });
+        const searchData = await searchResponse.json();
+        countSearchData.innerHTML = `${searchData.count} Search results`;
+        const results = searchData.results;
+        const itemsPerRow = 2;
+        const totalRows = rowsOfData.length;
+
+        for (let i = 0; i < totalRows; i++) {
+            let html = "";
+
+            for (let j = 0; j < itemsPerRow; j++) {
+                const INDEX = i * itemsPerRow + j;
+                if (!results[INDEX]) break;
+
+                const item = results[INDEX];
+                const featuredTag = item.website_type === "featured"
+                    ? `<div class="homes-tag button alt featured">Featured</div>`
+                    : "";
+
+                html += `
+                    <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                        <div class="project-single" data-aos="fade-up">
+                            <div class="project-inner project-head">
+                                <div class="homes">
+                                    <a href="single-property-1.html" class="homes-img">
+                                        ${featuredTag}
+                                        <div class="homes-tag button alt ${item.state}">For ${item.state}</div>
+                                        <div class="homes-price">$ ${item.price}/mo</div>
+                                        <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="button-effect">
+                                    <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
+                                    <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                    <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                </div>
+                            </div>
+                            <div class="homes-content">
+                                <h3><a href="single-property-1.html">${item.name}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="single-property-1.html">
+                                        <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                    </a>
+                                </p>
+                                <ul class="homes-list clearfix pb-3">
+                                    <li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>
+                                    <li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>
+                                    <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                    <li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>
+                                </ul>
+                                <div class="footer">
+                                    <a href="agent-details.html">
+                                        <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
+                                    </a>
+                                    <span>2 months ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+            rowsOfData[i].innerHTML = html;
+        }
+    })
 
     </script>
 
