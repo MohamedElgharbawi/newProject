@@ -1586,32 +1586,24 @@
         }
         fetchPopularPlaces();
         async function fetchFeaturedProperties() {
-            const arr = [
-                { class: "landscapes sale"},
-                { class: "people rent" },
-                { class: "people landscapes sale"},
-                { class: "people landscapes rent no-pb"},
-                { class: "people sale no-pb" },
-                { class: "it2 web rent no-pb" },
-            ];
             try {
             const featuredProperties = document.getElementById("featured-properties");
             const response = await fetch("https://hre-group.net/api/property/recent");
             const data = await response.json();
-            const loopCount = Math.min(arr.length, data.length);
+            const loopCount = data.length;
             let html = "";
             for (let i = 0; i < loopCount; i++) {
-                let website_type = data[i].website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
-                const property = data[i];
-                
+                const property = data[i]; 
+                let website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
+                let state = property.state === "sale" ? "sale" : "rent"
                 html += `
-                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 ${arr[i].class}">
+                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 ${state}">
                         <div class="project-single" data-aos="${i % 2 ? "fade-left" : "fade-right"}">
                             <div class="project-inner project-head">
                                 <div class="homes">
                                     <a href="single-property-1.html" class="homes-img">
                                         ${website_type}
-                                        <div class="homes-tag button alt ${property.state === "sale" ? "sale" : "rent"}">
+                                        <div class="homes-tag button alt ${state}">
                                             ${property.state === "sale" ? "For Sale" : "For Rent"}
                                         </div>
                                         <img src="https://hre-group.net${property.image_url}" alt="property-image" class="img-responsive">
