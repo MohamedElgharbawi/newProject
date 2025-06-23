@@ -1509,7 +1509,8 @@
 
             const selectedFeatures = {};
             checkBoxs.forEach((checkbox) => {
-                selectedFeatures[checkbox.name] = checkbox.checked;
+                if(checkbox.checked)
+                    selectedFeatures[checkbox.name] = checkbox.checked;
             });
 
             const request = {
