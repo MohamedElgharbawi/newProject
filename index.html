@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="css/maps.css">
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
     <style>
+        .hero-inner {
+            padding-bottom:0 !important;
+        }
         * {
             box-sizing: border-box !important;
         }
@@ -143,7 +146,7 @@
         }
         @media (width < 768px) {
             .hero-inner {
-                padding: 120px 0 228px !important;
+                padding: 120px 0 0px !important;
             }
             .tab-pane .rld-main-search > .row {
                 gap: 2%;
@@ -157,7 +160,7 @@
         }
         @media(width < 576px) {
             .hero-inner {
-                padding: 50px 0 228px !important;
+                padding: 50px 0 0px !important;
             }
             .tab-pane .rld-main-search > .row {
                 gap: 2%;
@@ -190,6 +193,15 @@
         }
         .full-filter {
             border: 1px solid;
+        }
+        .homepage-9 h4.sc-jb-title a:hover { /* #FF385C */ 
+            color: #33495E;
+        }
+        .property-image {
+            width: 100%;
+            height: 280px; 
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
@@ -668,6 +680,7 @@
                     <p>These are our featured properties</p>
                 </div>
                 <div class="row portfolio-items" id="featured-properties">
+
                     <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 landscapes sale">
                         <div class="project-single" data-aos="fade-right">
                             <div class="project-inner project-head">
@@ -1049,6 +1062,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="bg-all">
                     <a href="properties-full-grid-1.html" class="btn btn-outline-light">View More</a>
@@ -1641,7 +1655,7 @@
                                         <div class="homes-tag button alt ${state}">
                                             ${property.state === "sale" ? "For Sale" : "For Rent"}
                                         </div>
-                                        <img src="https://hre-group.net${property.image_url}" alt="property-image" class="img-responsive">
+                                        <img src="https://hre-group.net${property.image_url}" alt="property-image" class="property-image">
                                     </a>
                                 </div>
                                 <div class="button-effect">
@@ -1845,13 +1859,13 @@
 
     
 
-    document.addEventListener("DOMContentLoaded", () => {
+    // document.addEventListener("DOMContentLoaded", () => {
         handleAgents();
         fetchPopularProperties();
         fetchFeaturedProperties();
         fetchPopularPlaces();
         handleOurPartners();
-    });
+    // });
 
     </script>
 
