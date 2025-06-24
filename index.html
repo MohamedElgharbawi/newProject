@@ -96,9 +96,6 @@
                 margin-right: 60px !important;
             }
         }
-
-
-
         @media (width < 450px) {
             .parallax-searchs.home15 .welcome-text p {
                 display: block !important;
@@ -116,16 +113,17 @@
             gap: calc(4% / 3);
             height: 105px;
         }
-        .tab-pane .rld-main-search > .row * {
+        .tab-pane .rld-main-search > .row > div:not(.full-filter, .rld-single-select) *,
+        .tab-pane .rld-main-search > .row > div:not(.full-filter) {
             margin: 0 !important; 
             padding: 0 !important;
         }
-        .tab-pane .rld-main-search > .row > div {
+        .tab-pane .rld-main-search > .row > div:not(.full-filter) {
             width: 24% ;
             margin: 0 ;
             height: 50px !important;
         }
-        .tab-pane .rld-main-search > .row > div > * {
+        .tab-pane .rld-main-search > .row > div:not(.full-filter) > * {
             width: 100% !important;
             height: 100% !important;
             display: block;
@@ -143,7 +141,6 @@
             position: absolute;
             right: 10px;
         }
-        
         @media (width < 768px) {
             .hero-inner {
                 padding: 120px 0 228px !important;
@@ -152,13 +149,12 @@
                 gap: 2%;
                 height: 164px !important;
             }
-            .tab-pane .rld-main-search > .row > div {
+            .tab-pane .rld-main-search > .row > div:not(.full-filter) {
                 width: 49% ;
                 margin: 0 ;
                 height: 50px !important;
             }
         }
-
         @media(width < 576px) {
             .hero-inner {
                 padding: 50px 0 228px !important;
@@ -167,11 +163,33 @@
                 gap: 2%;
                 height: 280px !important;
             }
-            .tab-pane .rld-main-search > .row > div {
+            .tab-pane .rld-main-search > .row > div:not(.full-filter) {
                 width: 100% ;
                 margin: 0 ;
                 height: 50px !important;
             }
+        }
+        @media(width < 450px) {
+            .hp-6.mh .rld-main-search {
+                height: 310px !important;
+            }
+        }
+        @media (width < 361px) {
+            .parallax-searchs .welcome-text h1 {
+                display: block !important;
+            }
+            .hp-6 .rld-banner-tab {
+                flex-wrap: nowrap;
+            }
+            .hp-6 .rld-banner-tab li {
+                width: 100px !important;
+            }
+            .hp-6 .rld-banner-tab li a {
+                padding:0 !important ;
+            }
+        }
+        .full-filter {
+            border: 1px solid;
         }
     </style>
 </head>
@@ -332,9 +350,9 @@
                                                             <span>Advanced Search</span>
                                                         </div>
 
-                                                            <div class="search-parent" style="margin-top: 10px !important;">
-                                                                <a class="btn btn-yellow" href="#">Search Now</a>
-                                                            </div>
+                                                        <div class="search-parent" style="margin-top: 10px !important;">
+                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                        </div>
 
                                                         <div class="explore__form-checkbox-list full-filter">
                                                             <div class="row">
@@ -453,12 +471,15 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="tab-pane fade" id="tabs_2">
                                                 <div class="rld-main-search">
                                                     <div class="row">
+
                                                         <div class="rld-single-input">
                                                             <input type="text" placeholder="Enter Keyword...">
                                                         </div>
+                                                        
                                                         <div class="rld-single-select ml-22">
                                                             <select class="select single-select">
                                                                 <option value="1">Property Type</option>
@@ -467,6 +488,7 @@
                                                                 <option value="3">Condo</option>
                                                             </select>
                                                         </div>
+                                                        
                                                         <div class="rld-single-select">
                                                             <select class="select single-select mr-0">
                                                                 <option value="1">Location</option>
@@ -478,14 +500,18 @@
                                                                 <option value="3">Houston</option>
                                                             </select>
                                                         </div>
+                                                        
                                                         <div class="dropdown-filter">
                                                             <span>Advanced Search</span>
                                                         </div>
+                                                        
                                                         <div class="search-parent" style="margin-top: 10px !important;">
                                                             <a class="btn btn-yellow" href="#">Search Now</a>
                                                         </div>
+                                                        
                                                         <div class="explore__form-checkbox-list full-filter">
                                                             <div class="row">
+
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
                                                                     <!-- Form Property Status -->
                                                                     <div class="form-group categories">
@@ -498,6 +524,7 @@
                                                                     </div>
                                                                     <!--/ End Form Property Status -->
                                                                 </div>
+                                                                
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
                                                                     <!-- Form Bedrooms -->
                                                                     <div class="form-group beds">
@@ -518,6 +545,7 @@
                                                                     </div>
                                                                     <!--/ End Form Bedrooms -->
                                                                 </div>
+                                                                
                                                                 <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
                                                                     <!-- Form Bathrooms -->
                                                                     <div class="form-group bath">
@@ -538,6 +566,7 @@
                                                                     </div>
                                                                     <!--/ End Form Bathrooms -->
                                                                 </div>
+                                                                
                                                                 <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld">
                                                                     <!-- Price Fields -->
                                                                     <div class="main-search-field-2">
@@ -556,6 +585,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                
                                                                 <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-1">
@@ -576,6 +606,7 @@
                                                                     </div>
                                                                     <!-- Checkboxes / End -->
                                                                 </div>
+                                                                
                                                                 <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-2">
@@ -596,6 +627,7 @@
                                                                     </div>
                                                                     <!-- Checkboxes / End -->
                                                                 </div>
+                                                            
                                                             </div>
                                                         </div>
                                                     </div>
