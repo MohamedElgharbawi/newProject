@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="css/maps.css">
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
     <style>
+        * {
+            box-sizing: border-box !important;
+        }
         #featured-properties {
             height: fit-content !important;
         }
@@ -41,6 +44,134 @@
         }
         article {
             cursor: auto !important;
+        }
+        #lang {
+            display: none !important;
+        }
+        #lang ul li:not(:last-child) {
+            border-bottom:1px solid gray;
+        }
+        #lang > a + ul {
+            display: none;
+        }
+        #lang > a + ul.active {
+            display: block;
+        }
+        @media (max-width:1024px) {
+            .mmenu-trigger {
+                margin-top: 7px;
+            }
+        }
+        @media (width < 768px) {
+            #language {
+                display: none !important;
+            }
+            .header-user-menu.user-menu.add {
+                margin-right: -30px !important;
+            }
+            #lang {
+                display: block !important;
+            }
+        }
+        @media (width < 584px) and (width > 576px) {
+            .header-user-menu.user-menu.add {
+                margin-right: -20px !important;
+            }
+        }
+        @media (width < 577px) {
+            #logo img {
+                margin: 0 !important;
+            }
+            .header-user-menu.user-menu.add {
+                margin-right: -10px !important;
+            }
+        }
+        @media(width < 470px) {
+            #logo img {
+                margin-right: 55px !important;
+            }
+        }
+        @media (width < 360px) {
+            #logo img {
+                margin-right: 60px !important;
+            }
+        }
+
+
+
+        @media (width < 450px) {
+            .parallax-searchs.home15 .welcome-text p {
+                display: block !important;
+            }
+        }
+        .tab-pane .rld-main-search  {
+            height: fit-content !important;
+            padding: 20px !important;
+        }
+        .tab-pane .rld-main-search > .row {
+            display: flex !important;
+            flex-wrap: wrap;
+            justify-content: center !important;
+            align-items: center;
+            gap: calc(4% / 3);
+            height: 105px;
+        }
+        .tab-pane .rld-main-search > .row * {
+            margin: 0 !important; 
+            padding: 0 !important;
+        }
+        .tab-pane .rld-main-search > .row > div {
+            width: 24% ;
+            margin: 0 ;
+            height: 50px !important;
+        }
+        .tab-pane .rld-main-search > .row > div > * {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+            padding: 0 10px !important;
+            text-align: left;
+        }
+        .search-parent {
+            width: 100% !important;
+            margin-top: 40px !important;
+        } 
+        .search-parent a {
+            text-align: center !important;
+        }
+        .dropdown-filter span::after {
+            position: absolute;
+            right: 10px;
+        }
+        
+        @media (width < 768px) {
+            .hero-inner {
+                padding: 120px 0 228px !important;
+            }
+            .tab-pane .rld-main-search > .row {
+                gap: 2%;
+                height: 164px !important;
+            }
+            .tab-pane .rld-main-search > .row > div {
+                width: 49% ;
+                margin: 0 ;
+                height: 50px !important;
+            }
+        }
+
+        @media(width < 576px) {
+            .hero-inner {
+                padding: 50px 0 228px !important;
+            }
+            .tab-pane .rld-main-search > .row {
+                gap: 2%;
+                height: 280px !important;
+            }
+            .tab-pane .rld-main-search > .row > div {
+                width: 100% ;
+                margin: 0 ;
+                height: 50px !important;
+            }
         }
     </style>
 </head>
@@ -59,7 +190,7 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="index.html"><img src="images/logo-white-1.svg" data-sticky-logo="images/logo-red.svg" alt=""></a>
+                            <a href="index.html"><img src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
                         <div class="mmenu-trigger">
@@ -90,9 +221,8 @@
                         </nav>
                         <!-- Main Navigation / End -->
                     </div>
-
                     <!-- Right Side Content / End -->
-                    <div class="header-user-menu user-menu add">
+                    <div class="header-user-menu user-menu add" id="user-menu">
                         <div class="header-user-name">
                             <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
                         </div>
@@ -102,10 +232,17 @@
                             <li><a href="payment-method.html">  Payments</a></li>
                             <li><a href="change-password.html"> Change Password</a></li>
                             <li><a href="#">Log Out</a></li>
+                            <li id="lang" style="position: relative;">
+                                <a href="#">Change Language (ENG)</a>
+                                <ul style="position:absolute;top:70px;height:fit-content;width:fit-content;padding:10px !important;left:10px !important">
+                                    <li>Francais</li>
+                                    <li>Espanol</li>
+                                    <li>Deutsch</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!-- Right Side Content / End -->
-                    <div class="special-div">
                         <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
                             <!-- Header Widget -->
                             <div class="header-widget sign-in">
@@ -113,11 +250,9 @@
                             </div>
                             <!-- Header Widget / End -->
                         </div>
-                    </div>
                     <!-- Right Side Content / End -->
-
                     <!-- lang-wrap-->
-                    <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;">
+                    <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;" id="language">
                         <div class="lang-wrap">
                             <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong>ENG</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                             <ul class="lang-tooltip lang-action no-list-style">
@@ -129,11 +264,9 @@
                         </div>
                     </div>
                     <!-- lang-wrap end-->
-
                 </div>
             </div>
             <!-- Header / End -->
-
         </header>
         <div class="clearfix"></div>
         <!-- Header Container / End -->
@@ -169,9 +302,11 @@
                                             <div class="tab-pane fade show active" id="tabs_1">
                                                 <div class="rld-main-search">
                                                     <div class="row">
+                                                        
                                                         <div class="rld-single-input">
                                                             <input type="text" placeholder="Enter Keyword...">
                                                         </div>
+                                                        
                                                         <div class="rld-single-select ml-22">
                                                             <select class="select single-select">
                                                                 <option value="1">Property Type</option>
@@ -180,6 +315,7 @@
                                                                 <option value="3">Condo</option>
                                                             </select>
                                                         </div>
+                                                        
                                                         <div class="rld-single-select">
                                                             <select class="select single-select mr-0">
                                                                 <option value="1">Location</option>
@@ -191,10 +327,15 @@
                                                                 <option value="3">Houston</option>
                                                             </select>
                                                         </div>
-                                                        <div class="dropdown-filter"><span>Advanced Search</span></div>
-                                                        <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
-                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                        
+                                                        <div class="dropdown-filter">
+                                                            <span>Advanced Search</span>
                                                         </div>
+
+                                                            <div class="search-parent" style="margin-top: 10px !important;">
+                                                                <a class="btn btn-yellow" href="#">Search Now</a>
+                                                            </div>
+
                                                         <div class="explore__form-checkbox-list full-filter">
                                                             <div class="row">
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
@@ -337,8 +478,10 @@
                                                                 <option value="3">Houston</option>
                                                             </select>
                                                         </div>
-                                                        <div class="dropdown-filter"><span>Advanced Search</span></div>
-                                                        <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
+                                                        <div class="dropdown-filter">
+                                                            <span>Advanced Search</span>
+                                                        </div>
+                                                        <div class="search-parent" style="margin-top: 10px !important;">
                                                             <a class="btn btn-yellow" href="#">Search Now</a>
                                                         </div>
                                                         <div class="explore__form-checkbox-list full-filter">
@@ -1676,9 +1819,17 @@
         fetchFeaturedProperties();
         fetchPopularPlaces();
         handleOurPartners();
-    //  console.log("hi");
     });
 
+    </script>
+
+    <script>
+        const a = document.querySelector("#lang > a");
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector("#lang > a + ul").classList.toggle("active");
+        });
     </script>
 
 </body>
