@@ -926,10 +926,8 @@
 }
 
 .rev-cpicker-point.active {
-	
 	z-index: 999;
 	background-position: left bottom;
-	
 }
 
 .rev-cpicker-point.warning {
