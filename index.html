@@ -83,7 +83,10 @@
     .social a i {
         font-size:22px;
     }
-    #Agents {
+    #Agents .team-block {
+        min-height: 400px;
+    }
+    /* #Agents {
         overflow: hidden;
         display: none;
         opacity: 0;
@@ -103,7 +106,7 @@
         display: block;
         object-fit: cover;
     }
-
+    */
 
 </style>
 
@@ -1795,6 +1798,7 @@
       `;
     }
 
+    /*
     // ✅ انتظر تحميل الصور قبل تشغيل slick
     const imgs = agents.querySelectorAll("img");
     const imgPromises = Array.from(imgs).map(img => {
@@ -1808,7 +1812,7 @@
     });
 
     await Promise.all(imgPromises); // ⏳ انتظر التحميل
-
+    */
     const slickWrapper = $(".team-all");
 
     if (slickWrapper.hasClass("slick-initialized")) {
@@ -1867,9 +1871,9 @@
             html += `
             <div class="item text-center" data-aos="fade-up">
                 <a href="${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
-                <img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important; object-fit: contain;opacity:1 !important">
-                <p style="margin-top: 8px;font-weight: bold;">${branch.name}</p>
-                <p style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
+                    <img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important; object-fit: contain;opacity:1 !important">
+                    <p style="margin-top: 8px;font-weight: bold;">${branch.name}</p>
+                    <p style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
                 </a>
             </div>
             `;
