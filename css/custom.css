@@ -253,11 +253,13 @@ article {
     justify-content: center;
     align-items: center;
 }
+/*
 #our-partners {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
+*/
 #Agents {
     height: 100% !important;
 }
