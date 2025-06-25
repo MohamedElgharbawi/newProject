@@ -283,11 +283,9 @@
             flex-direction: column;
             height: 100%;
         }
-
         .team-details .image {
             flex-shrink: 0;
         }
-
         .team-details .lower-box {
             flex-grow: 1;
             display: flex;
@@ -300,11 +298,44 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
-
-
         #Agents {
             row-gap: 10px !important;
+            display: flex;
+            justify-content: center;
+        }
+        #Agents .team-block {
+            padding: 10px;
+            width: calc(100% / 6);
+        }
+        @media (max-width: 1399.98px) {
+            #Agents .team-block {
+                width: calc(100% / 6);
+            }
+        }
+        @media (max-width: 1199.98px) {
+            #Agents .team-block {
+                width: calc(100% / 5)
+            }
+        }
+        @media (max-width: 991.98px) {
+            #Agents .team-block {
+                width: calc(100% / 4)
+            }
+        }
+        @media (max-width: 767.98px) {
+            #Agents .team-block {
+                width: calc(100% / 3);
+            }
+        }
+        @media (max-width: 575.98px) {
+            #Agents .team-block {
+                width: calc(100% / 2);
+            }
+        }
+        @media (max-width: 399.98px) {
+            #Agents .team-block {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -1956,7 +1987,7 @@
                 agents.innerHTML = "";
                 for(let i = 0 ; i < count;i++) {
                     agents.innerHTML += `
-                        <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
+                        <div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
                             <div class="inner-box team-details">
                                 <div class="image team-head">
                                     <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
