@@ -39,308 +39,7 @@
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-    <style>
-        .hero-inner {
-            padding-bottom:0 !important;
-        }
-        * {
-            box-sizing: border-box !important;
-        }
-        #featured-properties {
-            height: fit-content !important;
-        }
-        .left-side {
-            width: fit-content !important;
-        }
-        article {
-            cursor: auto !important;
-        }
-        #lang {
-            display: none !important;
-        }
-        #lang ul li:not(:last-child) {
-            border-bottom:1px solid gray;
-        }
-        #lang > a + ul {
-            display: none;
-        }
-        #lang > a + ul.active {
-            display: block;
-        }
-        @media (max-width:1024px) {
-            .mmenu-trigger {
-                margin-top: 7px;
-            }
-        }
-        @media (width < 768px) {
-            #language {
-                display: none !important;
-            }
-            .header-user-menu.user-menu.add {
-                margin-right: -30px !important;
-            }
-            #lang {
-                display: block !important;
-            }
-        }
-        @media (width < 584px) and (width > 576px) {
-            .header-user-menu.user-menu.add {
-                margin-right: -20px !important;
-            }
-        }
-        @media (width < 577px) {
-            #logo img {
-                margin: 0 !important;
-            }
-            .header-user-menu.user-menu.add {
-                margin-right: -10px !important;
-            }
-        }
-        @media(width < 470px) {
-            #logo img {
-                margin-right: 55px !important;
-            }
-        }
-        @media (width < 360px) {
-            #logo img {
-                margin-right: 60px !important;
-            }
-        }
-        @media (width < 450px) {
-            .parallax-searchs.home15 .welcome-text p {
-                display: block !important;
-            }
-        }
-        .tab-pane .rld-main-search  {
-            height: fit-content !important;
-            padding: 20px !important;
-        }
-        .tab-pane .rld-main-search > .row {
-            display: flex !important;
-            flex-wrap: wrap;
-            justify-content: center !important;
-            align-items: center;
-            gap: calc(4% / 3);
-            height: 105px;
-        }
-        .tab-pane .rld-main-search > .row > div:not(.full-filter, .rld-single-select) *,
-        .tab-pane .rld-main-search > .row > div:not(.full-filter) {
-            margin: 0 !important; 
-            padding: 0 !important;
-        }
-        .tab-pane .rld-main-search > .row > div:not(.full-filter) {
-            width: 24% ;
-            margin: 0 ;
-            height: 50px !important;
-        }
-        .tab-pane .rld-main-search > .row > div:not(.full-filter) > * {
-            width: 100% !important;
-            height: 100% !important;
-            display: block;
-            padding: 0 10px !important;
-            text-align: left;
-        }
-        .search-parent {
-            width: 100% !important;
-            margin-top: 40px !important;
-        } 
-        .search-parent a {
-            text-align: center !important;
-        }
-        .dropdown-filter span::after {
-            position: absolute;
-            right: 10px;
-        }
-        @media (width < 768px) {
-            .hero-inner {
-                padding: 120px 0 0px !important;
-            }
-            .tab-pane .rld-main-search > .row {
-                gap: 2%;
-                height: 164px !important;
-            }
-            .tab-pane .rld-main-search > .row > div:not(.full-filter) {
-                width: 49% ;
-                margin: 0 ;
-                height: 50px !important;
-            }
-        }
-        @media(width < 576px) {
-            .hero-inner {
-                padding: 50px 0 0px !important;
-            }
-            .tab-pane .rld-main-search > .row {
-                gap: 2%;
-                height: 280px !important;
-            }
-            .tab-pane .rld-main-search > .row > div:not(.full-filter) {
-                width: 100% ;
-                margin: 0 ;
-                height: 50px !important;
-            }
-        }
-        @media(width < 450px) {
-            .hp-6.mh .rld-main-search {
-                height: 310px !important;
-            }
-        }
-        @media (width < 361px) {
-            .parallax-searchs .welcome-text h1 {
-                display: block !important;
-            }
-            .hp-6 .rld-banner-tab {
-                flex-wrap: nowrap;
-            }
-            .hp-6 .rld-banner-tab li {
-                width: 100px !important;
-            }
-            .hp-6 .rld-banner-tab li a {
-                padding:0 !important ;
-            }
-        }
-        .full-filter {
-            border: 1px solid;
-        }
-        .homepage-9 h4.sc-jb-title a:hover { /* #FF385C */ 
-            color: #33495E;
-        }
-        .homepage-1 .portfolio.full-l .homes-content {
-            width: 64% !important;
-            padding-inline: 10px !important;
-        }
-        .homes-content ul li {
-            width: 50% !important;
-        }
-        .property-image {
-            width: 100%;
-            height: 280px; 
-            object-fit: cover;
-            display: block;
-        }
-        @media (width >= 1200px ) {
-            .homes-content ul li span {
-                font-size: 13px !important;
-            }
-            .homepage-1 .portfolio.full-l .homes-content {
-                padding-bottom:5px !important;
-            }
-            .price-properties.footer {
-                padding-top:17px !important;
-            }
-            .homes-content ul {
-                padding-bottom: 10px !important;
-            }
-        }
-        @media (width < 1200px) and (width >= 1025px) {
-            .price-properties.footer {
-                padding-top: 30px !important;
-            }
-        }
-        @media (width < 795px) {
-            .homepage-1 .portfolio.full-l .homes-content {
-                padding-bottom:5px !important;
-            }
-            .homes-content ul {
-                padding-bottom: 10px !important;
-            }
-            .homes-content .homes-address {
-                margin-bottom: 10px !important;
-            }
-        }
-        @media (width < 620px) {
-            .price-properties.footer a {
-                font-size: 13px !important
-            }
-            .price-properties.footer {
-                padding-top: 10px !important;
-            }
-            .homes-content ul {
-                padding-bottom: 10px !important;
-            }
-            .homes-content .homes-address {
-                margin-bottom: 10px !important;
-            }
-            .homes-content ul li  {
-                font-size: 12px !important;
-            }
-        }
-        @media (width < 605px) {
-            .homes-content ul li  {
-                font-size: 12px !important;
-            }
-        }
-        @media (width < 575px) {
-            .homepage-1 .portfolio.full-l .homes-content {
-                width: 100% !important;
-            }
-            .price-properties.footer a {
-                font-size: 14px !important ;
-            }
-        }
-        .team-block .inner-box {
-            height: 100% !important;
-        }
-        .team-details {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .team-details .image {
-            flex-shrink: 0;
-        }
-        .team-details .lower-box {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #our-partners {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        #Agents {
-            row-gap: 10px !important;
-            display: flex;
-            justify-content: center;
-        }
-        #Agents .team-block {
-            padding: 10px;
-            width: calc(100% / 6);
-        }
-        @media (max-width: 1399.98px) {
-            #Agents .team-block {
-                width: calc(100% / 6);
-            }
-        }
-        @media (max-width: 1199.98px) {
-            #Agents .team-block {
-                width: calc(100% / 5)
-            }
-        }
-        @media (max-width: 991.98px) {
-            #Agents .team-block {
-                width: calc(100% / 4)
-            }
-        }
-        @media (max-width: 767.98px) {
-            #Agents .team-block {
-                width: calc(100% / 3);
-            }
-        }
-        @media (max-width: 575.98px) {
-            #Agents .team-block {
-                width: calc(100% / 2);
-            }
-        }
-        @media (max-width: 350.98px) {
-            #Agents .team-block {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -500,7 +199,7 @@
                                                         </div>
 
                                                         <div class="search-parent" style="margin-top: 10px !important;">
-                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                            <a class="btn btn-yellow" href="#" style="background:var(--main-color) !important">Search Now</a>
                                                         </div>
 
                                                         <div class="explore__form-checkbox-list full-filter">
@@ -570,7 +269,7 @@
                                                                         <!-- Price Range -->
                                                                         <div class="range-slider">
                                                                             <label>Price Range</label>
-                                                                            <div id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
+                                                                            <div id="price-range" data-min="0" data-max="600000" data-unit="AED"></div>
                                                                             <div class="clearfix"></div>
                                                                         </div>
                                                                     </div>
@@ -655,7 +354,7 @@
                                                         </div>
                                                         
                                                         <div class="search-parent" style="margin-top: 10px !important;">
-                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                            <a class="btn btn-yellow" href="#" style="background:var(--main-color) !important">Search Now</a>
                                                         </div>
                                                         
                                                         <div class="explore__form-checkbox-list full-filter">
@@ -729,7 +428,7 @@
                                                                         <!-- Price Range -->
                                                                         <div class="range-slider">
                                                                             <label>Price Range</label>
-                                                                            <div id="price-range-rent" data-min="0" data-max="600000" data-unit="$"></div>
+                                                                            <div id="price-range-rent" data-min="0" data-max="600000" data-unit="AED"></div>
                                                                             <div class="clearfix"></div>
                                                                         </div>
                                                                     </div>
@@ -865,7 +564,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -928,7 +627,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -991,7 +690,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -1055,7 +754,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -1119,7 +818,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -1182,7 +881,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                    <a href="single-property-1.html">$ 150,000</a>
+                                    <a href="single-property-1.html">AED 150,000</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -1495,7 +1194,7 @@
                     </div>
                 </div>
             </div>
-            <div class="second-footer rec-pro py-2">
+            <div class="second-footer rec-pro py-3" style="position: relative;z-index:100000">
                 <div class="container-fluid sd-f align-items-center" style="gap:10px">
                     <div style="display: flex;flex-direction:column;gap:5px">
                         <p style="margin:0 !important">2021 © Copyright - All Rights Reserved.</p>
@@ -1849,7 +1548,7 @@
                                 <div class="price-properties footer pt-3 pb-0 d-flex align-items-center ">
                                     
                                     <h3 class="title">
-                                        <a href="single-property-1.html">$ ${property.price.toLocaleString()}</a>
+                                        <a href="single-property-1.html">AED ${property.price.toLocaleString()}</a>
                                     </h3>
                                     
                                     <div class="compare" style="margin-top:0 !important">
@@ -1928,7 +1627,7 @@
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                        <a href="single-property-1.html">$ ${property.price}</a>
+                                        <a href="single-property-1.html">AED ${property.price}</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">

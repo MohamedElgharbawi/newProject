@@ -7742,8 +7742,8 @@ html input[disabled] {
 }
 
 .hd-white .right-side.sign {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
+  /* border-left: 1px solid #000; */
+  /* border-right: 1px solid #000; */
 }
 
 .hd-white a.button.border, a.button {
