@@ -197,12 +197,67 @@
         .homepage-9 h4.sc-jb-title a:hover { /* #FF385C */ 
             color: #33495E;
         }
+        .homepage-1 .portfolio.full-l .homes-content {
+            width: 64% !important;
+            padding-inline: 10px !important;
+        }
+        .homes-content ul li {
+            width: 50% !important;
+        }
         .property-image {
             width: 100%;
             height: 280px; 
             object-fit: cover;
             display: block;
         }
+        @media (width >= 1200px ) {
+            .homes-content ul li span {
+                font-size: 13px !important;
+            }
+            .homepage-1 .portfolio.full-l .homes-content {
+                padding-bottom:5px !important;
+            }
+            .price-properties.footer {
+                padding-top:10px !important;
+            }
+            .homes-content ul {
+                padding-bottom: 10px !important;
+            }
+        }
+        @media (width < 1200px) and (width >= 1025px) {
+            .price-properties.footer {
+                padding-top: 30px !important;
+            }
+        }
+        @media (width < 795px) {
+            .homepage-1 .portfolio.full-l .homes-content {
+                padding-bottom:5px !important;
+            }
+            .homes-content ul {
+                padding-bottom: 10px !important;
+            }
+            .homes-content .homes-address {
+                margin-bottom: 10px !important;
+            }
+        }
+        @media (width < 620px) {
+            .price-properties.footer a {
+                font-size: 12px !important ;
+            }
+        }
+        @media (width < 605px) {
+            .homes-content ul li  {
+                font-size: 12px !important;
+            }
+        }
+        @media (width < 575px) {
+            .homepage-1 .portfolio.full-l .homes-content {
+                width: 100% !important;
+            }
+            .price-properties.footer a {
+                font-size: 14px !important ;
+            }
+        }   
     </style>
 </head>
 
@@ -1664,13 +1719,18 @@
                                     <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
                                 </div>
                             </div>
+
+
+
                             <div class="homes-content">
                                 <h3><a href="single-property-1.html">${property.name}</a></h3>
+
                                 <p class="homes-address mb-3">
                                     <a href="single-property-1.html">
                                         <i class="fa fa-map-marker"></i><span>${property.location}</span>
                                     </a>
                                 </p>
+                                
                                 <ul class="homes-list clearfix pb-3">
                                     <li class="the-icons">
                                         <i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>
@@ -1685,17 +1745,23 @@
                                         <i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>
                                     </li>
                                 </ul>
-                                <div class="price-properties footer pt-3 pb-0">
-                                    <h3 class="title mt-3">
+                                
+                                <div class="price-properties footer pt-3 pb-0 d-flex align-items-center ">
+                                    
+                                    <h3 class="title">
                                         <a href="single-property-1.html">$ ${property.price.toLocaleString()}</a>
                                     </h3>
-                                    <div class="compare">
+                                    
+                                    <div class="compare" style="margin-top:0 !important">
                                         <a href="#" title="Compare"><i class="flaticon-compare"></i></a>
                                         <a href="#" title="Share"><i class="flaticon-share"></i></a>
                                         <a href="#" title="Favorites"><i class="flaticon-heart"></i></a>
                                     </div>
+                                
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 `;
