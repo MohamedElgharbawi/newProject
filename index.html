@@ -86,28 +86,39 @@
     #Agents .team-block {
         min-height: 400px;
     }
-    /* #Agents {
-        overflow: hidden;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    .slick-dots li button::before {
+        content: none !important;
     }
-
-    #Agents.slick-initialized {
-        display: block;
-        overflow: visible;
-        opacity: 1;
-        min-height: auto;
+    #Agents .slick-dots {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 25px;
+        padding: 0;
+        list-style: none;
     }
-
-    #Agents .team-block img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
+    #Agents .slick-dots li {
+        margin: 0;
+        padding: 0;
     }
-    */
-
+    #Agents .slick-dots li button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ccc;
+        border: none;
+        cursor: pointer;
+        font-size: 0;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    #Agents .slick-dots li.slick-active button {
+        background-color: var(--main-color);
+        transform: scale(1.2);
+    }
+    .homepage-9 .slick-dots li:after {
+        background-color: transparent !important;
+    }
 </style>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -1626,7 +1637,7 @@
                                 <div class="price-properties footer pt-3 pb-0 d-flex align-items-center ">
                                     
                                     <h3 class="title">
-                                        <a href="single-property-1.html">AED ${property.price.toLocaleString()}</a>
+                                        <a href="single-property-1.html" style="color:var(--main-color)">AED ${property.price.toLocaleString()}</a>
                                     </h3>
                                     
                                     <div class="compare" style="margin-top:0 !important">
@@ -1797,22 +1808,7 @@
         </div>
       `;
     }
-
-    /*
-    // ✅ انتظر تحميل الصور قبل تشغيل slick
-    const imgs = agents.querySelectorAll("img");
-    const imgPromises = Array.from(imgs).map(img => {
-      return new Promise(resolve => {
-        if (img.complete) resolve();
-        else {
-          img.onload = resolve;
-          img.onerror = resolve;
-        }
-      });
-    });
-
-    await Promise.all(imgPromises); // ⏳ انتظر التحميل
-    */
+    AOS.init();
     const slickWrapper = $(".team-all");
 
     if (slickWrapper.hasClass("slick-initialized")) {
@@ -1820,19 +1816,27 @@
     }
 
     slickWrapper.slick({
-      infinite: true,
-      slidesToShow: 6,
-      slidesToScroll: 1,
-      dots: true,
-      arrows: false,
-      adaptiveHeight: false,
-      responsive: [
+        infinite: true,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnDotsHover: false,
+        pauseOnHover: false,
+        dots: true,
+        arrows: false,
+        adaptiveHeight: false,
+        responsive: [
         { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
         { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
         { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
         { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
         { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
       ]
+    });
+    $('.slick-dots li button').on('click', function () {
+        slickWrapper.slick('setOption', 'autoplay', false, true);
+        slickWrapper.slick('setOption', 'autoplay', true, true);
     });
 
     function setEqualHeight() {
