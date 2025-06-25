@@ -42,6 +42,49 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
+<style>
+    .social {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        z-index: 99999999999;
+        flex-direction: column;
+    }
+    .social a {
+        display: block;
+        padding:15px;
+        color:#fff;
+        transition: .3s all;
+    }
+    .social a.facebook {
+        background-color: #3b5998 !important;
+        border-top-left-radius:5px;
+        &:hover {
+            background-color: #2d4373 !important;
+            box-shadow: 0 4px 10px rgba(59, 89, 152, 0.4) !important;
+        }
+    }
+    .social a.whatsapp {
+        background-color: #25D366 !important;
+        &:hover {
+            background-color: #1da851 !important;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4) !important;
+        }
+    }
+    .social a.instagram {
+        background-color: #E4405F !important;
+        border-bottom-left-radius:5px;
+        &:hover {
+            background-color: #c13555 !important;
+            box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4) !important;
+        }
+    }
+    .social a i {
+        font-size:22px;
+    }
+</style>
+
 <body class="homepage-9 hp-6 homepage-1 mh">
     <!-- Wrapper -->
     <div id="wrapper">
@@ -1211,6 +1254,17 @@
         </footer>
 
         <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+        <div class="social">
+            <a href="#" target="_blank" class="facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" target="_blank" class="whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" target="_blank" class="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
         <!-- END FOOTER -->
 
         <!--register form -->
@@ -1377,7 +1431,23 @@
                 });
             });
 
-
+            $(document).ready(function () {
+                $(".team-all").slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: false,
+                adaptiveHeight: false,
+                responsive: [
+                    { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
+                    { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+                    { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+                    { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+                    { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+                ]
+                });
+            })
         </script>
 
         <script>
@@ -1688,40 +1758,85 @@
 }
 
         async function handleAgents() {
-            try {
-                const agents = document.getElementById("Agents");
-                const response = await fetch("https://hre-group.net/post/brokers");
-                const data = await response.json();
-                const count = data.brokers.length;
-                agents.innerHTML = "";
-                for(let i = 0 ; i < count;i++) {
-                    agents.innerHTML += `
-                        <div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
-                            <div class="inner-box team-details">
-                                <div class="image team-head">
-                                    <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
-                                    <div class="team-hover">
-                                        <ul class="team-social">
-                                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                            <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="lower-box" style="padding:5px !important">
-                                    <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
-                                    <div class="designation">${data.brokers[i].responsibility}</div>
-                                </div>
-                            </div>
-                        </div>
-                    `
-                    AOS.init();
-                }
-            }catch(e) {
-                console.log(e);
-            }
-        } 
+  try {
+    const agents = document.getElementById("Agents");
+    const response = await fetch("https://hre-group.net/post/brokers");
+    const data = await response.json();
+    const count = data.brokers.length;
+
+    agents.innerHTML = ""; // إفراغ المحتوى
+
+    for (let i = 0; i < count; i++) {
+      agents.innerHTML += `
+        <div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
+          <div class="inner-box team-details">
+            <div class="image team-head">
+              <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
+              <div class="team-hover">
+                <ul class="team-social">
+                  <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="lower-box" style="padding:5px !important">
+              <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
+              <div class="designation">${data.brokers[i].responsibility}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    AOS.init();
+
+    const slickWrapper = $(".team-all");
+
+    if (slickWrapper.hasClass("slick-initialized")) {
+      slickWrapper.slick("unslick");
+    }
+
+    slickWrapper.slick({
+      infinite: true,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: false,
+      adaptiveHeight: false,
+      responsive: [
+        { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
+        { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+        { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+        { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+        { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+      ]
+    });
+
+    function setEqualHeight() {
+      let maxHeight = 0;
+      slickWrapper.find('.slick-slide').css('height', 'auto');
+
+      slickWrapper.find('.slick-slide').each(function() {
+        const h = $(this).outerHeight();
+        if (h > maxHeight) maxHeight = h;
+      });
+
+      slickWrapper.find('.slick-slide').css('height', maxHeight + 'px');
+    }
+
+    setEqualHeight();
+
+    slickWrapper.on('setPosition', function() {
+      setEqualHeight();
+    });
+
+  } catch (e) {
+    console.log(e);
+  }
+}
+ 
 
     async function handleOurPartners() {
         try {
