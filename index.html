@@ -39,6 +39,7 @@
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
@@ -217,13 +218,9 @@
         .owl-prev {
             color: var(--main-color) !important;
         }
-        
-
-
         #discover-popular-places .slick-dots li button::before {
             content: none !important;
         }
-
         #discover-popular-places .slick-dots {
             display: flex !important;
             justify-content: center;
@@ -233,12 +230,10 @@
             padding: 0;
             list-style: none;
         }
-
         #discover-popular-places .slick-dots li {
             margin: 0;
             padding: 0;
         }
-
         #discover-popular-places .slick-dots li button {
             width: 12px;
             height: 12px;
@@ -253,13 +248,11 @@
             padding: 0;
             border: 1px solid white;
         }
-
         #discover-popular-places .slick-dots li.slick-active button {
             /* border: 2px solid white !important; */
             background-color: white; 
             transform: scale(1.2);
         }
-
         #discover-popular-places .slick-dots li:after,
         #discover-popular-places .slick-dots li button:after {
             display: none !important;
@@ -269,6 +262,31 @@
         }
         .homepage-9 .slick-dots li.slick-active, .homepage-9  .slick-dots li {
             box-shadow: none !important;
+        }
+        .noUi-connect {
+        background: #33495E !important;
+        }
+        .noUi-target {
+        background: #e0e0e0 !important;
+        border-radius: 10px !important;
+        height: 8px !important;
+        border: none !important;
+        }
+        .noUi-horizontal .noUi-handle {
+            right: -10px;
+        }
+        .noUi-handle {
+        background: #ffffff !important;
+        border: 2px solid #33495E !important;
+        border-radius: 50% !important;
+        width: 18px !important;
+        height: 18px !important;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important;
+        cursor: pointer;
+        }
+        .noUi-handle:focus {
+        outline: none !important;
+        box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3) !important;
         }
     </style>
 
@@ -483,25 +501,30 @@
                                                                     </div>
                                                                     <!--/ End Form Bathrooms -->
                                                                 </div>
-                                                                <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld d-none d-lg-none d-xl-flex">
+                                                                <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld">
                                                                     <!-- Price Fields -->
                                                                     <div class="main-search-field-2">
-                                                                        <!-- Area Range -->
-                                                                        <div class="range-slider">
+                                                                        <!-- Area Size -->
+                                                                        <div class="mb-5">
                                                                             <label>Area Size</label>
-                                                                            <div id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
-                                                                            <div class="clearfix"></div>
+                                                                            <div class="area-slider" class="mb-4"></div>
+                                                                            <div class="d-flex justify-content-between items-center">
+                                                                                <span class="area-min">0 sq ft</span> 
+                                                                                <span class="area-max">1300 sq ft</span>
+                                                                            </div>
                                                                         </div>
-                                                                        <br>
                                                                         <!-- Price Range -->
-                                                                        <div class="range-slider">
+                                                                        <div>
                                                                             <label>Price Range</label>
-                                                                            <div id="price-range" data-min="0" data-max="600000" data-unit="AED "></div>
-                                                                            <div class="clearfix"></div>
+                                                                            <div class="price-slider" class="mb-4"></div>
+                                                                            <div class="d-flex justify-content-between items-center">
+                                                                                <span class="price-min">$0</span>
+                                                                                <span class="price-max">$600,000</span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-1">
                                                                         <input id="check-2" type="checkbox" name="check">
@@ -521,7 +544,7 @@
                                                                     </div>
                                                                     <!-- Checkboxes / End -->
                                                                 </div>
-                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-2">
                                                                         <input id="check-9" type="checkbox" name="check">
@@ -645,22 +668,26 @@
                                                                 <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld">
                                                                     <!-- Price Fields -->
                                                                     <div class="main-search-field-2">
-                                                                        <!-- Area Range -->
-                                                                        <div class="range-slider">
+                                                                        <!-- Area Size -->
+                                                                        <div class="mb-5">
                                                                             <label>Area Size</label>
-                                                                            <div id="area-range-rent" data-min="0" data-max="1300" data-unit="sq ft"></div>
-                                                                            <div class="clearfix"></div>
+                                                                            <div class="area-slider" class="mb-4"></div>
+                                                                            <div class="d-flex justify-content-between items-center">
+                                                                                <span class="area-min">0 sq ft</span> 
+                                                                                <span class="area-max">1300 sq ft</span>
+                                                                            </div>
                                                                         </div>
-                                                                        <br>
                                                                         <!-- Price Range -->
-                                                                        <div class="range-slider">
+                                                                        <div>
                                                                             <label>Price Range</label>
-                                                                            <div id="price-range-rent" data-min="0" data-max="600000" data-unit="AED "></div>
-                                                                            <div class="clearfix"></div>
+                                                                            <div class="price-slider" class="mb-4"></div>
+                                                                            <div class="d-flex justify-content-between items-center">
+                                                                                <span class="price-min">$0</span>
+                                                                                <span class="price-max">$600,000</span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                
                                                                 <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-1">
@@ -1519,6 +1546,7 @@
                 <div class="status-mes"></div>
             </div>
         </div>
+
         <!-- END PRELOADER -->
 
         <!-- ARCHIVES JS -->
@@ -2089,6 +2117,62 @@
         data.property_main_types.forEach((type, i) => {
             propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
         });
+
+        console.log(data);
+
+        let advanced_filters = {
+            max_area_size: data.advanced_filters.max_area_size,
+            max_price: data.advanced_filters.max_price
+        }
+
+    document.querySelectorAll(".area-slider").forEach((slider) => {
+        if (slider.noUiSlider) slider.noUiSlider.destroy();
+
+        noUiSlider.create(slider, {
+            start: [0, advanced_filters.max_area_size],
+            connect: true,
+            range: { min: 0, max: advanced_filters.max_area_size },
+            step: 1,
+            format: {
+                to: value => Math.round(value),
+                from: value => parseInt(value),
+            },
+        });
+
+        const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
+        const minSpan = wrapper.querySelector(".area-min");
+        const maxSpan = wrapper.querySelector(".area-max");
+
+        slider.noUiSlider.on("update", (values) => {
+            if (minSpan) minSpan.innerText = values[0] + " sq ft";
+            if (maxSpan) maxSpan.innerText = values[1] + " sq ft";
+        });
+    });
+
+    document.querySelectorAll(".price-slider").forEach((slider) => {
+        if (slider.noUiSlider) slider.noUiSlider.destroy();
+
+        noUiSlider.create(slider, {
+            start: [0, advanced_filters.max_price],
+            connect: true,
+            range: { min: 0, max: advanced_filters.max_price },
+            step: 1,
+            format: {
+                to: value => Math.round(value),
+                from: value => parseInt(value),
+            },
+        });
+
+        const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
+        const minSpan = wrapper.querySelector(".price-min");
+        const maxSpan = wrapper.querySelector(".price-max");
+
+        slider.noUiSlider.on("update", (values) => {
+            if (minSpan) minSpan.innerText = "$" + values[0];
+            if (maxSpan) maxSpan.innerText = "$" + values[1];
+        });
+    });
+
     }
 
     function handleAllFunctions (lang) {
@@ -2113,7 +2197,6 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         handleAllFunctions(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001");
-        // localStorage.clear();
     });
     </script>
 
@@ -2124,6 +2207,12 @@
             e.stopPropagation();
             document.querySelector("#lang > a + ul").classList.toggle("active");
         });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+
+    <script>
+        
     </script>
 
 </body>
