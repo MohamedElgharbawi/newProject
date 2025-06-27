@@ -1283,12 +1283,6 @@
             propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
         });
 
-        if (data.property_statuses) {
-            data.property_statuses.forEach((status, i) => {
-                propertyStatusList.innerHTML += `<li data-value="${status.id}" class="option ${i === 0 ? "selected" : ""}">${status.name}</li>`;
-            });
-        }
-
         const areaSlider = document.getElementById("area-slider");
         if (areaSlider.noUiSlider) areaSlider.noUiSlider.destroy();
 
@@ -1343,14 +1337,16 @@
 
             const request = {
                 keyword: document.getElementById("search-input").value,
-                bedrooms: getSelectedValue(bedroomsList),
-                bathrooms: getSelectedValue(bathroomsList),
-                state_id: getSelectedValue(locationList),
-                property_type_id: getSelectedValue(propertyStatusList),
-                property_main_type_id: getSelectedValue(propertyTypeList),
                 price_min: document.getElementById("price-min").innerText.replace("$", ""),
                 price_max: document.getElementById("price-max").innerText.replace("$", ""),
+                bedrooms: getSelectedValue(bedroomsList),
+                property_type_id: getSelectedValue(propertyTypeList),
+                state_id: getSelectedValue(locationList),
                 ...selectedFeatures,
+                // bathrooms: getSelectedValue(bathroomsList),
+                // property_main_type_id: getSelectedValue(propertyStatusList),
+                // area_min:parseInt(document.getElementById("area-min").innerText),
+                // area_max:parseInt(document.getElementById("area-max").innerText),
             };
 
             const searchResponse = await fetch("https://hre-group.net/api/property/search", {
@@ -1425,20 +1421,33 @@
             }
         };
     }
-    handleSearch();
+        handleSearch();
 
     document.addEventListener("DOMContentLoaded", async () => {
         const countSearchData = document.getElementById("count");
         const rowsOfData = document.querySelectorAll(".search-data");
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const bodyData = {};
+        for (const [key, value] of urlParams.entries()) {
+            bodyData[key] = value;
+        }
+
+        console.log("BodyData to send:", bodyData);
+
         const searchResponse = await fetch("https://hre-group.net/api/property/search", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({}),
+            body: JSON.stringify(bodyData),
         });
+
         const searchData = await searchResponse.json();
+
         countSearchData.innerHTML = `${searchData.count} Search results`;
+
         const results = searchData.results;
         const itemsPerRow = 2;
         const totalRows = rowsOfData.length;
@@ -1496,9 +1505,10 @@
                         </div>
                     </div>`;
             }
+
             rowsOfData[i].innerHTML = html;
         }
-    })
+    });
 
     </script>
 

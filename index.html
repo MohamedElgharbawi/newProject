@@ -412,14 +412,14 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="tabs_1">
                                                 <div class="rld-main-search">
-                                                    <div class="row">
+                                                    <div class="row search-block">
                                                         
                                                         <div class="rld-single-input">
                                                             <input type="text" placeholder="Enter Keyword...">
                                                         </div>
                                                         
                                                         <div class="rld-single-select ml-22">
-                                                            <select class="select single-select" id="property-type">
+                                                            <select class="select single-select property-type">
                                                                 <option value="1">Property Type</option>
                                                                 <option value="2">Family House</option>
                                                                 <option value="3">Apartment</option>
@@ -428,7 +428,7 @@
                                                         </div>
                                                         
                                                         <div class="rld-single-select">
-                                                            <select class="select single-select mr-0" id="location">
+                                                            <select class="select single-select mr-0 location">
                                                                 <option value="1">Location</option>
                                                                 <option value="2">Los Angeles</option>
                                                                 <option value="3">Chicago</option>
@@ -569,17 +569,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="tab-pane fade" id="tabs_2">
                                                 <div class="rld-main-search">
-                                                    <div class="row">
+                                                    <div class="row search-block">
 
                                                         <div class="rld-single-input">
                                                             <input type="text" placeholder="Enter Keyword...">
                                                         </div>
                                                         
                                                         <div class="rld-single-select ml-22">
-                                                            <select class="select single-select">
+                                                            <select class="select single-select property-type">
                                                                 <option value="1">Property Type</option>
                                                                 <option value="2">Family House</option>
                                                                 <option value="3">Apartment</option>
@@ -588,7 +587,7 @@
                                                         </div>
                                                         
                                                         <div class="rld-single-select">
-                                                            <select class="select single-select mr-0">
+                                                            <select class="select single-select mr-0 location">
                                                                 <option value="1">Location</option>
                                                                 <option value="2">Los Angeles</option>
                                                                 <option value="3">Chicago</option>
@@ -1591,6 +1590,8 @@
         <!-- Slider Revolution scripts -->
         <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
         <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+
 
         <script>
             var typed = new Typed('.typed', {
@@ -2061,21 +2062,7 @@
             </div>
             `;
         });
-
         container.innerHTML = html;
-
-        /*
-        const imgs = container.querySelectorAll("img");
-        const loadImages = Array.from(imgs).map(img => new Promise(resolve => {
-            if (img.complete) resolve();
-            else {
-            img.onload = resolve;
-            img.onerror = resolve;
-            }
-        }));
-
-        await Promise.all(loadImages);
-        */
         $('#our-partners').owlCarousel({
             loop: true,
             margin: 20,
@@ -2089,38 +2076,39 @@
             1200: { items: 5 }
             }
         });
-
-        /*
-        const el = document.getElementById("our-partners");
-        el.style.visibility = "visible";
-        el.style.opacity = "1";
-        */
         } catch (err) {
         console.error("Failed to fetch or render partners:", err);
         }
     }
 
     async function handleSearch(cl) {
-        const locationList = document.querySelector("#location + .nice-select .list");
-        const propertyTypeList = document.querySelector("#property-type + .nice-select .list");
+        const locationList = document.querySelectorAll(".location + .nice-select .list");
+        const propertyTypeList = document.querySelectorAll(".property-type + .nice-select .list");
 
-        locationList.innerHTML = "";
-        propertyTypeList.innerHTML = "";
+        locationList.forEach(location => {
+            location.innerHTML = "";
+        })
+
+        propertyTypeList.forEach(e => {
+            e.innerHTML = "";
+        })
 
         const response = await fetch(`https://hre-group.net/api/search?lang=${cl}`);
         const data = await response.json();
 
-        data.locations.forEach((location, i) => {
-            locationList.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+        locationList.forEach((ul, i) => {
+            data.locations.forEach((location, i) => {
+                ul.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+            })
         });
 
-        data.property_main_types.forEach((type, i) => {
-            propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+        propertyTypeList.forEach((ul) => {
+            data.property_main_types.forEach((type, i) => {
+                ul.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+            })
         });
 
-        console.log(data);
-
-        let advanced_filters = {
+    let advanced_filters = {
             max_area_size: data.advanced_filters.max_area_size,
             max_price: data.advanced_filters.max_price
         }
@@ -2209,10 +2197,82 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".search-parent").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+            
+                    const block = btn.closest(".search-block");
+            
+                    const keyword = block.querySelector("input[type='text']")?.value || "";
+            
+                    const propertyType = block.querySelector(".property-type .list .selected").dataset.value;
+            
+            
+                    const location = block.querySelector(".location .list .selected").dataset.value;
+                    
+                    const areaSlider = block.querySelector(".area-slider")?.noUiSlider;
+                    const priceSlider = block.querySelector(".price-slider")?.noUiSlider;
+
+                    const areaValues = areaSlider && areaSlider.get()
+                    ? areaSlider.get().map(v => {
+                        const n = parseInt(v);
+                        return isNaN(n) ? 0 : n;
+                        })
+                    : [0, 0];
+
+                    const priceValues = priceSlider && priceSlider.get()
+                    ? priceSlider.get().map(v => {
+                        const n = parseInt(v);
+                        return isNaN(n) ? 0 : n;
+                        })
+                    : [0, 0];
+
+                    const [minArea, maxArea] = areaValues;
+                    const [minPrice, maxPrice] = priceValues;
+            
+                    const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
+
+                    const bedrooms = block.querySelector(".beds .list .selected")?.innerHTML;
+                    const bathrooms = block.querySelector(".bath .list .selected")?.innerText;
+
+                    const checkedAmenitiesNodes = block.querySelectorAll("input[type='checkbox']:checked");
+
+                    const checkedAmenities = {};
+
+                    checkedAmenitiesNodes.forEach(cb => {
+                        const label = cb.nextElementSibling?.innerText.trim();
+                        if (label) {
+                            checkedAmenities[label] = true;
+                        }
+                    });
+
+                    console.log(checkedAmenities);
+
+                    const params = new URLSearchParams({
+                        keyword,
+                        price_min:minPrice,
+                        price_max:maxPrice,
+                        bedrooms,
+                        property_type_id:propertyType,
+                        state_id:location,
+                        ...checkedAmenities,
+                        // propertyStatus,
+                        // minArea,
+                        // maxArea,
+                        // bathrooms,
+                    });
+
+                    window.location.href = `properties-grid-1.html?${params.toString()}`;
+
+                });
+            });
+        })
+
         
+
     </script>
 
 </body>
