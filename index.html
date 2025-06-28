@@ -1264,8 +1264,22 @@
         </section>
         <!-- END SECTION AGENTS -->
 
+        <!-- STAR SECTION PARTNERS -->
+        <div class="partners bg-white rec-pro" style="background-color: #f5f7fb !important;">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Our </span>Branches</h2>
+                    <p>The Companies That Represent Us.</p>
+                </div>
+                <div class="owl-carousel owl-theme style2" id="our-partners" style="height:250px !important">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION PARTNERS -->
+
         <!-- START SECTION TESTIMONIALS -->
-        <section class="testimonials bg-white-2 rec-pro">
+        <section class="testimonials bg-white-2 rec-pro" style="background-color: white !important;">
             <div class="container-fluid">
                 <div class="sec-title">
                     <h2><span>Clients </span>Testimonials</h2>
@@ -1336,20 +1350,6 @@
             </div>
         </section>
         <!-- END SECTION TESTIMONIALS -->
-
-        <!-- STAR SECTION PARTNERS -->
-        <div class="partners bg-white rec-pro">
-            <div class="container-fluid">
-                <div class="sec-title">
-                    <h2><span>Our </span>Branches</h2>
-                    <p>The Companies That Represent Us.</p>
-                </div>
-                <div class="owl-carousel owl-theme style2" id="our-partners" style="height:250px !important">
-                    
-                </div>
-            </div>
-        </div>
-        <!-- END SECTION PARTNERS -->
 
         <!-- START FOOTER -->
         <footer class="first-footer rec-pro">
@@ -1988,10 +1988,7 @@
               <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
               <div class="team-hover">
                 <ul class="team-social">
-                  <li><a href="#" class="facebook" style="background:var(--main-color) !important"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#" class="twitter" style="background:var(--main-color) !important"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#" class="instagram" style="background:var(--main-color) !important"><i class="fa fa-instagram"></i></a></li>
-                  <li><a href="#" class="linkedin" style="background:var(--main-color) !important"><i class="fa fa-linkedin"></i></a></li>
+                  <li style="background:var(--main-color)"><a href="https://wa.me/${data.brokers[i].whatsapp.slice(1).split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -2062,7 +2059,7 @@
         const res = await fetch(`https://hre-group.net/api/branches?lang=${cl}`);
         const data = await res.json();
 
-        console.log(data);
+        console.log(data.branches);
 
         const container = document.getElementById("our-partners");
         if (!container || !data.branches) return;
@@ -2071,7 +2068,7 @@
         data.branches.forEach(branch => {
             html += `
             <div class="item text-center" data-aos="fade-up">
-                <a href="${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
+                <a href="https://hre-group.net${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
                     <div style="border-radius:50%;overflow:hidden !important;border:1px solid var(--main-color);background:#F5F5F5 !important"><img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important;min-height:150px !important;min-width:150px !important; object-fit: contain;opacity:1 !important;border-radius:50% !important"></div>
                     <p style="margin-top: 8px;font-weight: bold;color:var(--main-color)">${branch.name}</p>
                     <p style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
