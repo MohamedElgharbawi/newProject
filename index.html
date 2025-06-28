@@ -291,6 +291,16 @@
         #lang ul li {
             border: none !important;
         }
+        @media(width < 1025px) {
+            #logo {
+                display: none;
+            }
+        }
+        @media(width < 1025px) {
+            .cloned #logo {
+                display: none;
+            }
+        } 
     </style>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -310,7 +320,7 @@
                             <a href="index.html"><img src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
-                        <div class="mmenu-trigger">
+                        <div class="mmenu-trigger" onclick="handleAddImg()">
                             <button class="hamburger hamburger--collapse" type="button">
                                 <span class="hamburger-box">
 							<span class="hamburger-inner"></span>
@@ -2277,8 +2287,20 @@
                 });
             });
         })
-
         
+
+    </script>
+
+    <script>
+
+
+        function handleAddImg() {
+            const ele = document.querySelector(".mm-navbar");
+            if(!ele.querySelector("img")) {
+                ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
+                ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
+            }
+        } 
 
     </script>
 
