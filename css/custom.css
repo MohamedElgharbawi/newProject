@@ -266,3 +266,8 @@ article {
 #Agents .team-block {
     padding: 10px;
 }
+@media (width < 1025px) {
+    .cloned  {
+        padding-bottom: 3px !important;
+    }
+}

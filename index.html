@@ -264,29 +264,32 @@
             box-shadow: none !important;
         }
         .noUi-connect {
-        background: #33495E !important;
+            background: #33495E !important;
         }
         .noUi-target {
-        background: #e0e0e0 !important;
-        border-radius: 10px !important;
-        height: 8px !important;
-        border: none !important;
+            background: #e0e0e0 !important;
+            border-radius: 10px !important;
+            height: 8px !important;
+            border: none !important;
         }
         .noUi-horizontal .noUi-handle {
             right: -10px;
         }
         .noUi-handle {
-        background: #ffffff !important;
-        border: 2px solid #33495E !important;
-        border-radius: 50% !important;
-        width: 18px !important;
-        height: 18px !important;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important;
-        cursor: pointer;
+            background: #ffffff !important;
+            border: 2px solid #33495E !important;
+            border-radius: 50% !important;
+            width: 18px !important;
+            height: 18px !important;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important;
+            cursor: pointer;
         }
         .noUi-handle:focus {
-        outline: none !important;
-        box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3) !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3) !important;
+        }
+        #lang ul li {
+            border: none !important;
         }
     </style>
 
@@ -342,9 +345,9 @@
                         </div>
                         <ul>
                             <li><a href="user-profile.html"> Edit profile</a></li>
-                            <li><a href="add-property.html"> Add Property</a></li>
-                            <li><a href="payment-method.html">  Payments</a></li>
-                            <li><a href="change-password.html"> Change Password</a></li>
+                            <!-- <li><a href="add-property.html"> Add Property</a></li> -->
+                            <!-- <li><a href="payment-method.html">  Payments</a></li> -->
+                            <!-- <li><a href="change-password.html"> Change Password</a></li> -->
                             <li><a href="#">Log Out</a></li>
                             <li id="lang" style="position: relative;">
                                 <a href="#">Change Language</a>
@@ -1328,7 +1331,7 @@
         <div class="partners bg-white rec-pro">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Our </span>Partners</h2>
+                    <h2><span>Our </span>Branches</h2>
                     <p>The Companies That Represent Us.</p>
                 </div>
                 <div class="owl-carousel owl-theme style2" id="our-partners" style="height:250px !important">
@@ -1963,6 +1966,8 @@
     const data = await response.json();
     const count = data.brokers.length;
 
+    console.log(data);
+
     agents.innerHTML = "";
 
     for (let i = 0; i < count; i++) {
@@ -2047,6 +2052,8 @@
         const res = await fetch(`https://hre-group.net/api/branches?lang=${cl}`);
         const data = await res.json();
 
+        console.log(data);
+
         const container = document.getElementById("our-partners");
         if (!container || !data.branches) return;
 
@@ -2073,7 +2080,7 @@
             0: { items: 2 },
             600: { items: 3 },
             992: { items: 4 },
-            1200: { items: 5 }
+            1200: { items: 4 }
             }
         });
         } catch (err) {
