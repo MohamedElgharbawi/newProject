@@ -102,6 +102,76 @@
                 display: none;
             }
         } 
+        nav .pagination li.page-item a {
+            color: var(--main-color) !important;
+        }
+        nav .pagination li.page-item.active a {
+            background-color: var(--main-color) !important;
+            color: white !important;
+        }
+        @media (width < 630px) {
+            .second-footer .container-fluid {
+                flex-direction: column !important;
+            }
+        }
+        .fa-tiktok {
+            transition: all .3s;
+            &:hover {
+                background: #010101 !important;
+            }
+        }
+        .netsocials .fa-whatsapp {
+            transition: all .3s;
+            &:hover {
+                background: #25D366 !important;
+            }
+        }
+        .fa-google-plus-square {
+            transition: all .3s;
+            &:hover {
+                background: #c60c32 !important;
+            }
+        }
+        .social {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: 99999999999;
+            flex-direction: column;
+        }
+        .social a {
+            display: block;
+            padding:15px;
+            color:#fff;
+            transition: .3s all;
+        }
+        .social a.facebook {
+            background-color: #3b5998 !important;
+            border-top-left-radius:5px;
+            &:hover {
+                background-color: #2d4373 !important;
+                box-shadow: 0 4px 10px rgba(59, 89, 152, 0.4) !important;
+            }
+        }
+        .social a.whatsapp {
+            background-color: #25D366 !important;
+            &:hover {
+                background-color: #1da851 !important;
+                box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4) !important;
+            }
+        }
+        .social a.instagram {
+            background-color: #E4405F !important;
+            border-bottom-left-radius:5px;
+            &:hover {
+                background-color: #c13555 !important;
+                box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4) !important;
+            }
+        }
+        .social a i {
+            font-size:22px;
+        }
     </style>
 </head>
 
@@ -750,20 +820,37 @@
                     </div>
                 </div>
             </div>
-            <div class="second-footer">
-                <div class="container">
-                    <p>2021 © Copyright - All Rights Reserved.</p>
+            <div class="second-footer rec-pro py-3" style="position: relative;z-index:100000">
+                <div class="container-fluid sd-f d-flex justify-content-between align-items-center" style="gap:10px">
+                    <div style="display: flex;flex-direction:column;gap:5px">
+                        <p style="margin:0 !important">2021 © Copyright - All Rights Reserved.</p>
+                        <!-- <p style="margin:0 !important">Developed by <a href="https://www.facebook.com/share/15t4Lvw7yt/" target="_blank" style="color:#fff;font-weight:bold;letter-spacing:1px">Mohamed Khaled</a></p> -->
+                    </div>
                     <ul class="netsocials">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                        <li><a style="color: #fff !important;" href="https://wa.me/971585061766?text=Hi%2C%20I%20found%20your%20website%20and%20want%20to%20learn%20more%21"><i class="fa fa-whatsapp">​</i></a></li>
+                        <li><a style="color: #fff !important;" href="https://hre-group.net/ar/website/social/tiktok"><i class="fab fa-tiktok">​</i></a></li>
+                        <li><a style="color: #fff !important;" href="https://www.google.com/maps?q=%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA+%D9%84%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA+.+Hadramout+Realestate%D8%8C+%D8%A8%D9%86%D8%A7%D9%8A%D8%A9+%D8%A7%D9%84%D8%AA%D9%84%D8%A9+%D9%85%D8%AD%D9%84+%D8%B1%D9%82%D9%85+4+5+-+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D8%B4%D9%8A%D8%AE+%D8%B9%D9%85%D8%A7%D8%B1+%D8%A8%D9%86+%D8%AD%D9%85%D9%8A%D8%AF+-+%D8%A7%D9%84%D9%85%D9%88%D9%8A%D9%87%D8%A7%D8%AA+2+-+%D8%B9%D8%AC%D9%85%D8%A7%D9%86&ftid=0x3ef5f636d4cd3fa7:0x82277d5c9cd776e3&entry=gps&lucs=,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94203019,47084304&g_ep=CAISEjI1LjI0LjEuNzY5MjczNTU2MBgAINeCAypRLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0QgJBRQ%3D%3D&skid=c36632ff-c56d-4de4-9e15-45567c6c9f0a&g_st=iw"><i class="fa fa-google-plus-square" >​</i></a></li>
+                        <li><a href="https://www.instagram.com/hadramout_real_estate?igsh=OW0xc3ZzNHJldzd3"><i class="fab fa-instagram"></i></a></li>
+                        <!-- <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li> -->
                     </ul>
                 </div>
             </div>
         </footer>
 
         <a data-scroll style="background: var(--main-color) !important;" href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+        <div class="social">
+            <a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL" target="_blank" class="facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/971585061766?text=Hi%2C%20I%20found%20your%20website%20and%20want%20to%20learn%20more%21" target="_blank" class="whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/hadramout_real_estate?igsh=OW0xc3ZzNHJldzd3" target="_blank" class="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
         <!-- END FOOTER -->
 
         <!--register form -->
@@ -858,6 +945,113 @@
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const countSearchData = document.getElementById("count");
+            let blogPots = document.querySelector(".blog-pots");
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const bodyData = {};
+            for (const [key, value] of urlParams.entries()) {
+                bodyData[key] = value;
+            }
+            const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang")?(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") :"en_001"}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(bodyData),
+            });
+            
+            const searchData = await searchResponse.json();
+
+            countSearchData.innerHTML = `${searchData.count} Search results`;
+
+            const results = searchData.results;
+            const itemsPerRow = 2;
+            const totalRows = Math.ceil(results.length / 2);
+
+            for (let i = 0; i < totalRows; i++) {
+                let html = "";
+
+                for (let j = 0; j < itemsPerRow; j++) {
+                    const INDEX = i * itemsPerRow + j;
+                    if (!results[INDEX]) break;
+
+                    const item = results[INDEX];
+                    const featuredTag = item.website_type === "featured"
+                        ? `<div class="homes-tag button alt featured" style="background:#33495E !important">Featured</div>`
+                        : "";
+
+                    html += `
+                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                            <div class="project-single" data-aos="fade-up">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                        <a href="single-property-1.html" class="homes-img">
+                                            ${featuredTag}
+                                            <div class="homes-tag button alt ${item.state}" style="background:#33495E">For ${item.state}</div>
+                                            <div class="homes-price">$ ${item.price}/mo</div>
+                                            <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="button-effect">
+                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
+                                        <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                        <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    </div>
+                                </div>
+                                <div class="homes-content">
+                                    <h3><a href="single-property-1.html">${item.name}</a></h3>
+                                    <p class="homes-address mb-3">
+                                        <a href="single-property-1.html">
+                                            <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                        </a>
+                                    </p>
+                                    <ul class="homes-list clearfix pb-3">
+                                        <li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>
+                                        <li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>
+                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                        <li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="agent-details.html">
+                                            <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
+                                        </a>
+                                        <span>2 months ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                }
+                blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
+            }
+            blogPots.innerHTML += `
+                <div class="row search-data" style="padding:15px">
+                    <nav aria-label="..." class="agents pt-55">
+                        <ul class="pagination disabled">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            `
+    });
+    </script>
+
+    <script>
+
         async function handleSearch(cl) {
         const searchBtn = document.getElementById("search-data");
         const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
@@ -1020,92 +1214,30 @@
                 }
                 blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
             }
+            blogPots.innerHTML += `
+                <div class="row search-data"  style="padding:15px">
+                    <nav aria-label="..." class="agents pt-55">
+                        <ul class="pagination disabled">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            `
         };
     }
         handleSearch();
-
-        document.addEventListener("DOMContentLoaded", async () => {
-            const countSearchData = document.getElementById("count");
-            let blogPots = document.querySelector(".blog-pots");
-
-            const urlParams = new URLSearchParams(window.location.search);
-
-            const bodyData = {};
-            for (const [key, value] of urlParams.entries()) {
-                bodyData[key] = value;
-            }
-            const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang")?(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") :"en_001"}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(bodyData),
-            });
-            
-            const searchData = await searchResponse.json();
-
-            countSearchData.innerHTML = `${searchData.count} Search results`;
-
-            const results = searchData.results;
-            const itemsPerRow = 2;
-            const totalRows = Math.ceil(results.length / 2);
-
-            for (let i = 0; i < totalRows; i++) {
-                let html = "";
-
-                for (let j = 0; j < itemsPerRow; j++) {
-                    const INDEX = i * itemsPerRow + j;
-                    if (!results[INDEX]) break;
-
-                    const item = results[INDEX];
-                    const featuredTag = item.website_type === "featured"
-                        ? `<div class="homes-tag button alt featured" style="background:#33495E !important">Featured</div>`
-                        : "";
-
-                    html += `
-                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
-                            <div class="project-single" data-aos="fade-up">
-                                <div class="project-inner project-head">
-                                    <div class="homes">
-                                        <a href="single-property-1.html" class="homes-img">
-                                            ${featuredTag}
-                                            <div class="homes-tag button alt ${item.state}" style="background:#33495E">For ${item.state}</div>
-                                            <div class="homes-price">$ ${item.price}/mo</div>
-                                            <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <div class="homes-content">
-                                    <h3><a href="single-property-1.html">${item.name}</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>${item.location}</span>
-                                        </a>
-                                    </p>
-                                    <ul class="homes-list clearfix pb-3">
-                                        <li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>
-                                        <li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>
-                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
-                                        <li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
-                                        </a>
-                                        <span>2 months ago</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                }
-                blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
-            }
-    });
 
     </script>
 
