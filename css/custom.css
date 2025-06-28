@@ -183,7 +183,7 @@ article {
         padding-bottom:5px !important;
     }
     .price-properties.footer {
-        padding-top:17px !important;
+        padding-top:10px !important;
     }
     .homes-content ul {
         padding-bottom: 10px !important;
@@ -191,7 +191,22 @@ article {
 }
 @media (width < 1200px) and (width >= 1025px) {
     .price-properties.footer {
-        padding-top: 30px !important;
+        padding-top: 8px !important;
+    }
+    
+}
+@media (width < 1025px) and (width > 794px) {
+    .price-properties.footer {
+        padding-top: 10px !important;
+    }
+    .homepage-1 .portfolio.full-l .homes-content {
+        padding-bottom:10px !important
+    }
+    .portfolio .homes-content .homes-list {
+        padding-bottom: 10px !important;
+    }
+    .portfolio .homes-content .homes-list li {
+        padding-block: 10px !important;
     }
 }
 @media (width < 795px) {
@@ -203,6 +218,12 @@ article {
     }
     .homes-content .homes-address {
         margin-bottom: 10px !important;
+    }
+    .portfolio .homes-content .homes-list li {
+        padding-block: 8px !important;
+    }
+    .portfolio .homes-content .homes-address {
+        margin-bottom: 5px !important;
     }
 }
 @media (width < 620px) {
