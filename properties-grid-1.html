@@ -236,6 +236,27 @@
             background-color: var(--main-color);
         }
 
+        .blog-pots ul li {
+            width: 50% !important;
+            display: flex;
+        
+            align-items: center;
+        }
+
+        .blog-pots .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            a {
+                img {
+                    margin: 0;
+                }
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
 
         .blog-pots.sort-col {
             .item {
@@ -251,22 +272,15 @@
                         flex-direction: column;
                         .footer {
                             flex-grow: 1;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            a {
-                                img {
-                                    margin: 0;
-                                }
-                                display: flex;
-                                align-items: center;
-                                gap: 5px;
-                            }
                         }
                     }
                 }
             }
         }
+
+        .blog-pots.sort-col .project-single .project-inner {
+            border-radius: 8px 0 0 8px !important;
+        } 
 
         @media(width < 1025px) {
             .blog-pots.sort-col .homes img {
@@ -279,12 +293,27 @@
             .blog-pots.sort-col .homes img {
                 height:360px !important;
             }
+            .blog-pots.sort-col ul li span,
+            .blog-pots.sort-col ul li i {
+                font-size: 12px;
+            }
+            .blog-pots.sort-col ul {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap:10px;
+            }
+            .footer span {
+                font-size: 12px;
+            }
         }
 
         @media(width < 590px) {
             .blog-pots.sort-col .project-single {
                 display: block !important;
             }
+            .blog-pots.sort-col .project-single .project-inner {
+                border-radius: 8px 8px 0 0 !important;
+            } 
         }
 
 
@@ -835,24 +864,24 @@
                             <div class="widget-boxed-body">
                                 <div class="recent-post d-flex flex-wrap justify-content-evenly" id="popular-tags">
                                     <!-- <div class="tags"> -->
-                                    <span><a href="#" class="btn btn-outline-primary">Houses</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Real Home</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Houses</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Real Home</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a href="#" class="btn btn-outline-primary">Baths</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Beds</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Baths</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Beds</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a href="#" class="btn btn-outline-primary">Garages</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Family</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Garages</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Family</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a href="#" class="btn btn-outline-primary">Real Estates</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Properties</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Real Estates</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Properties</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags no-mb"> -->
-                                    <span><a href="#" class="btn btn-outline-primary">Location</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Price</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Location</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Price</a></span>
                                     <!-- </div> -->
                                 </div>
                             </div>
