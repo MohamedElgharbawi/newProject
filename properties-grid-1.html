@@ -1120,7 +1120,7 @@
                                         <a href="single-property-1.html" class="homes-img">
                                             ${featuredTag}
                                             <div class="homes-tag button alt ${item.state}" style="background:#33495E">For ${item.state}</div>
-                                            <div class="homes-price">$ ${item.price}/mo</div>
+                                            <div class="homes-price">AED ${item.price} ${item.state === "sale" ? "":"/mo"}</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                         </a>
                                     </div>
@@ -1240,8 +1240,8 @@
             });
 
             priceSlider.noUiSlider.on("update", (values) => {
-                document.getElementById("price-min").innerText = "$" + values[0];
-                document.getElementById("price-max").innerText = "$" + values[1];
+                document.getElementById("price-min").innerText = "AED " + values[0];
+                document.getElementById("price-max").innerText = "AED " + values[1];
             });
 
             searchBtn.onclick = async function (e) {
@@ -1261,8 +1261,8 @@
 
                 const request = {
                     keyword: document.getElementById("search-input").value,
-                    price_min: document.getElementById("price-min").innerText.replace("$", ""),
-                    price_max: document.getElementById("price-max").innerText.replace("$", ""),
+                    price_min: document.getElementById("price-min").innerText.replace("AED", ""),
+                    price_max: document.getElementById("price-max").innerText.replace("AED", ""),
                     bedrooms: getSelectedValue(bedroomsList),
                     property_type_id: getSelectedValue(propertyTypeList),
                     state_id: getSelectedValue(locationList),
@@ -1308,7 +1308,7 @@
                                         <a href="single-property-1.html" class="homes-img">
                                             ${featuredTag}
                                             <div class="homes-tag button alt ${item.state}">For ${item.state}</div>
-                                            <div class="homes-price">$ ${item.price}/mo</div>
+                                            <div class="homes-price">AED ${item.price}/mo</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                         </a>
                                     </div>
@@ -1491,7 +1491,7 @@
                             <a href="blog-details.html" style="margin:0">
                                 <h6 style="margin:0">${data[i].name}</h6>
                             </a>
-                            <p style="margin:0">AED ${data[i].price}</p>
+                            <p style="margin:0;color:var(--main-color) !important">AED ${data[i].price}</p>
                         </div>
                     </div>
                 `
