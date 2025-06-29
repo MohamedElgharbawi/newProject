@@ -1996,96 +1996,93 @@
 }
 
     async function handleAgents(cl) {
-  try {
-    const agents = document.getElementById("Agents");
-    const response = await fetch(`https://hre-group.net/post/brokers?lang=${cl}`);
-    const data = await response.json();
-    const count = data.brokers.length;
+        try {
+            const agents = document.getElementById("Agents");
+            const response = await fetch(`https://hre-group.net/post/brokers?lang=${cl}`);
+            const data = await response.json();
+            const count = data.brokers.length;
 
-    console.log(data);
+            console.log(data);
 
-    agents.innerHTML = "";
+            agents.innerHTML = "";
 
-    for (let i = 0; i < count; i++) {
-        let telephone = "";
-        if(data.brokers[i].whatsapp.startsWith("+971")) {
-            telephone = data.brokers[i].whatsapp.split(" ").join("")
-        }else {
-            telephone = "+971" + data.brokers[i].whatsapp.slice(1);
+            for (let i = 0; i < count; i++) {
+                let telephone = "";
+                if(data.brokers[i].whatsapp.startsWith("+971")) {
+                    telephone = data.brokers[i].whatsapp.split(" ").join("")
+                }else {
+                    telephone = "+971" + data.brokers[i].whatsapp.slice(1);
+                }
+                agents.innerHTML += 
+                    `<div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
+                    <div class="inner-box team-details">
+                        <div class="image team-head">
+                        <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
+                        <div class="team-hover">
+                            <ul class="team-social">
+                            <li style="background:var(--main-color)"><a target="_blank" href="https://wa.me/971${data.brokers[i].whatsapp.replace("+971", "0").split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="lower-box" style="padding:5px !important">
+                        <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
+                        <div class="designation">${data.brokers[i].responsibility}</div>
+                        <span style="display:flex; gap:5px;align-items:center">${telephone}<i class="fas fa-phone" style="color: var(--main-color)"></i></span>
+                        </div>
+                    </div>
+                    </div>`
+            ;
+            }
+            AOS.init();
+            
+            const slickWrapper = $(".team-all");
+
+            if (slickWrapper.hasClass("slick-initialized")) {
+                slickWrapper.slick("unslick");
+            }
+
+            slickWrapper.slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                pauseOnDotsHover: false,
+                pauseOnHover: false,
+                dots: true,
+                arrows: false,
+                adaptiveHeight: false,
+                responsive: [
+                { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
+                { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+                { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+                { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+                { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+            ]
+            });
+
+            function setEqualHeight() {
+                let maxHeight = 0;
+                slickWrapper.find('.slick-slide').css('height', 'auto');
+
+                slickWrapper.find('.slick-slide').each(function() {
+                    const h = $(this).outerHeight();
+                    if (h > maxHeight) maxHeight = h;
+                });
+
+                slickWrapper.find('.slick-slide').css('height', maxHeight + 'px');
+            }
+            setEqualHeight();
+            slickWrapper.on('setPosition', function() {
+
+
+            setEqualHeight();
+        });
+
+        } catch (e) {
+            console.log(e);
         }
-        agents.innerHTML += `
-        <div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
-          <div class="inner-box team-details">
-            <div class="image team-head">
-              <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
-              <div class="team-hover">
-                <ul class="team-social">
-                  <li style="background:var(--main-color)"><a target="_blank" href="https://wa.me/971${data.brokers[i].whatsapp.replace("+971", "0").split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="lower-box" style="padding:5px !important">
-              <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
-              <div class="designation">${data.brokers[i].responsibility}</div>
-              <span style="display:flex; gap:5px;align-items:center">${telephone}<i class="fas fa-phone" style="color: var(--main-color)"></i></span>
-            </div>
-          </div>
-        </div>
-      `;
     }
-    AOS.init();
-    const slickWrapper = $(".team-all");
-
-    if (slickWrapper.hasClass("slick-initialized")) {
-      slickWrapper.slick("unslick");
-    }
-
-    slickWrapper.slick({
-        infinite: true,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        pauseOnDotsHover: false,
-        pauseOnHover: false,
-        dots: true,
-        arrows: false,
-        adaptiveHeight: false,
-        responsive: [
-        { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
-        { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-        { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-        { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-        { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-      ]
-    });
-    $('.slick-dots li button').on('click', function () {
-        slickWrapper.slick('setOption', 'autoplay', false, true);
-        slickWrapper.slick('setOption', 'autoplay', true, true);
-    });
-
-    function setEqualHeight() {
-      let maxHeight = 0;
-      slickWrapper.find('.slick-slide').css('height', 'auto');
-
-      slickWrapper.find('.slick-slide').each(function() {
-        const h = $(this).outerHeight();
-        if (h > maxHeight) maxHeight = h;
-      });
-
-      slickWrapper.find('.slick-slide').css('height', maxHeight + 'px');
-    }
-
-    setEqualHeight();
-
-    slickWrapper.on('setPosition', function() {
-      setEqualHeight();
-    });
-
-  } catch (e) {
-    console.log(e);
-  }
-}
 
     async function handleOurPartners(cl) {
         try {
