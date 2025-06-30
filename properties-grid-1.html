@@ -338,9 +338,13 @@
             } 
         }
 
-
-
-
+        .headings-2 ul li {
+            background-color: #fff !important;
+            width: 100% !important;
+            &:hover {
+                background-color: var(--main-color) !important;
+            }
+        }
 
 
     </style>
@@ -1259,7 +1263,14 @@
                 }
                 blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
             }
-            
+            let next, prev;
+            if(language === "Ar") {
+                next = `<a class="page-link" href="#">التالى</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
+            }else {
+                next = `<a class="page-link" href="#">Next</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
+            }
             blogPots.innerHTML += `
                 <div class="row search-data" style="padding:15px">
                     <nav aria-label="..." class="agents pt-55">
@@ -1281,14 +1292,6 @@
                     </nav>
                 </div>
             `
-            let next, prev;
-            if(language === "Ar") {
-                next = `<a class="page-link" href="#">التالى</a>`;
-                prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
-            }else {
-                next = `<a class="page-link" href="#">Next</a>`;
-                prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
-            }
         });
     </script>
 
@@ -1462,12 +1465,20 @@
                 }
                 blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
             }
+            let next, prev;
+            if(language === "Ar") {
+                next = `<a class="page-link" href="#">التالى</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
+            }else {
+                next = `<a class="page-link" href="#">Next</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
+            }
             blogPots.innerHTML += `
             <div class="row search-data"  style="padding:15px">
                 <nav aria-label="..." class="agents pt-55">
                     <ul class="pagination disabled">
                         <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            ${prev}
                         </li>
                         <li class="page-item active">
                             <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
@@ -1477,7 +1488,7 @@
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            ${next}
                         </li>
                     </ul>
                 </nav>
@@ -1697,7 +1708,6 @@
             const labelOutdoorShower = document.getElementById("label-outdoor-shower");
             const advanced_features = document.getElementById("advanced-features");
 
-
             let Price = document.getElementById("Price")
             let location = document.getElementById("Location")
             let Properties = document.getElementById("Properties")
@@ -1721,6 +1731,12 @@
             const sort_by = document.getElementById("sort-by");
 
             const top_selling = document.querySelector(".nice-select .option.selected");
+            const TopSelling = document.querySelector(".inner-pages .input-group-lg > .form-control .current");
+
+            const most_viewed = document.querySelector(".nice-select .option:nth-of-type(2)");
+            const price_htl = document.querySelector(".nice-select .option:nth-of-type(3)");
+            const price_lth = document.querySelector(".nice-select .option:nth-of-type(4)"); 
+
 
             if(language === "Ar") {
                 document.body.classList.add("arabic");
@@ -1790,6 +1806,11 @@
                 grid_view.textContent = "عرض بالشبكة";
                 sort_by.innerHTML = `<i class="fas fa-align-left fs-16 pr-2"></i>ترتيب حسب:`;
                 top_selling.textContent = "الأكثر مبيعًا";
+                TopSelling.textContent = "الأكثر مبيعًا";
+
+                most_viewed.textContent = "الأكثر مشاهدة";
+                price_htl.textContent = "السعر من الأعلى إلى الأدنى";
+                price_lth.textContent = "السعر من الأدنى إلى الأعلى"; 
             }
         }
 
