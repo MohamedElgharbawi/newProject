@@ -346,6 +346,16 @@
             }
         }
 
+        .item ul li {
+            display: flex;
+            align-items: center;
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
 
     </style>
 </head>
@@ -1203,12 +1213,28 @@
                 for (let j = 0; j < itemsPerRow; j++) {
                     const INDEX = i * itemsPerRow + j;
                     if (!results[INDEX]) break;
-
                     const item = results[INDEX];
-                    console.log(item.state);
-                    const featuredTag = item.website_type === "featured"
-                        ? `<div class="homes-tag button alt featured" style="background:#33495E !important">Featured</div>`
-                        : "";
+                    let featuredTag;
+                    let itemState;
+                    let bedrooms;
+                    let bathrooms;
+                    let parking;
+                    let broker;
+                    if(language === "Ar") {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
+                        parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
+                        broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
+                    }else {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
+                        parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
+                        broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
+                    }
                     
                     html += `
                         <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
@@ -1217,7 +1243,7 @@
                                     <div class="homes">
                                         <a href="single-property-1.html" class="homes-img">
                                             ${featuredTag}
-                                            <div class="homes-tag button alt ${item.state}" style="background:var(--main-color) !important;top:15px !important;right:15px !important;margin:0 !important">For ${item.state}</div>
+                                            ${itemState}
                                             <div class="homes-price">AED ${item.price} ${item.state === "sale" ? "":"/mo"}</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                         </a>
@@ -1229,34 +1255,25 @@
                                     </div>
                                 </div>
                                 <div class="homes-content">
-
-
-
-
                                     <h3><a href="single-property-1.html">${item.name}</a></h3>
                                     <p class="homes-address mb-2">
                                         <a href="single-property-1.html">
                                             <i class="fa fa-map-marker"></i><span>${item.location}</span>
                                         </a>
                                     </p>
-                                    <p style="margin-bottom:5px">Broker: ${item.broker}</p>
-
+                                    ${broker}
                                     <ul class="homes-list clearfix pb-3">
-                                        <li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>
-                                        <li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>
+                                        ${bedrooms}
+                                        ${bathrooms}
                                         <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
-                                        <li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>
+                                        ${parking} 
                                     </ul>
-                                    
                                     <div class="footer">
                                         <a href="agent-details.html">
                                             <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
                                         </a>
                                         <span style="margin:0">2 months ago</span>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>`;
@@ -1377,7 +1394,7 @@
             });
 
             const request = {
-                keyword: document.getElementById("search-input").value,
+                keyword: document.getElementById("input-search").value,
                 price_min: document.getElementById("price-min").innerText.replace("AED", ""),
                 price_max: document.getElementById("price-max").innerText.replace("AED", ""),
                 bedrooms: getSelectedValue(bedroomsList),
@@ -1417,11 +1434,28 @@
                 for (let j = 0; j < itemsPerRow; j++) {
                     const INDEX = i * itemsPerRow + j;
                     if (!results[INDEX]) break;
-                    
                     const item = results[INDEX];
-                    const featuredTag = item.website_type === "featured"
-                        ? `<div class="homes-tag button alt featured">Featured</div>`
-                        : "";
+                    let featuredTag;
+                    let itemState;
+                    let bedrooms;
+                    let bathrooms;
+                    let parking;
+                    let broker;
+                    if(language === "Ar") {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
+                        parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
+                        broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
+                    }else {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
+                        parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
+                        broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
+                    }
                     html += `
                     <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
                         <div class="project-single" data-aos="fade-up">
@@ -1429,8 +1463,8 @@
                                 <div class="homes">
                                     <a href="single-property-1.html" class="homes-img">
                                         ${featuredTag}
-                                        <div class="homes-tag button alt ${item.state}">For ${item.state}</div>
-                                        <div class="homes-price">AED ${item.price}/mo</div>
+                                        ${itemState}
+                                        <div class="homes-price">AED ${item.price}/${item.state === "sale" ? "" : "/mo"}</div>
                                         <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                     </a>
                                 </div>
@@ -1447,11 +1481,12 @@
                                         <i class="fa fa-map-marker"></i><span>${item.location}</span>
                                     </a>
                                 </p>
+                                ${broker}
                                 <ul class="homes-list clearfix pb-3">
-                                    <li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>
-                                    <li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>
+                                    ${bedrooms}
+                                    ${bathrooms}
                                     <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
-                                    <li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>
+                                    ${parking}
                                 </ul>
                                 <div class="footer">
                                     <a href="agent-details.html">
