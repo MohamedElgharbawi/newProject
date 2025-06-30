@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lobster&display=swap" rel="stylesheet">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="font/flaticon.css">
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
@@ -32,6 +35,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <style>
+
+        body.arabic, 
+        body.arabic *:not(i) {
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
+        }
+
+        body.arabic #main-paragraph {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        body.arabic #Sign-In {
+            font-size: 14px !important;
+        }
+
+        .hd-white .right-side.sign {
+            padding:0 !important;
+        }
+
         .noUi-connect {
             background: #33495E;
         }
@@ -338,35 +360,33 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="index.html"><img src="images/logo-grid-view.jpg"
-                                    data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
+                            <a href="index.html"><img src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
                         <div class="mmenu-trigger" onclick="handleAddImg()">
                             <button class="hamburger hamburger--collapse" type="button">
                                 <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
+							<span class="hamburger-inner"></span>
                                 </span>
                             </button>
                         </div>
                         <!-- Main Navigation -->
                         <nav id="navigation" class="style-1 head-tr">
                             <ul id="responsive">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Listing</a>
-                                    <ul>
-                                        <li><a href="#">Listing Grid</a>
-                                            <ul>
-                                                <li><a href="properties-grid-1.html">Grid View</a></li>
-                                                <li><a href="properties-full-grid-1.html">Grid Fullwidth</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact-us.html">Contact</a></li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a>
-                                </li>
+                                <li><a href="#" id="Home">Home</a></li>
+                                    <li><a href="#" id="Listing">Listing</a>
+                                        <ul>
+                                            <li><a href="#" id="Listing-Grid">Listing Grid</a>
+                                                <ul>
+                                                    <li><a href="properties-grid-1.html" id="Grid-View">Grid View</a></li>
+                                                    <li><a href="properties-full-grid-1.html" id="Grid-Fullwidth">Grid Fullwidth</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li ><a href="contact-us.html" id="Contact">Contact</a></li>
+                                    <li ><a href="login.html" id="Login">Login</a></li>
+                                    <li ><a href="register.html" id="Register">Register</a></li>
                             </ul>
                         </nav>
                         <!-- Main Navigation / End -->
@@ -377,44 +397,36 @@
                             <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
                         </div>
                         <ul>
-                            <li><a href="user-profile.html"> Edit profile</a></li>
+                            <li><a href="user-profile.html" id="Edit-Profile"> Edit profile</a></li>
                             <!-- <li><a href="add-property.html"> Add Property</a></li> -->
                             <!-- <li><a href="payment-method.html">  Payments</a></li> -->
                             <!-- <li><a href="change-password.html"> Change Password</a></li> -->
-                            <li><a href="#">Log Out</a></li>
+                            <li><a href="#" id="Log-Out">Log Out</a></li>
                             <li id="lang" style="position: relative;">
-                                <a href="#">Change Language</a>
-                                <ul class="lang-tooltip"
-                                    style="position:absolute;top:70px;height:fit-content;width:fit-content;padding:5px !important;left:10px !important;">
-                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href=""
-                                            class="current-lan" data-lantext="En">English</a></li>
-                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href=""
-                                            data-lantext="Ar">العربية</a></li>
+                                <a href="#" id="Change-Language">Change Language</a>
+                                <ul class="lang-tooltip" style="position:absolute;top:70px;height:fit-content;width:fit-content;padding:5px !important;left:10px !important;">
+                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" class="current-lan" data-lantext="En">English</a></li>
+                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" data-lantext="Ar">العربية</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                     <!-- Right Side Content / End -->
-                    <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
-                        <!-- Header Widget -->
-                        <div class="header-widget sign-in">
-                            <div class="show-reg-form modal-open" style="text-align:center"><a href="#">Sign In</a>
+                        <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
+                            <!-- Header Widget -->
+                            <div class="header-widget sign-in">
+                                <div class="show-reg-form modal-open" style="text-align:center"><a href="#" id="Sign-In">Sign In</a></div> 
                             </div>
+                            <!-- Header Widget / End -->
                         </div>
-                        <!-- Header Widget / End -->
-                    </div>
                     <!-- Right Side Content / End -->
                     <!-- lang-wrap-->
                     <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;" id="language">
                         <div class="lang-wrap">
-                            <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong
-                                        id="current-lang">ENG</strong></span><i class="fa fa-caret-down arrlan"></i>
-                            </div>
+                            <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong id="current-lang">ENG</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                             <ul class="lang-tooltip lang-action no-list-style" style="padding: 5px !important;">
-                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#"
-                                        class="current-lan" data-lantext="En">English</a></li>
-                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#"
-                                        data-lantext="Ar">العربية</a></li>
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" class="current-lan" data-lantext="En">English</a></li>
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" data-lantext="Ar">العربية</a></li>
                             </ul>
                         </div>
                     </div>
@@ -434,7 +446,7 @@
                         <div class="detail-wrapper-body">
                             <div class="listing-title-bar">
                                 <div class="text-heading text-left">
-                                    <p class="pb-2"><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span>
+                                    <p class="pb-2" id="main-paragraph"><a href="index.html" id="home">Home </a> &nbsp;/&nbsp; <span id="listings">Listings</span>
                                     </p>
                                 </div>
                                 <h3 class="main-head">Grid View</h3>
@@ -451,7 +463,7 @@
                                 <div class="detail-wrapper-body">
                                     <div class="listing-title-bar">
                                         <div class="text-heading text-left">
-                                            <p class="font-weight-bold mb-0 mt-3" id="count">8 Search results</p>
+                                            <p class="font-weight-bold mb-0 mt-3 d-flex align-item-center" style="gap: 5px;" id="count">8 Search results</p>
                                         </div>
                                     </div>
                                 </div>
@@ -461,8 +473,7 @@
                                     <div class="input-group border rounded input-group-lg w-auto mr-4">
                                         <label
                                             class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
-                                            for="inputGroupSelect01"><i
-                                                class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                                            for="inputGroupSelect01" id="sort-by"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
                                         <select
                                             class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
                                             data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
@@ -495,7 +506,7 @@
                             <!-- Search Fields -->
                             <div class="widget-boxed main-search-field">
                                 <div class="widget-boxed-header">
-                                    <h4>Find Your House</h4>
+                                    <h4 id="main-header">Find Your House</h4>
                                 </div>
                                 <!-- Search Form -->
                                 <div class="trip-search">
@@ -504,7 +515,7 @@
                                         <div class="form-group looking">
                                             <div class="first-select wide">
                                                 <div class="main-search-input-item">
-                                                    <input type="text" placeholder="Enter Keyword..." value=""
+                                                    <input type="text" placeholder="Enter Keyword..." value="" id="input-search"
                                                         id="search-input" />
                                                 </div>
                                             </div>
@@ -512,8 +523,7 @@
                                         <!--/ End Form Lookin for -->
                                         <!-- Form Location -->
                                         <div class="form-group location" id="location">
-                                            <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current"><i class="fa fa-map-marker"></i>Location</span>
+                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" id="LOCATION"><i class="fa fa-map-marker"></i>Location</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">New York</li>
                                                     <li data-value="2" class="option">Los Angeles</li>
@@ -544,11 +554,10 @@
                                         <!--/ End Form Categories -->
                                         <!-- Form Property Status -->
                                         <div class="form-group categories" id="property-status">
-                                            <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current"><i class="fa fa-home"></i>Property Status</span>
+                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" id="Property-Status"><i class="fa fa-home"></i>Property Status</span>
                                                 <ul class="list">
-                                                    <li data-value="For Sale" class="option selected">For Sale</li>
-                                                    <li data-value="For Rent" class="option">For Rent</li>
+                                                    <li data-value="For Sale" id="for_sale" class="option selected">For Sale</li>
+                                                    <li data-value="For Rent" id="for_rent" class="option">For Rent</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -556,7 +565,7 @@
                                         <!-- Form Bedrooms -->
                                         <div class="form-group beds" id="bedrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current"><i class="fa fa-bed" aria-hidden="true"></i>
+                                                    class="current" id="Bedrooms"><i class="fa fa-bed" aria-hidden="true"></i>
                                                     Bedrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -576,7 +585,7 @@
                                         <!-- Form Bathrooms -->
                                         <div class="form-group bath" id="bathrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current"><i class="fa fa-bath" aria-hidden="true"></i>
+                                                    class="current" id="Bathrooms"><i class="fa fa-bath" aria-hidden="true"></i>
                                                     Bathrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -600,7 +609,7 @@
                                 <div class="main-search-field-2">
                                     <!-- Area Size -->
                                     <div class="mb-5">
-                                        <label for="area-slider">Area Size</label>
+                                        <label for="area-slider" id="area_size">Area Size</label>
                                         <div id="area-slider" class="mb-4"></div>
                                         <div class="d-flex justify-content-between items-center">
                                             <span id="area-min">0 sq ft</span>
@@ -609,7 +618,7 @@
                                     </div>
                                     <!-- Price Range -->
                                     <div>
-                                        <label for="price-slider">Price Range</label>
+                                        <label for="price-slider" id="price_range">Price Range</label>
                                         <div id="price-slider" class="mb-4"></div>
                                         <div class="d-flex justify-content-between items-center">
                                             <span id="price-min">$0</span>
@@ -620,52 +629,60 @@
                             </div>
                             <!-- More Search Options -->
                             <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30"
-                                data-open-title="Advanced Features" data-close-title="Advanced Features"
+                            id="advanced-features"    data-open-title="Advanced Features" data-close-title="Advanced Features"
                                 style="color:#33495E"></a>
                             <div class="more-search-options relative">
                                 <!-- Checkboxes -->
                                 <div class="checkboxes one-in-row margin-bottom-10">
-                                    <input id="check-2" type="checkbox" name="air_conditioning">
-                                    <label for="check-2">Air Conditioning</label>
 
-                                    <input id="check-3" type="checkbox" name="swimming_pool">
-                                    <label for="check-3">Swimming Pool</label>
+                                    <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox" name="check">
+                                    <label for="check-air-conditioning" id="label-air-conditioning">Air Conditioning</label>
 
-                                    <input id="check-4" type="checkbox" name="central_heating">
-                                    <label for="check-4">Central Heating</label>
+                                    <input data-value="swimming_pool" id="check-swimming-pool" type="checkbox" name="check">
+                                    <label for="check-swimming-pool" id="label-swimming-pool">Swimming Pool</label>
 
-                                    <input id="check-5" type="checkbox" name="laundry_room">
-                                    <label for="check-5">Laundry Room</label>
+                                    <input data-value="central_heating" id="check-central-heating" type="checkbox" name="check">
+                                    <label for="check-central-heating" id="label-central-heating">Central Heating</label>
 
-                                    <input id="check-6" type="checkbox" name="gym">
-                                    <label for="check-6">Gym</label>
+                                    <input data-value="laundry_room" id="check-laundry-room" type="checkbox" name="check">
+                                    <label for="check-laundry-room" id="label-laundry-room">Laundry Room</label>
 
-                                    <input id="check-7" type="checkbox" name="alarm">
-                                    <label for="check-7">Alarm</label>
+                                    <input data-value="gym" id="check-gym" type="checkbox" name="check">
+                                    <label for="check-gym" id="label-gym">Gym</label>
 
-                                    <input id="check-8" type="checkbox" name="window_covering">
-                                    <label for="check-8">Window Covering</label>
+                                    <input data-value="alarm" id="check-alarm" type="checkbox" name="check">
+                                    <label for="check-alarm" id="label-alarm">Alarm</label>
 
-                                    <input id="check-9" type="checkbox" name="wifi">
-                                    <label for="check-9">WiFi</label>
+                                    <input data-value="window_covering" id="check-window-covering" type="checkbox" name="check">
+                                    <label for="check-window-covering" id="label-window-covering">Window Covering</label>
 
-                                    <input id="check-10" type="checkbox" name="tv_cable">
-                                    <label for="check-10">TV Cable</label>
+                                    <input data-value="garden" id="check-garden" type="checkbox" name="check">
+                                    <label for="check-garden" id="label-garden">Garden</label>
 
-                                    <input id="check-11" type="checkbox" name="dryer">
-                                    <label for="check-11">Dryer</label>
+                                    <input data-value="bbq_area" id="check-bbq_area" type="checkbox" name="check">
+                                    <label for="check-bbq_area" id="label-bbq-area">BBQ Area</label>
 
-                                    <input id="check-12" type="checkbox" name="microwave">
-                                    <label for="check-12">Microwave</label>
+                                    <input data-value="wifi" id="check-wifi" type="checkbox" name="check">
+                                    <label for="check-wifi" id="label-wifi">WiFi</label>
 
-                                    <input id="check-13" type="checkbox" name="washer">
-                                    <label for="check-13">Washer</label>
+                                    <input data-value="tv_cable" id="check-tv-cable" type="checkbox" name="check">
+                                    <label for="check-tv-cable" id="label-tv-cable">TV Cable</label>
 
-                                    <input id="check-14" type="checkbox" name="refrigerator">
-                                    <label for="check-14">Refrigerator</label>
+                                    <input data-value="dryer" id="check-dryer" type="checkbox" name="check">
+                                    <label for="check-dryer" id="label-dryer">Dryer</label>
 
-                                    <input id="check-15" type="checkbox" name="outdoor_shower">
-                                    <label for="check-15">Outdoor Shower</label>
+                                    <input data-value="microwave" id="check-microwave" type="checkbox" name="check">
+                                    <label for="check-microwave" id="label-microwave">Microwave</label>
+
+                                    <input data-value="washer" id="check-washer" type="checkbox" name="check">
+                                    <label for="check-washer" id="label-washer">Washer</label>
+
+                                    <input data-value="refrigerator" id="check-refrigerator" type="checkbox" name="check">
+                                    <label for="check-refrigerator" id="label-refrigerator">Refrigerator</label>
+
+                                    <input data-value="outdoor_shower" id="check-outdoor-shower" type="checkbox" name="check">
+                                    <label for="check-outdoor-shower" id="label-outdoor-shower">Outdoor Shower</label>
+
                                 </div>
                                 <!-- Checkboxes / End -->
                             </div>
@@ -679,7 +696,7 @@
                         </div>
                         <div class="widget-boxed mt-5">
                             <div class="widget-boxed-header mb-5">
-                                <h4>Feature Properties</h4>
+                                <h4 id="main-Header">Feature Properties</h4>
                             </div>
                             <div class="widget-boxed-body" id="feature-properties">
                                 <div class="slick-lancers">
@@ -814,7 +831,7 @@
                         </div>
                         <div class="widget-boxed mt-5">
                             <div class="widget-boxed-header">
-                                <h4>Recent Properties</h4>
+                                <h4 id="recent-properties-header">Recent Properties</h4>
                             </div>
                             <div class="widget-boxed-body" id="recent-properties">
                                 <div class="recent-post">
@@ -859,29 +876,29 @@
                         </div>
                         <div class="widget-boxed popular mt-5 mb-0">
                             <div class="widget-boxed-header">
-                                <h4>Popular Tags</h4>
+                                <h4 id="popular-tags">Popular Tags</h4>
                             </div>
                             <div class="widget-boxed-body">
                                 <div class="recent-post d-flex flex-wrap justify-content-evenly" id="popular-tags">
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Houses</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Real Home</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Houses">Houses</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Home">Real Home</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Baths</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Beds</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Baths">Baths</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Beds">Beds</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Garages</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Family</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Garages">Garages</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Family">Family</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Real Estates</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Properties</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Estates">Real Estates</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Properties">Properties</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags no-mb"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Location</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary">Price</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Location">Location</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Price">Price</a></span>
                                     <!-- </div> -->
                                 </div>
                             </div>
@@ -1146,6 +1163,7 @@
         document.addEventListener("DOMContentLoaded", async () => {
             const countSearchData = document.getElementById("count");
             let blogPots = document.querySelector(".blog-pots");
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
 
             const urlParams = new URLSearchParams(window.location.search);
 
@@ -1164,7 +1182,12 @@
             const searchData = await searchResponse.json();
             console.log(searchData);
 
-            countSearchData.innerHTML = `${searchData.count} Search results`;
+            if(language === "Ar") {
+                countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
+            }else {
+                countSearchData.innerHTML = `${searchData.count} Search results`;
+            }
+
 
             const results = searchData.results;
             const itemsPerRow = 2;
@@ -1236,12 +1259,13 @@
                 }
                 blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
             }
+            
             blogPots.innerHTML += `
                 <div class="row search-data" style="padding:15px">
                     <nav aria-label="..." class="agents pt-55">
                         <ul class="pagination disabled">
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                ${prev}
                             </li>
                             <li class="page-item active">
                                 <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
@@ -1251,18 +1275,27 @@
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">5</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
+                                ${next}
                             </li>
                         </ul>
                     </nav>
                 </div>
             `
+            let next, prev;
+            if(language === "Ar") {
+                next = `<a class="page-link" href="#">التالى</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
+            }else {
+                next = `<a class="page-link" href="#">Next</a>`;
+                prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
+            }
         });
     </script>
 
     <script>
 
     async function handleSearch(cl) {
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
         const searchBtn = document.getElementById("search-data");
         const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
         const locationList = document.querySelector("#location ul");
@@ -1363,7 +1396,13 @@
             });
 
             const searchData = await searchResponse.json();
-            countSearchData.innerHTML = `${searchData.count} Search results`;
+
+            if(language === "Ar") {
+                countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
+            }else {
+                countSearchData.innerHTML = `${searchData.count} Search results`;
+            }
+
 
             const results = searchData.results;
             const itemsPerRow = 2;
@@ -1481,6 +1520,7 @@
     <script>
         function handleAddImg() {
             const ele = document.querySelector(".mm-navbar");
+            ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
             if (!ele.querySelector("img")) {
                 ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
                 ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
@@ -1497,13 +1537,18 @@
 
     <script>
         const sortCol = document.querySelector("#sort-col");
-
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
 
         function handleSortCol(event, e) {
+            
             event.preventDefault();
             e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
             document.querySelector(".sorting-options #sort-row").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
-            document.querySelector(".main-head").innerHTML = "List View";
+            if(language === "Ar") {
+                document.querySelector(".main-head").innerHTML = "عرض بالقائمة";
+            }else {
+                document.querySelector(".main-head").innerHTML = "List View";
+            }
             document.querySelector(".blog-pots").classList.remove("sort-row");
             document.querySelector(".blog-pots").classList.add("sort-col");
         }
@@ -1512,7 +1557,11 @@
             event.preventDefault();
             e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
             document.querySelector(".sorting-options #sort-col").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
-            document.querySelector(".main-head").innerHTML = "Grid View";
+            if(language === "Ar") {
+                document.querySelector(".main-head").innerHTML = "عرض بالشبكة";
+            }else {
+                document.querySelector(".main-head").innerHTML = "Grid View";
+            }
             document.querySelector(".blog-pots").classList.add("sort-row");
             document.querySelector(".blog-pots").classList.remove("sort-col");
         }
@@ -1521,6 +1570,7 @@
 
     <script>
         async function getFeatureProperties() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             const featureProperties = document.querySelector(".slick-lancers");
             const recentProperties = document.querySelector("#recent-properties .recent-post");
             const response = await fetch(`https://hre-group.net/api/property/recent?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
@@ -1532,6 +1582,21 @@
             featureProperties.innerHTML = "";
             recentProperties.innerHTML = "";
             for (let i = 0; i < data.length; i++) {
+                let state;
+                let area;
+                let bedrooms;
+                let bathroom;
+                if(language === "Ar") {
+                    state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].area} sq ft</span></li>`;
+                    bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
+                    bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
+                }else {
+                    state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>`;
+                    bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
+                    bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
+                }
                 featureProperties.innerHTML += `
                     <div class="agents-grid mr-0">
                         <div class="listing-item compact">
@@ -1539,15 +1604,15 @@
                                 
                                 <div class="listing-badges" style="padding-top:10px">
                                     <span class="featured" style="width:fit-content;top:0 !important;background:var(--main-color)">AED ${data[i].price}</span>
-                                    <span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>
+                                    ${state}
                                 </div>
                                 <div class="listing-img-content">
                                     <span class="listing-compact-title">${data[i].name}</span>
                                     <ul class="listing-hidden-content" style="display:flex;justify-content:space-between;align-items:center;background:var(--main-color);padding-inline:10px">
-                                        <li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>
-                                        <li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>
+                                        ${area}
+                                        ${bedrooms}
                                         <!-- <li>Beds <span>2</span></li> -->
-                                        <li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>
+                                        ${bathroom}
                                     </ul>
                                 </div>
                                 <img src="https://hre-group.net${data[i].image_url}" alt="" style="max-height:250px;height:250px">
@@ -1584,6 +1649,151 @@
         document.addEventListener("DOMContentLoaded", () => {
             getFeatureProperties();
         })
+    </script>
+
+    <script>
+        function handleLanguage() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            const home = document.getElementById("Home"); 
+            const listing = document.getElementById("Listing");
+            const listingGrid = document.getElementById("Listing-Grid");
+            const gridView = document.getElementById("Grid-View");
+            const gridFullwidth = document.getElementById("Grid-Fullwidth");
+            const contact = document.getElementById("Contact"); 
+            const login = document.getElementById("Login"); 
+            const register = document.getElementById("Register"); 
+            const signIn = document.getElementById("Sign-In"); 
+            const changeLanguage = document.getElementById("Change-Language"); 
+            const logOut = document.getElementById("Log-Out"); 
+            const editProfile = document.getElementById("Edit-Profile");
+            
+            const input_search = document.getElementById("input-search"); 
+            const property_type = document.querySelector("#property-type span.current");
+            const Location = document.querySelector("#location span.current")
+            const search_btn = document.getElementById("search-data");
+            const property_status = document.getElementById("Property-Status");
+            const for_sale = document.getElementById("for_sale");
+            const for_rent = document.getElementById("for_rent");
+            const Bedrooms = document.getElementById("Bedrooms");
+            const Bathrooms = document.getElementById("Bathrooms");
+            const area_size = document.getElementById("area_size");
+            const price_range = document.getElementById("price_range"); 
+            
+            const labelAirConditioning = document.getElementById("label-air-conditioning");
+            const labelSwimmingPool = document.getElementById("label-swimming-pool");
+            const labelCentralHeating = document.getElementById("label-central-heating");
+            const labelLaundryRoom = document.getElementById("label-laundry-room");
+            const labelGym = document.getElementById("label-gym");
+            const labelAlarm = document.getElementById("label-alarm");
+            const labelWindowCovering = document.getElementById("label-window-covering");
+            const labelGarden = document.getElementById("label-garden");
+            const labelBBQArea = document.getElementById("label-bbq-area");
+            const labelWiFi = document.getElementById("label-wifi");
+            const labelTVCable = document.getElementById("label-tv-cable");
+            const labelDryer = document.getElementById("label-dryer");
+            const labelMicrowave = document.getElementById("label-microwave");
+            const labelWasher = document.getElementById("label-washer");
+            const labelRefrigerator = document.getElementById("label-refrigerator");
+            const labelOutdoorShower = document.getElementById("label-outdoor-shower");
+            const advanced_features = document.getElementById("advanced-features");
+
+
+            let Price = document.getElementById("Price")
+            let location = document.getElementById("LOCATION")
+            let Properties = document.getElementById("Properties")
+            let Real_Estates = document.getElementById("Real-Estates")
+            let Family = document.getElementById("Family")
+            let Garages = document.getElementById("Garages")
+            let Beds = document.getElementById("Beds")
+            let Baths = document.getElementById("Baths")
+            let Real_Home = document.getElementById("Real-Home")
+            let Houses = document.getElementById("Houses")
+
+            const h4 = document.querySelector(".widget-boxed-header #main-header");
+            const H4 = document.querySelector(".widget-boxed-header #main-Header");
+            const recent_properties_header = document.getElementById("recent-properties-header");
+            const popular_tags = document.getElementById("popular-tags");
+
+            const Home = document.getElementById("home");
+            const listings = document.getElementById("listings");
+
+            const grid_view = document.querySelector(".main-head");
+            const sort_by = document.getElementById("sort-by");
+
+            const top_selling = document.querySelector(".nice-select .option.selected");
+
+            if(language === "Ar") {
+                document.body.classList.add("arabic");
+                home.textContent = "الصفحة الرئيسية";
+                listing.textContent = "قائمة العقارات";
+                listingGrid.textContent = "عرض العقارات";
+                gridView.textContent = "عرض بالقائمة";
+                gridFullwidth.textContent = "عرض الشبكة الكامل";
+                contact.textContent = "التواصل";
+                login.textContent = "تسجيل الدخول";
+                register.textContent = "تسجيل";
+                signIn.textContent = "تسجيل الدخول";
+                changeLanguage.textContent = "تغيير اللغة";
+                logOut.textContent = "تسجيل الخروج";
+                editProfile.textContent = "تعديل الملف الشخصى";
+                
+                input_search.placeholder = "...أدخل كلمة البحث";
+                property_type.textContent = "نوع العقار";
+                Location.textContent = "الموقع";
+                search_btn.textContent = "ابحث";
+                property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
+                for_sale.textContent = "للبيع";
+                for_rent.textContent = "للإيجار";
+                Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
+                Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
+                area_size.textContent = "مساحة العقار";
+                price_range.textContent = "نطاق السعر"; 
+                advanced_features.setAttribute("data-open-title", "الميزات المتقدمة");
+
+
+                labelAirConditioning.textContent = "التكييف";
+                labelSwimmingPool.textContent = "حمام السباحة";
+                labelCentralHeating.textContent = "التدفئة المركزية";
+                labelLaundryRoom.textContent = "غرفة الغسيل";
+                labelGym.textContent = "صالة رياضية";
+                labelAlarm.textContent = "نظام إنذار";
+                labelWindowCovering.textContent = "ستائر النوافذ";
+                labelGarden.textContent = "حديقة";
+                labelBBQArea.textContent = "منطقة شواء";
+                labelWiFi.textContent = "الواي فاي";
+                labelTVCable.textContent = "كابل التلفزيون";
+                labelDryer.textContent = "النشافة";
+                labelMicrowave.textContent = "الميكروويف";
+                labelWasher.textContent = "الغسالة";
+                labelRefrigerator.textContent = "الثلاجة";
+                labelOutdoorShower.textContent = "دُش خارجي";
+
+                Houses.textContent = "المنازل";
+                Real_Home.textContent = "المنزل الحقيقي";
+                Baths.textContent = "الحمامات";
+                Beds.textContent = "غرف النوم";
+                Garages.textContent = "الكراجات";
+                Family.textContent = "عائلة";
+                Real_Estates.textContent = "عقارات";
+                Properties.textContent = "العقارات";
+                location.textContent = "الموقع";
+                Price.textContent = "السعر";
+
+                h4.textContent = "ابحث عن منزلك";
+                H4.textContent = "العقارات المميزة";
+                recent_properties_header.textContent = "العقارات الحديثة";
+                popular_tags.textContent = "الكلمات الشائعة";
+
+                Home.textContent = "الصفحة الرئيسية";
+                listings.textContent = "قائمة العقارات";
+
+                grid_view.textContent = "عرض بالشبكة";
+                sort_by.innerHTML = `<i class="fas fa-align-left fs-16 pr-2"></i>ترتيب حسب:`;
+                top_selling.textContent = "الأكثر مبيعًا";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", handleLanguage);
     </script>
 
 
