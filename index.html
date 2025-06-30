@@ -619,8 +619,8 @@
                                                                     <div class="form-group categories">
                                                                         <div class="nice-select form-control wide" tabindex="0"><span class="current" id="property-status"><i class="fa fa-home"></i>Property Status</span>
                                                                             <ul class="list">
-                                                                                <li data-value="1" class="option selected ">For Sale</li>
-                                                                                <li data-value="2" class="option">For Rent</li>
+                                                                                <li data-value="1" class="option selected" id="for_sale">For Sale</li>
+                                                                                <li data-value="2" class="option" id="for_rent">For Rent</li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -1928,6 +1928,8 @@
         const advanced_search = document.getElementById("advanced-search");
         const search_btn = document.getElementById("search-btn");
         const property_status = document.getElementById("property-status");
+        const for_sale = document.getElementById("for_sale");
+        const for_rent = document.getElementById("for_rent");
         const Bedrooms = document.getElementById("Bedrooms");
         const Bathrooms = document.getElementById("Bathrooms");
         const area_size = document.getElementById("area_size");
@@ -2013,6 +2015,8 @@
             advanced_search.textContent = "بحث متقدم";
             search_btn.textContent = "ابحث الان";
             property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
+            for_sale.textContent = "للبيع";
+            for_rent.textContent = "للإيجار";
             Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
             Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
             area_size.textContent = "مساحة العقار";
