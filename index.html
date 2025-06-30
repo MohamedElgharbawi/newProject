@@ -356,6 +356,9 @@
         .right-side.sign {
             padding: 0 !important;
         }
+        .homepage-9.hp-6 .explore__form-checkbox-list.full-filter.filter-block {
+            min-width: 100%;
+        }
     </style>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -520,10 +523,10 @@
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
                                                                     <!-- Form Property Status -->
                                                                     <div class="form-group categories">
-                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-home"></i>Property Status</span>
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current" id="Property-Status"><i class="fa fa-home"></i>Property Status</span>
                                                                             <ul class="list">
-                                                                                <li data-value="1" class="option selected ">For Sale</li>
-                                                                                <li data-value="2" class="option">For Rent</li>
+                                                                                <li data-value="1" class="option selected" id="forSale">For Sale</li>
+                                                                                <li data-value="2" class="option" id="forRent">For Rent</li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -532,7 +535,7 @@
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
                                                                     <!-- Form Bedrooms -->
                                                                     <div class="form-group beds">
-                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</span>
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current" id="bedrooms"><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</span>
                                                                             <ul class="list">
                                                                                 <li data-value="1" class="option selected">1</li>
                                                                                 <li data-value="2" class="option">2</li>
@@ -552,7 +555,7 @@
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
                                                                     <!-- Form Bathrooms -->
                                                                     <div class="form-group bath">
-                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</span>
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current" id="bathrooms"><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</span>
                                                                             <ul class="list">
                                                                                 <li data-value="1" class="option selected">1</li>
                                                                                 <li data-value="2" class="option">2</li>
@@ -574,7 +577,7 @@
                                                                     <div class="main-search-field-2">
                                                                         <!-- Area Size -->
                                                                         <div class="mb-5">
-                                                                            <label>Area Size</label>
+                                                                            <label id="Area-Size">Area Size</label>
                                                                             <div class="area-slider" class="mb-4"></div>
                                                                             <div class="d-flex justify-content-between items-center">
                                                                                 <span class="area-min">0 sq ft</span> 
@@ -583,7 +586,7 @@
                                                                         </div>
                                                                         <!-- Price Range -->
                                                                         <div>
-                                                                            <label>Price Range</label>
+                                                                            <label id="Price-Range">Price Range</label>
                                                                             <div class="price-slider" class="mb-4"></div>
                                                                             <div class="d-flex justify-content-between items-center">
                                                                                 <span class="price-min">$0</span>
@@ -596,19 +599,19 @@
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-1">
                                                                         <input id="check-2" type="checkbox" name="check">
-                                                                        <label for="check-2">Air Conditioning</label>
+                                                                        <label for="check-2" id="Air-Conditioning">Air Conditioning</label>
                                                                         <input id="check-3" type="checkbox" name="check">
-                                                                        <label for="check-3">Swimming Pool</label>
+                                                                        <label for="check-3" id="Swimming-Pool">Swimming Pool</label>
                                                                         <input id="check-4" type="checkbox" name="check">
-                                                                        <label for="check-4">Central Heating</label>
+                                                                        <label for="check-4" id="Central-Heating">Central Heating</label>
                                                                         <input id="check-5" type="checkbox" name="check">
-                                                                        <label for="check-5">Laundry Room</label>
+                                                                        <label for="check-5" id="Laundry-Room">Laundry Room</label>
                                                                         <input id="check-6" type="checkbox" name="check">
-                                                                        <label for="check-6">Gym</label>
+                                                                        <label for="check-6" id="Gym">Gym</label>
                                                                         <input id="check-7" type="checkbox" name="check">
-                                                                        <label for="check-7">Alarm</label>
+                                                                        <label for="check-7" id="Alarm">Alarm</label>
                                                                         <input id="check-8" type="checkbox" name="check">
-                                                                        <label for="check-8">Window Covering</label>
+                                                                        <label for="check-8" id="Window-Covering">Window Covering</label>
                                                                     </div>
                                                                     <!-- Checkboxes / End -->
                                                                 </div>
@@ -616,19 +619,19 @@
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-2">
                                                                         <input id="check-9" type="checkbox" name="check">
-                                                                        <label for="check-9">WiFi</label>
+                                                                        <label for="check-9" id="WiFi">WiFi</label>
                                                                         <input id="check-10" type="checkbox" name="check">
-                                                                        <label for="check-10">TV Cable</label>
+                                                                        <label for="check-10" id="TV-Cable">TV Cable</label>
                                                                         <input id="check-11" type="checkbox" name="check">
-                                                                        <label for="check-11">Dryer</label>
+                                                                        <label for="check-11" id="Dryer">Dryer</label>
                                                                         <input id="check-12" type="checkbox" name="check">
-                                                                        <label for="check-12">Microwave</label>
+                                                                        <label for="check-12" id="Microwave">Microwave</label>
                                                                         <input id="check-13" type="checkbox" name="check">
-                                                                        <label for="check-13">Washer</label>
+                                                                        <label for="check-13" id="Washer">Washer</label>
                                                                         <input id="check-14" type="checkbox" name="check">
-                                                                        <label for="check-14">Refrigerator</label>
+                                                                        <label for="check-14" id="Refrigerator">Refrigerator</label>
                                                                         <input id="check-15" type="checkbox" name="check">
-                                                                        <label for="check-15">Outdoor Shower</label>
+                                                                        <label for="check-15" id="Outdoor-Shower">Outdoor Shower</label>
                                                                     </div>
                                                                     <!-- Checkboxes / End -->
                                                                 </div>
@@ -1828,6 +1831,29 @@
         const location = document.querySelector(".location span.current");
         const advancedSearch = document.querySelector(".dropdown-filter span");
         const searchNow = document.getElementById("Search-Now");
+        const propertyStatus = document.getElementById("Property-Status");
+        const ForSale = document.getElementById("forSale");
+        const ForRent = document.getElementById("forRent");
+        const bedrooms = document.getElementById("bedrooms");
+        const bathrooms = document.getElementById("bathrooms");
+        const AreaSize = document.getElementById("Area-Size");
+        const PriceRange = document.getElementById("Price-Range");
+
+        const AirConditioning = document.getElementById("Air-Conditioning");
+        const SwimmingPool = document.getElementById("Swimming-Pool");
+        const CentralHeating = document.getElementById("Central-Heating");
+        const LaundryRoom = document.getElementById("Laundry-Room");
+        const Gym = document.getElementById("Gym");
+        const Alarm = document.getElementById("Alarm");
+        const WindowCovering = document.getElementById("Window-Covering");
+        const WiFi = document.getElementById("WiFi");
+        const TVCable = document.getElementById("TV-Cable");
+        const Dryer = document.getElementById("Dryer");
+        const Microwave = document.getElementById("Microwave");
+        const Washer = document.getElementById("Washer");
+        const Refrigerator = document.getElementById("Refrigerator");
+        const OutdoorShower = document.getElementById("Outdoor-Shower");
+
         if(language === "Ar") {
             home.textContent = "الصفحة الرئيسية";
             listing.textContent = "قائمة العقارات";
@@ -1850,8 +1876,30 @@
             location.textContent = "الموقع";
             advancedSearch.textContent = "بحث متقدم";
             searchNow.textContent = "ابحث الان";
+            propertyStatus.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
+            ForSale.textContent = "للبيع";
+            ForRent.textContent = "للإيجار";
+            bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
+            bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
+            AreaSize.textContent = "مساحة العقار";
+            PriceRange.textContent = "نطاق السعر";
+
+            AirConditioning.textContent = "التكييف";
+            SwimmingPool.textContent = "حمّام السباحة";
+            CentralHeating.textContent = "التدفئة المركزية";
+            LaundryRoom.textContent = "غرفة الغسيل";
+            Gym.textContent = "صالة رياضية";
+            Alarm.textContent = "نظام إنذار";
+            WindowCovering.textContent = "ستائر النوافذ";
+            WiFi.textContent = "الواي فاي";
+            TVCable.textContent = "كابل التلفزيون";
+            Dryer.textContent = "النشّافة";
+            Microwave.textContent = "الميكروويف";
+            Washer.textContent = "الغسالة";
+            Refrigerator.textContent = "الثلاجة";
+            OutdoorShower.textContent = "دُش خارجي";
         }
-    })
+    }) 
 
 
 
@@ -2280,8 +2328,8 @@
         const maxSpan = wrapper.querySelector(".price-max");
 
         slider.noUiSlider.on("update", (values) => {
-            if (minSpan) minSpan.innerText = "$" + values[0];
-            if (maxSpan) maxSpan.innerText = "$" + values[1];
+            if (minSpan) minSpan.innerText = "AED " + values[0];
+            if (maxSpan) maxSpan.innerText = "AED " + values[1];
         });
     });
 
@@ -2311,7 +2359,7 @@
         handleAllFunctions(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001");
     });
     
-</script>
+    </script>
 
     <script>
         const a = document.querySelector("#lang > a");
