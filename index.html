@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lobster&display=swap" rel="stylesheet">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="font/flaticon.css">
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
@@ -44,6 +47,10 @@
 </head>
 
     <style>
+        body.arabic, 
+        body.arabic *:not(i) {
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
+        }
         .social {
             position: fixed;
             top: 50%;
@@ -399,6 +406,10 @@
             #facilities_for_determination {
                 font-size: 14px;
             }
+        }
+        #featured-properties li {
+            display: flex !important;
+            align-items: center !important;
         }
     </style>
 
@@ -1178,8 +1189,8 @@
         <section class="feature-categories bg-white rec-pro">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Popular </span>Places</h2>
-                    <p>Properties In Most Popular Places.</p>
+                    <h2 id="popular-places-header"><span>Popular </span>Places</h2>
+                    <p id="popular-places-paragraph">Properties In Most Popular Places.</p>
                 </div>
                 <div class="row" id="popular-places" style="justify-content: center;">
                     
@@ -1193,8 +1204,8 @@
         <section class="featured portfolio bg-white-2 rec-pro full-l">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Featured </span>Properties</h2>
-                    <p>These are our featured properties</p>
+                    <h2 id="featured-properties-header"><span>Featured </span>Properties</h2>
+                    <p id="featured-properties-paragraph">These are our featured properties</p>
                 </div>
                 <div class="row portfolio-items" id="featured-properties">
                     <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 landscapes sale">
@@ -1582,7 +1593,7 @@
 
                 </div>
                 <div class="bg-all">
-                    <a href="properties-full-grid-1.html" class="btn btn-outline-light">View More</a>
+                    <a href="properties-full-grid-1.html" class="btn btn-outline-light" id="view-more-btn">View More</a>
                 </div>
             </div>
         </section>
@@ -1592,8 +1603,8 @@
         <section class="how-it-works bg-white rec-pro">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Why </span>Choose Us</h2>
-                    <p>We provide full service at every step.</p>
+                    <h2 id="why-choose-us-header"><span>Why </span>Choose Us</h2>
+                    <p id="why-choose-us-paragraph">We provide full service at every step.</p>
                 </div>
                 <div class="row service-1">
                     <article class="col-lg-3 col-md-6 col-xs-12 serv" data-aos="fade-up" data-aos-delay="150">
@@ -1601,7 +1612,7 @@
                             <div class="art-1 img-13">
                                 <i class="fas fa-house" style="color:var(--main-color);font-size:70px"></i>
                                 <!-- <img src="images/icons/icon-4.svg" alt=""> -->
-                                <h3>Wide Renge Of Properties</h3>
+                                <h3 id="first-secondry-header">Wide Renge Of Properties</h3>
                             </div>
                             <div class="service-text-p">
                                 <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
@@ -2473,12 +2484,20 @@
 
     async function fetchPopularPlaces(cl) {
             try {
+                const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
                 const popularPlaces = document.getElementById("popular-places");
                 const response = await fetch(`https://hre-group.net/api/popular/places?lang=${cl}`);
                 const data = await response.json();
                 const popularPlacesCount = data.length;
                 popularPlaces.innerHTML = "";
+                if(language === "Ar") {
+                    const header = document.getElementById("popular-places-header");
+                    const paragraph = document.getElementById("popular-places-paragraph");
+                    header.innerHTML = "اماكن مشهورة";
+                    paragraph.textContent = "العقارات في أشهر المناطق";
+                }
                 for(let i = 0 ; i < popularPlacesCount;i++) {
+                    let count = language === "Ar" ? `<span style="display:flex;align-items:center;gap:5px"><span style="order:-1">عقار</span>${data[i].count}</span>` : `<span>${data[i].count} Properties</span>`;
                     popularPlaces.innerHTML += `
                     <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
                         <div class="small-category-2">
@@ -2487,7 +2506,7 @@
                             </div>
                             <div class="sc-2-detail">
                                 <h4 class="sc-jb-title"><a href="properties-full-grid-1.html">${data[i].name}</a></h4>
-                                <span>${data[i].count} Properties</span>
+                                <span>${count}</span>
                             </div>
                         </div>
                     </div>`
@@ -2498,17 +2517,65 @@
             }
         }
     
+    function handleLanguageInWhyChooseUs() {
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+        if(language === "Ar") {
+            const why_choose_us_header = document.getElementById("why-choose-us-header");
+            const why_choose_us_paragraph = document.getElementById("why-choose-us-paragraph");
+            const first_secondry_header = document.getElementById("first-secondry-header");
+            
+
+
+
+            why_choose_us_header.innerHTML = "لماذا يجب أن تختارنا";
+            why_choose_us_paragraph.innerHTML = "نوفّر خدمة شاملة في كل مرحلة";
+            first_secondry_header.innerHTML = "مجموعة واسعة من العقارات";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", handleLanguageInWhyChooseUs);
+
     async function fetchFeaturedProperties(cl) {
             try {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            const view_more_btn = document.getElementById("view-more-btn");
             const featuredProperties = document.getElementById("featured-properties");
             const response = await fetch(`https://hre-group.net/api/property/recent?lang=${cl}`);
             const data = await response.json();
             const loopCount = data.length;
             let html = "";
+            if(language === "Ar") {
+                
+                const header = document.getElementById("featured-properties-header");
+                const paragraph = document.getElementById("featured-properties-paragraph");
+                header.innerHTML = "العقارات المميزة";
+                paragraph.innerHTML ="هذه هي عقاراتنا المميزة";
+                view_more_btn.innerHTML = "عرض المزيد";
+            }
             for (let i = 0; i < loopCount; i++) {
-                const property = data[i]; 
-                let website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
-                let state = property.state === "sale" ? "sale" : "rent"
+                const property = data[i];
+                let state = property.state === "sale" ? "sale" : "rent";
+                let website_type;
+                let propertyState;
+                let broker;
+                let bedrooms;
+                let bathrooms;
+                let parking;
+                if(language === "Ar") {
+                    website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
+                    propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
+                    broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
+                    bedrooms = `<i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bedrooms} <span style="order:-1">غرف نوم</span></span>`;
+                    bathrooms = `<i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> حمام</span></span>`;
+                    parking = `<i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> موقف سيارات</span></span>`
+                }else {
+                    website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
+                    propertyState = property.state === "sale" ? "For Sale" : "For Rent";
+                    broker = `<p style="margin-bottom:10px">Broker: ${property.broker}</p>`;
+                    bedrooms = `<i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>`;
+                    bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
+                    parking = `<i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>`;
+                }
                 html += `
                     <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 ${state}">
                         <div class="project-single" data-aos="${i % 2 ? "fade-left" : "fade-right"}">
@@ -2516,8 +2583,8 @@
                                 <div class="homes">
                                     <a href="single-property-1.html" class="homes-img">
                                         ${website_type}
-                                        <div class="homes-tag button alt ${state}">
-                                            ${property.state === "sale" ? "For Sale" : "For Rent"}
+                                        <div class="homes-tag button alt ${state}" style="background:var(--main-color) !important;margin-top:15px;right:15px">
+                                            ${propertyState}
                                         </div>
                                         <img src="https://hre-group.net${property.image_url}" alt="property-image" class="property-image">
                                     </a>
@@ -2538,21 +2605,21 @@
                                             <i class="fa fa-map-marker"></i><span>${property.location}</span>
                                         </a>
                                     </p>
-                                    <p style="margin-bottom:10px">Broker: ${property.broker}</p>
+                                    ${broker}
                                 </div>
 
                                 <ul class="homes-list clearfix pb-3" style="width:100% !important">
                                     <li class="the-icons">
-                                        <i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>
+                                        ${bedrooms}
                                     </li>
                                     <li class="the-icons">
-                                        <i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>
+                                        ${bathrooms}
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-square mr-2"></i><span>${property.area} sq ft</span>
                                     </li>
                                     <li class="the-icons">
-                                        <i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>
+                                        ${parking}
                                     </li>
                                 </ul>
                                 
@@ -2566,12 +2633,7 @@
                                         <a href="#" title="Favorites"><i class="flaticon-heart"></i></a>
                                     </div>
                                 </div>
-
-
-
                             </div>
-
-
                         </div>
                     </div>
                 `;
@@ -2914,6 +2976,9 @@
             document.querySelectorAll(".lang-tooltip").forEach(e => {
                 e.children[0].setAttribute("style", "display: none; !important");
             })
+        }
+        if(lang === "ar_001") {
+            document.body.classList.add("arabic");
         }
         handleSearch(lang);
         handleOurPartners(lang);
