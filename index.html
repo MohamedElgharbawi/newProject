@@ -421,6 +421,36 @@
         body.arabic #Sign-In {
             font-size: 14px;
         }
+        .singleJobClinet {
+            margin: 0 !important;
+            padding: 40px 20px !important;
+            display: flex !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            border-radius: 5px;
+            min-height: 300px !important;
+            gap: 20px;
+            p {
+                margin: 0 !important;
+            }
+        } 
+        @media (width < 991px) {
+            .singleJobClinet {
+                min-height: 270px !important;
+            }
+        }
+        @media (width < 725px) {
+            .singleJobClinet {
+                min-height: 230px !important;
+            }
+        }
+        @media (width < 640px) and (width > 599px) {
+            .branch-name,
+            .branch-description {
+                font-size: 14px !important;
+            }
+        }
+        
     </style>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -2105,7 +2135,7 @@
                 items: 2,
                 loop: true,
                 margin: 30,
-                autoplay: false,
+                autoplay: true,
                 nav: true,
                 smartSpeed: 1000,
                 slideSpeed: 1000,
@@ -2114,6 +2144,9 @@
                 responsive: {
                     0: {
                         items: 1
+                    },
+                    725:{
+                        item:2
                     },
                     991: {
                         items: 3
@@ -2936,26 +2969,30 @@
             <div class="item text-center" data-aos="fade-up">
                 <a href="https://hre-group.net${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
                     <div style="border-radius:50%;overflow:hidden !important;border:1px solid var(--main-color);background:#F5F5F5 !important"><img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important;min-height:150px !important;min-width:150px !important; object-fit: contain;opacity:1 !important;border-radius:50% !important"></div>
-                    <p style="margin-top: 8px;font-weight: bold;color:var(--main-color)">${branch.name}</p>
-                    <p style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
+                    <p class="branch-name" style="margin-top: 8px;font-weight: bold;color:var(--main-color)">${branch.name}</p>
+                    <p class="branch-description"style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
                 </a>
             </div>
             `;
         });
         container.innerHTML = html;
-        $('#our-partners').owlCarousel({
-            loop: true,
-            margin: 20,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            dots: false,
-            responsive: {
-            0: { items: 2 },
-            600: { items: 3 },
-            992: { items: 4 },
-            1200: { items: 4 }
-            }
-        });
+            $('#our-partners').owlCarousel({
+                loop: true,
+                margin: 20,
+                slideBy: 1,
+                smartSpeed: 600,
+                dragEndSpeed: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                dots: false,
+                slidesToScroll:1,
+                responsive: {
+                    0: { items: 2 },
+                    600: { items: 3 },
+                    992: { items: 4 },
+                    1200: { items: 4 }
+                }
+            }); 
         } catch (err) {
         console.error("Failed to fetch or render partners:", err);
         }
