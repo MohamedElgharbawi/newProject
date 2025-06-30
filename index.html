@@ -1702,8 +1702,8 @@
         <div class="partners bg-white rec-pro" style="background-color: #f5f7fb !important;">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Our </span>Branches</h2>
-                    <p>The Companies That Represent Us.</p>
+                    <h2 id="main-header"><span>Our </span>Branches</h2>
+                    <p id="main-paragraph">The Companies That Represent Us.</p>
                 </div>
                 <div class="owl-carousel owl-theme style2" id="our-partners" style="height:250px !important">
                     
@@ -1716,8 +1716,8 @@
         <section class="testimonials bg-white-2 rec-pro" style="background-color: white !important;">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Clients </span>Testimonials</h2>
-                    <p>We collect reviews from our customers.</p>
+                    <h2 id="main-header"><span>Clients </span>Testimonials</h2>
+                    <p id="main-paragraph">We collect reviews from our customers.</p>
                 </div>
                 <div class="owl-carousel job_clientSlide">
                     <div class="singleJobClinet" data-aos="zoom-in" data-aos-delay="150">
@@ -1913,7 +1913,8 @@
             </div>
         </footer>
 
-        <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+        <a data-scroll href="#wrapper" class="go-up" style="border:1px solid rgba(255, 255, 255, .2);"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
         <div class="social">
             <a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL" target="_blank" class="facebook">
                 <i class="fab fa-facebook"></i>
@@ -2830,6 +2831,7 @@
                 }else {
                     telephone = "+971" + data.brokers[i].whatsapp.slice(1);
                 }
+
                 agents.innerHTML += 
                     `<div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
                     <div class="inner-box team-details">
@@ -2838,13 +2840,13 @@
                         <div class="team-hover">
                             <ul class="team-social">
                             <li style="background:var(--main-color)"><a target="_blank" href="https://wa.me/971${data.brokers[i].whatsapp.replace("+971", "0").split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
+                            <li style="background:var(--main-color)"><a target="_blank" href="tel:${telephone}"><i class="fas fa-phone" style="color: #fff;"></i></a></li>
                             </ul>
                         </div>
                         </div>
                         <div class="lower-box" style="padding:5px !important">
                         <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
                         <div class="designation">${data.brokers[i].responsibility}</div>
-                        <span style="display:flex; gap:5px;align-items:center">${telephone}<i class="fas fa-phone" style="color: var(--main-color)"></i></span>
                         </div>
                     </div>
                     </div>`
@@ -2901,10 +2903,29 @@
         }
     }
 
+    function handleClientsTestimonials() {
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+        if(language === "Ar") {
+            const header = document.querySelector(".testimonials .sec-title #main-header");
+            const paragraph = document.querySelector(".testimonials .sec-title #main-paragraph");
+            header.innerHTML = "آراء العملاء";
+            paragraph.textContent = "نحن نجمع تقييمات من عملائنا";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", handleClientsTestimonials);
+
     async function handleOurPartners(cl) {
         try {
         const res = await fetch(`https://hre-group.net/api/branches?lang=${cl}`);
         const data = await res.json();
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+        const header = document.querySelector(".partners .sec-title #main-header");
+        const paragraph = document.querySelector(".partners .sec-title #main-paragraph");
+        if(language === "Ar") {
+            header.innerHTML = "فروعنا";
+            paragraph.textContent = "الشركات التي تُمثّلنا";
+        }
 
         const container = document.getElementById("our-partners");
         if (!container || !data.branches) return;
