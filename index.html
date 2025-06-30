@@ -415,9 +415,11 @@
         .how-it-works article .serv-flex { 
             height: 100%;
             display: flex;
-            /* justify-content: center; */
             align-items: center;
             flex-direction: column;
+        }
+        body.arabic #Sign-In {
+            font-size: 14px;
         }
     </style>
 
@@ -2489,6 +2491,11 @@
         }
     }) 
 
+    document.addEventListener("DOMContentLoaded", () => {
+        /* console.log("hi");
+        const e = document.getElementById("");
+        console.log(e); */
+    })
 
 
     async function fetchPopularPlaces(cl) {
