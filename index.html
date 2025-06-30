@@ -447,8 +447,11 @@
         @media (width < 640px) and (width > 599px) {
             .branch-name,
             .branch-description {
-                font-size: 14px !important;
+                font-size: 13px !important;
             }
+        }
+        @media (width < 429px) {
+
         }
         
     </style>
@@ -2544,7 +2547,8 @@
                 dots: false,
                 slidesToScroll:1,
                 responsive: {
-                    0: { items: 2 },
+                    0: { items: 1 },
+                    429:{items: 2},
                     600: { items: 3 },
                     992: { items: 4 },
                     1200: { items: 4 }
