@@ -411,6 +411,13 @@
             display: flex !important;
             align-items: center !important;
         }
+        .how-it-works article .serv-flex { 
+            height: 100%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+        }
     </style>
 
 <body class="homepage-9 hp-6 homepage-1 mh">
@@ -1615,7 +1622,7 @@
                                 <h3 id="first-secondry-header">Wide Renge Of Properties</h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                                <p class="text-center" id="first-secondry-paragraph">From luxury villas to cozy apartments, explore a wide selection of properties that suit every lifestyle and budget. Your dream home is just a click away!</p>
                             </div>
                         </div>
                     </article>
@@ -1624,10 +1631,10 @@
                             <div class="art-1 img-14">
                                 <i class="fas fa-handshake" style="color:var(--main-color);font-size:70px"></i>
                                 <!-- <img src="images/icons/icon-5.svg" alt=""> -->
-                                <h3>Trusted by thousands</h3>
+                                <h3 id="second-secondry-header">Trusted by thousands</h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                                <p class="text-center" id="second-secondry-paragraph">Thousands of happy clients have placed their trust in us. Our reputation is built on honesty, transparency, and results that speak for themselves.</p>
                             </div>
                         </div>
                     </article>
@@ -1636,10 +1643,10 @@
                             <div class="art-1 img-15">
                                 <i class="fas fa-wallet" style="color:var(--main-color);font-size:70px"></i>
                                 <!-- <img src="images/icons/icon-6.svg" alt=""> -->
-                                <h3>Financing made easy</h3>
+                                <h3 id="third-secondry-header">Financing made easy</h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                                <p class="text-center" id="third-secondry-paragraph">Buying your dream property has never been easier. With flexible financing options and expert guidance, we help turn your dream into reality.</p>
                             </div>
                         </div>
                     </article>
@@ -1648,10 +1655,10 @@
                             <div class="art-1 img-14">
                                 <i class="fas fa-map-marked-alt" style="color:var(--main-color);font-size:70px"></i>
                                 <!-- <img src="images/icons/icon-15.svg" alt=""> -->
-                                <h3>We are here near you</h3>
+                                <h3 id="fourth-secondry-header">We are here near you</h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                                <p class="text-center" id="fourth-secondry-paragraph">Wherever you are, we’re right there with you. With multiple branches across the region, our team is always nearby to support your real estate journey.</p>
                             </div>
                         </div>
                     </article>
@@ -2337,7 +2344,7 @@
             login.textContent = "تسجيل الدخول";
             register.textContent = "تسجيل";
             signIn.textContent = "تسجيل الدخول";
-            changeLanguage.textContent = "تغيير كلمة المرور";
+            changeLanguage.textContent = "تغيير اللغة";
             logOut.textContent = "تسجيل الخروج";
             editProfile.textContent = "تعديل الملف الشخصى";
             firstHeader.textContent = "ابحث عن حلمك";
@@ -2519,17 +2526,34 @@
     
     function handleLanguageInWhyChooseUs() {
         const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+
         if(language === "Ar") {
             const why_choose_us_header = document.getElementById("why-choose-us-header");
             const why_choose_us_paragraph = document.getElementById("why-choose-us-paragraph");
+            
             const first_secondry_header = document.getElementById("first-secondry-header");
+            const first_secondry_paragraph = document.getElementById("first-secondry-paragraph");
+            
+            const second_secondry_header = document.getElementById("second-secondry-header");
+            const second_secondry_paragraph = document.getElementById("second-secondry-paragraph");
+            
+            const third_secondry_header = document.getElementById("third-secondry-header");
+            const third_secondry_paragraph = document.getElementById("third-secondry-paragraph");
+            
+            const fourth_secondry_header = document.getElementById("fourth-secondry-header");
+            const fourth_secondry_paragraph = document.getElementById("fourth-secondry-paragraph");
             
 
-
-
-            why_choose_us_header.innerHTML = "لماذا يجب أن تختارنا";
-            why_choose_us_paragraph.innerHTML = "نوفّر خدمة شاملة في كل مرحلة";
-            first_secondry_header.innerHTML = "مجموعة واسعة من العقارات";
+            why_choose_us_header.textContent = "لماذا يجب أن تختارنا";
+            why_choose_us_paragraph.textContent = "نوفّر خدمة شاملة في كل مرحلة";
+            first_secondry_header.textContent = "مجموعة واسعة من العقارات";
+            first_secondry_paragraph.textContent = "من الفلل الفاخرة إلى الشقق الدافئة، اكتشف مجموعة واسعة من العقارات التي تناسب جميع الأذواق والميزانيات. منزلك الحُلم بانتظارك!";
+            second_secondry_header.textContent = "موثوق به من قبل الآلاف";
+            second_secondry_paragraph.textContent = "آلاف العملاء وضعوا ثقتهم بنا. سمعتنا مبنية على الصدق، الشفافية، ونتائج تتحدث عن نفسها.";
+            third_secondry_header.textContent = "تمويل بسهولة";
+            third_secondry_paragraph.textContent = "امتلاك العقار الذي تحلم به أصبح أسهل من أي وقت مضى. نوفر خيارات تمويل مرنة وإرشاداً احترافياً لتحقيق حلمك.";
+            fourth_secondry_header.textContent = "نحن هنا بالقرب منك";
+            fourth_secondry_paragraph.textContent = "أينما كنت، نحن بالقرب منك. لدينا فروع متعددة في مختلف المناطق، وفريقنا جاهز دائماً لدعمك في رحلتك العقارية";
         }
     }
 
