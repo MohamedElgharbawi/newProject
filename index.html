@@ -2354,8 +2354,7 @@
                         </div>
                     </div>
                 </div>
-                `
-            ;
+                `;
         }).join("");
 
         popularPlaces.innerHTML = propertiesHtml;
@@ -2366,8 +2365,10 @@
 
         setTimeout(() => {
             slickWrapper.slick({
-                infinite: false,
+                infinite: true,
                 slidesToShow: 4,
+                autoplaySpeed: 1500,
+                autoplay:true,
                 slidesToScroll: 1,
                 dots: true,
                 arrows: false,
@@ -2639,7 +2640,6 @@
     }
 
     function handleAllFunctions (lang) {
-        let langId = document.getElementById("lang");
         if(lang === "ar_001") {
             document.querySelectorAll(".lang-tooltip").forEach(e => {
                 e.children[1].setAttribute("style", "display: none; !important");
