@@ -192,6 +192,10 @@
             font-size: 18px !important;
         } 
 
+        .blog-info .description :last-child {
+            margin-bottom: 0 !important;
+        }
+
     </style>
 </head>
 
@@ -307,8 +311,8 @@
                                         <div class="single detail-wrapper mr-2">
                                             <div class="detail-wrapper-body">
                                                 <div class="listing-title-bar" style="display: flex;flex-direction:column;gap:10px">
-                                                    <h4 class="price">$ 230,000</h4>
-                                                    <p class="area">$ 1,200 / sq ft</p>
+                                                    <h4 class="price" style="display: flex;align-items:center;gap:4px">$ 230,000</h4>
+                                                    <p class="area" style="display: flex;align-items:center;gap:4px">$ 1,200 / sq ft</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -316,22 +320,24 @@
                                 </section>
                                 <!-- main slider carousel items -->
                                 <div id="listingDetailsSlider" class="carousel listing-details-sliders slide mb-30">
-                                    <h5 class="mb-4">Gallery</h5>
+                                    <h5 class="mb-4" id="gallery-header">Gallery</h5>
                                     <div class="carousel-inner">
-                                        <div class="active item carousel-item" data-slide-number="0">
-                                            <img src="images/single-property/s-1.jpg" class="img-fluid" alt="slider-listing">
-                                        </div>
-                                        <div class="item carousel-item" data-slide-number="1">
-                                            <img src="images/single-property/s-2.jpg" class="img-fluid" alt="slider-listing">
-                                        </div>
-                                        <div class="item carousel-item" data-slide-number="2">
-                                            <img src="images/single-property/s-3.jpg" class="img-fluid" alt="slider-listing">
-                                        </div>
-                                        <div class="item carousel-item" data-slide-number="4">
-                                            <img src="images/single-property/s-4.jpg" class="img-fluid" alt="slider-listing">
-                                        </div>
-                                        <div class="item carousel-item" data-slide-number="5">
-                                            <img src="images/single-property/s-5.jpg" class="img-fluid" alt="slider-listing">
+                                        <div id="images">
+                                            <div class="active item carousel-item" data-slide-number="0">
+                                                <img src="images/single-property/s-1.jpg" class="img-fluid" alt="slider-listing">
+                                            </div>
+                                            <div class="item carousel-item" data-slide-number="1">
+                                                <img src="images/single-property/s-2.jpg" class="img-fluid" alt="slider-listing">
+                                            </div>
+                                            <div class="item carousel-item" data-slide-number="2">
+                                                <img src="images/single-property/s-3.jpg" class="img-fluid" alt="slider-listing">
+                                            </div>
+                                            <div class="item carousel-item" data-slide-number="4">
+                                                <img src="images/single-property/s-4.jpg" class="img-fluid" alt="slider-listing">
+                                            </div>
+                                            <div class="item carousel-item" data-slide-number="5">
+                                                <img src="images/single-property/s-5.jpg" class="img-fluid" alt="slider-listing">
+                                            </div>
                                         </div>
 
                                         <a class="carousel-control left" href="#listingDetailsSlider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -369,56 +375,57 @@
                                     <!-- main slider carousel items -->
                                 </div>
                                 <div class="blog-info details mb-30">
-                                    <h5 class="mb-4">Description</h5>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit.</p>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit.</p>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit.</p>
+                                    <h5 class="mb-4" id="description">Description</h5>
+                                    <div class="description">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="single homes-content details mb-30">
                             <!-- title -->
-                            <h5 class="mb-4">Property Details</h5>
+                            <h5 class="mb-4" id="Property-Details">Property Details</h5>
                             <ul class="homes-list clearfix">
                                 <li>
-                                    <span class="font-weight-bold mr-1">Property ID:</span>
-                                    <span class="det">V254680</span>
+                                    <span class="font-weight-bold mr-1" id="id">Property ID:</span>
+                                    <span class="det" id="value-id">V254680</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Property Type:</span>
-                                    <span class="det">House</span>
+                                    <span class="font-weight-bold mr-1" id="property-type">Property Type:</span>
+                                    <span class="det" id="value-property-type">House</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Property status:</span>
-                                    <span class="det">For Sale</span>
+                                    <span class="font-weight-bold mr-1" id="property-status">Property Status:</span>
+                                    <span class="det" id="value-property-status">For Sale</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Property Price:</span>
-                                    <span class="det">$230,000</span>
+                                    <span class="font-weight-bold mr-1" id="property-price">Property Price:</span>
+                                    <span class="det" id="value-property-price">$230,000</span>
+                                </li>
+                                <!-- <li>
+                                    <span class="font-weight-bold mr-1" id="rooms">Rooms:</span>
+                                    <span class="det" id="value-rooms">6</span>
+                                </li> -->
+                                <li>
+                                    <span class="font-weight-bold mr-1" id="bedrooms">Bedrooms:</span>
+                                    <span class="det" id="value-bedrooms">7</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Rooms:</span>
-                                    <span class="det">6</span>
+                                    <span class="font-weight-bold mr-1" id="bath">Bath:</span>
+                                    <span class="det" id="value-bath">4</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Bedrooms:</span>
-                                    <span class="det">7</span>
+                                    <span class="font-weight-bold mr-1" id="garages">Garages:</span>
+                                    <span class="det" id="value-garages">2</span>
                                 </li>
                                 <li>
-                                    <span class="font-weight-bold mr-1">Bath:</span>
-                                    <span class="det">4</span>
+                                    <span class="font-weight-bold mr-1" id="year-built">Year Built:</span>
+                                    <span class="det" id="value-year-built">10/6/2020</span>
                                 </li>
-                                <li>
-                                    <span class="font-weight-bold mr-1">Garages:</span>
-                                    <span class="det">2</span>
-                                </li>
-                                <li>
-                                    <span class="font-weight-bold mr-1">Year Built:</span>
-                                    <span class="det">10/6/2020</span>
-                                </li>
+
                             </ul>
                             <!-- title -->
-                            <h5 class="mt-5">Amenities</h5>
+                            <h5 class="mt-5" id="amenities-header">Amenities</h5>
                             <!-- cars List -->
                             <ul class="homes-list clearfix">
                                 <li>
@@ -460,17 +467,17 @@
                             </ul>
                         </div>
                         <div class="floor-plan property wprt-image-video w50 pro">
-                            <h5>Floor Plans</h5>
+                            <h5 id="floor-plans-header">Floor Plans</h5>
                             <img alt="image" src="images/bg/floor-plan-1.png">
                         </div>
                         <div class="floor-plan property wprt-image-video w50 pro">
-                            <h5>What's Nearby</h5>
+                            <h5 id="Wt-Nearby-header">What's Nearby</h5>
                             <div class="property-nearby">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="nearby-info mb-4">
                                             <span class="nearby-title mb-3 d-block text-info">
-                                                <i class="fas fa-graduation-cap mr-2"></i><b class="title">Education</b>
+                                                <i class="fas fa-graduation-cap mr-2"></i><b class="title" id="education">Education</b>
                                             </span>
                                             <div class="nearby-list">
                                                 <ul class="property-list list-unstyled mb-0">
@@ -512,7 +519,7 @@
                                         </div>
                                         <div class="nearby-info mb-4">
                                             <span class="nearby-title mb-3 d-block text-success">
-                                              <i class="fas fa-user-md mr-2"></i><b class="title">Health & Medical</b>
+                                                <i class="fas fa-user-md mr-2"></i><b class="title" id="health-medical">Health & Medical</b>
                                             </span>
                                             <div class="nearby-list">
                                                 <ul class="property-list list-unstyled mb-0">
@@ -554,7 +561,7 @@
                                         </div>
                                         <div class="nearby-info">
                                             <span class="nearby-title mb-3 d-block text-danger">
-                                                <i class="fas fa-car mr-2"></i><b class="title">Transportation</b>
+                                                <i class="fas fa-car mr-2"></i><b class="title" id="transportation">Transportation</b>
                                             </span>
                                             <div class="nearby-list">
                                                 <ul class="property-list list-unstyled mb-0">
@@ -599,7 +606,7 @@
                             </div>
                         </div>
                         <div class="property wprt-image-video w50 pro">
-                            <h5>Property Video</h5>
+                            <h5 id="property-video-header">Property Video</h5>
                             <img alt="image" src="images/slider/home-slider-4.jpg">
                             <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=14semTlwyUY">
                                 <i class="fa fa-play"></i>
@@ -611,7 +618,7 @@
                             </div>
                         </div>
                         <div class="property-location map">
-                            <h5>Location</h5>
+                            <h5 id="location-header">Location</h5>
                             <div class="divider-fade"></div>
                             <div id="map-contact" class="contact-map"></div>
                         </div>
@@ -706,8 +713,8 @@
                         <section class="single reviews leve-comments details">
                             <div id="add-review" class="add-review-box">
                                 <!-- Add Review -->
-                                <h3 class="listing-desc-headline margin-bottom-20 mb-4">Add Review</h3>
-                                <span class="leave-rating-title">Your rating for this listing</span>
+                                <h3 class="listing-desc-headline margin-bottom-20 mb-4" id="add-review-header">Add Review</h3>
+                                <span class="leave-rating-title" id="rating-paragraph">Your rating for this listing</span>
                                 <!-- Rating / Upload Button -->
                                 <div class="row mb-4">
                                     <div class="col-md-6">
@@ -742,23 +749,23 @@
                                         <form action="#">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="name" class="form-control" placeholder="First Name" required>
+                                                    <input type="text" name="name" class="form-control" placeholder="First Name" required id="fn-input">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="name" class="form-control" placeholder="Last Name" required>
+                                                    <input type="text" name="name" class="form-control" placeholder="Last Name" required id="ln-input">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                                    <input type="email" name="email" class="form-control" placeholder="Email" required id="email-input">
                                                 </div>
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <textarea class="form-control" id="exampleTextarea" rows="8" placeholder="Review" required></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-lg mt-2">Submit Review</button>
+                                            <button type="submit" class="btn btn-primary btn-lg mt-2" id="submit-btn">Submit Review</button>
                                         </form>
                                     </div>
                                 </div>
@@ -1081,7 +1088,7 @@
                 <!-- START SIMILAR PROPERTIES -->
                 <section class="similar-property featured portfolio p-0 bg-white-inner">
                     <div class="container">
-                        <h5>Similar Properties</h5>
+                        <h5 id="similar-properties-header">Similar Properties</h5>
                         <div class="row portfolio-items">
                             <div class="item col-lg-4 col-md-6 col-xs-12 landscapes">
                                 <div class="project-single">
@@ -1598,8 +1605,35 @@
                     const feature_properties_header = document.querySelector("#feature-properties-header");
                     const specials_of_the_day = document.getElementById("specials-of-the-day");
                     const agent_information_header = document.getElementById("agent-information-header");
+                    const gallery_header = document.getElementById("gallery-header");
+                    const description = document.getElementById("description");
+                    const property_details = document.getElementById("Property-Details");
 
-
+                    const id = document.getElementById("id");
+                    const property_type = document.getElementById("property-type");
+                    const property_status = document.getElementById("property-status");
+                    const property_price = document.getElementById("property-price");
+                    // const rooms = document.getElementById("rooms");
+                    const bedrooms = document.getElementById("bedrooms");
+                    const bath = document.getElementById("bath");
+                    const garages = document.getElementById("garages");
+                    const year_built = document.getElementById("year-built");
+                    const floor_plans_header = document.getElementById("floor-plans-header");
+                    const amenities_header = document.getElementById("amenities-header");
+                    const Wt_Nearby_header = document.getElementById("Wt-Nearby-header");
+                    const education = document.getElementById("education");
+                    const health_medical = document.getElementById("health-medical");
+                    const transportation = document.getElementById("transportation");
+                    const property_video_header = document.getElementById("property-video-header");
+                    const location_header = document.getElementById("location-header");
+                    const add_review_header = document.getElementById("add-review-header");
+                    const rating_paragraph = document.getElementById("rating-paragraph");
+                    const fn = document.getElementById("fn-input");
+                    const ln = document.getElementById("ln-input");
+                    const email = document.getElementById("email-input");
+                    const exampleTextarea = document.getElementById("exampleTextarea");
+                    const submit_btn = document.getElementById("submit-btn");
+                    const similar_properties_header = document.getElementById("similar-properties-header");
 
 
 
@@ -1631,7 +1665,35 @@
                     feature_properties_header.textContent = "العقارات المميزة";
                     specials_of_the_day.textContent = "عروض اليوم المميزة";
                     agent_information_header.textContent = "بيانات الوسيط العقاري";
-                    
+                    gallery_header.textContent = "الصور";
+                    description.textContent = "الوصف";
+                    property_details.textContent = "تفاصيل العقار";
+
+                    id.textContent = " : المعرّف";
+                    property_type.textContent = " : نوع العقار";
+                    property_status.textContent = " : حالة العقار";
+                    property_price.textContent = " : السعر";
+                    // rooms.textContent = " : عدد الغرف";
+                    bedrooms.textContent = " : غرف النوم";
+                    bath.textContent = " : الحمّامات";
+                    garages.textContent = " : الكراجات";
+                    year_built.textContent = " : سنة البناء";
+                    floor_plans_header.textContent = "مخططات الطوابق";
+                    amenities_header.textContent = "الخدمات والمرافق";
+                    Wt_Nearby_header.textContent = "الأماكن القريبة";
+                    education.textContent = "التعليم";
+                    health_medical.textContent = "الصحة والخدمات الطبية";
+                    transportation.textContent = "وسائل النقل";
+                    property_video_header.textContent= "فيديو العقار";
+                    location_header.textContent = "الموقع";
+                    add_review_header.textContent = "إضافة تقييم";
+                    rating_paragraph.textContent = "تقييمك لهذا العقار";
+                    fn.placeholder = "الأسم الأول";
+                    ln.placeholder = "الأسم الأخير";
+                    email.placeholder = "الإيميل";
+                    exampleTextarea.placeholder = "التقييم";
+                    submit_btn.textContent = "إرسال التقييم";
+                    similar_properties_header.textContent = "عقارات مشابهة";
                 }
             }
 
@@ -1717,9 +1779,28 @@
                 const property_service = document.querySelector("#property-details h6");
                 const propertyPrice = document.querySelector(".listing-title-bar .price");
                 const propertyArea = document.querySelector(".listing-title-bar .area");
+                const images = document.getElementById("images");
+                const carousel_indicators = document.querySelector(".carousel-indicators");
+                const description = document.querySelector(".description");
+
+                const value_id = document.getElementById("value-id");
+                const value_property_type = document.getElementById("value-property-type");
+                const value_property_status = document.getElementById("value-property-status");
+                const value_property_price = document.getElementById("value-property-price");
+                // const value_rooms = document.getElementById("value-rooms");
+                const value_bedrooms = document.getElementById("value-bedrooms");
+                const value_bath = document.getElementById("value-bath");
+                const value_garages = document.getElementById("value-garages");
+                const value_year_built = document.getElementById("value-year-built");
+
                 response = await fetch(`https://hre-group.net/api/property/${id}?lang=${language}`);
                 data = await response.json();
                 console.log(data);
+
+
+                images.innerHTML = "";
+                carousel_indicators.innerHTML = "";                
+                
 
                 /////////
                 brokerName.textContent = data.broker.name;
@@ -1728,16 +1809,54 @@
                 <li><a target="_blank" href="https://wa.me/971${data.broker.whatsapp.slice(1)}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
                 `;
                 /////////
-                console.log(propertyName);
+                if(language === "ar_001") {
+                    property_service.textContent = `${data.property_service === "sale" ? "للبيع" : "للإيجار"}`;
+                    propertyPrice.innerHTML = data.property_service === "sale" ? `<span style="order:1"> :السعر</span> AED ${data.price}`: `<span style="order:1"> :السعر</span> AED ${data.price} / mo`;
+                    propertyArea.innerHTML = `<span style="order:1"> :المساحة</span> AED ${data.area}`
+                }else {
+                    property_service.textContent = `For ${data.property_service}`;
+                    propertyPrice.textContent = data.property_service === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
+                    propertyArea.textContent = `Area: ${data.area}sq ft`;
+                }
                 propertyName.textContent = data.name;
                 propertyLocation.innerHTML = `
                     <span class="country">${data.country}</span>
                     <span class="state">${data.state}</span>
                 `;
-                property_service.textContent = `For ${data.property_service}`;
-                propertyPrice.textContent = data.property_service === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
-                propertyArea.textContent = `Area: ${data.area}sq ft`
                 /////////
+                
+                /////////
+                for(let i = 0; i < data.images.length;i++) {
+                    images.innerHTML += `
+                        <div class="${!i ? "active" : ""} item carousel-item" data-slide-number="${i}">
+                            <img src="https://hre-group.net${data.images[i].url}" class="img-fluid" alt="${data.images[i].name}" style="max-height:500px;width:100%">
+                        </div>
+                    `;
+                }
+                for(let i =0 ; i < data.images.length;i++) {
+                    carousel_indicators.innerHTML += `
+                        <li class="list-inline-item ${!i ? "active" : ""}">
+                            <a id="carousel-selector-${i}" class="selected" data-slide-to="${i}" data-target="#listingDetailsSlider">
+                                <img src="https://hre-group.net${data.images[i].url}" class="img-fluid" alt="listing-small" style="width:60px;height:60px">
+                            </a>
+                        </li>
+                    `
+                }
+                description.innerHTML = data.description;
+                /////////
+                value_id.textContent = data.id;
+                value_property_type.textContent = data.properties_type;
+                value_property_status.textContent = `For ${data.property_service}`;
+                value_property_price.textContent = data.price;
+                // value_rooms.textContent;
+                value_bedrooms.textContent = data.bedrooms;
+                value_bath.textContent = data.bathroom;
+                value_garages.textContent;
+                value_year_built.textContent;
+                /////////
+
+                
+                
                 
                 $(slickContainer).slick({
                     slidesToShow: 1,
