@@ -67,6 +67,131 @@
         .hd-white .right-side.sign {
             padding:0 !important;
         }
+        .recent-post {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            span {
+                a {
+                    color: #fff;
+                    background: var(--main-color) !important;
+                    font-weight: bold;
+                }
+            }
+        }
+        #feature-properties .slick-dots li button {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        #feature-properties .slick-dots li button:before {
+            color: transparent;
+            border: 2px solid var(--main-color);
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            content: '';
+            display: inline-block;
+        }
+
+        #feature-properties .slick-dots li.slick-active button:before {
+            background-color: var(--main-color);
+        }
+        .slick-lancers> :first-child {
+            margin-left: 0 !important;
+        }
+
+        .slick-lancers>button {
+            background-color: var(--main-color) !important;
+
+            &::before {
+                color: white !important;
+            }
+
+            &.slick-next.slick-arrow {
+                margin-right: 15px !important;
+            }
+
+            &.slick-prev.slick-arrow {
+                margin-left: 15px !important;
+            }
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-box * {
+            margin: 0 !important; 
+        }
+
+        .author-box .right-side {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .author-box .right-side .top {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .author-box .right-side .bottom .author__contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-box .right-side .bottom .author__contact li a {
+            display: flex; 
+        }
+
+        .headings-2 {
+            padding-bottom: 30px !important;
+        }
+
+        .headings-2 .pro-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .headings-2 .pro-wrapper * {
+            margin: 0 !important;
+        }
+
+        .headings-2 #property-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .headings-2 #property-details i {
+            font-size: 22px;
+            padding:0 !important;
+        }
+
+        .headings-2 #property-details h3 {
+            font-size: 22px !important;
+        }
+
+        #property-details h6 {
+            background: var(--main-color);
+            color:#fff;
+            width: fit-content;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .detail-wrapper-body .price {
+            font-size: 18px !important;
+        } 
+
     </style>
 </head>
 
@@ -164,7 +289,7 @@
         <!-- END SECTION HEADINGS -->
 
         <!-- START SECTION PROPERTIES LISTING -->
-        <section class="single-proper blog details">
+        <section class="single-proper blog details" style="padding-top: 10rem !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-12 blog-pots">
@@ -173,24 +298,17 @@
                                 <section class="headings-2 pt-0">
                                     <div class="pro-wrapper">
                                         <div class="detail-wrapper-body">
-                                            <div class="listing-title-bar">
-                                                <h3>Luxury Villa House <span class="mrg-l-5 category-tag">For Sale</span></h3>
-                                                <div class="mt-0">
-                                                    <a href="#listing-location" class="listing-address">
-                                                        <i class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>77 - Central Park South, NYC
-                                                    </a>
-                                                </div>
+                                            <div class="listing-title-bar" id="property-details">
+                                                <h3>Luxury Villa House</h3>
+                                                <h5 class="listing-address" style="display:flex;align-items:center;gap:10px"><i class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i><div style="display: flex;flex-direction:column;gap:5px">77 - Central Park South, NYC</div></h5>
+                                                <h6>For Sale</h6>
                                             </div>
                                         </div>
                                         <div class="single detail-wrapper mr-2">
                                             <div class="detail-wrapper-body">
-                                                <div class="listing-title-bar">
-                                                    <h4>$ 230,000</h4>
-                                                    <div class="mt-0">
-                                                        <a href="#listing-location" class="listing-address">
-                                                            <p>$ 1,200 / sq ft</p>
-                                                        </a>
-                                                    </div>
+                                                <div class="listing-title-bar" style="display: flex;flex-direction:column;gap:10px">
+                                                    <h4 class="price">$ 230,000</h4>
+                                                    <p class="area">$ 1,200 / sq ft</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -651,7 +769,7 @@
                     <aside class="col-lg-4 col-md-12 car">
                         <div class="single widget">
                             <!-- Start: Schedule a Tour -->
-                            <div class="schedule widget-boxed mt-33 mt-0">
+                            <!-- <div class="schedule widget-boxed mt-33 mt-0">
                                 <div class="widget-boxed-header">
                                     <h4><i class="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
                                 </div>
@@ -700,27 +818,35 @@
                                     </div>
                                     <a href="payment-method.html" class="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End: Schedule a Tour -->
                             <!-- end author-verified-badge -->
                             <div class="sidebar">
-                                <div class="widget-boxed mt-33 mt-5">
+                                <div class="widget-boxed mt-33">
                                     <div class="widget-boxed-header">
-                                        <h4>Agent Information</h4>
+                                        <h4 id="agent-information-header">Agent Information</h4>
                                     </div>
                                     <div class="widget-boxed-body">
                                         <div class="sidebar-widget author-widget2">
                                             <div class="author-box clearfix">
-                                                <img src="images/testimonials/ts-1.jpg" alt="author-image" class="author__img">
-                                                <h4 class="author__title">Lisa Clark</h4>
-                                                <p class="author__meta">Agent of Property</p>
+                                                <div class="left-side">
+                                                    <img src="images/testimonials/ts-1.jpg" alt="author-image" class="author__img">
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="top">
+                                                        <h4 class="author__title">Lisa Clark</h4>
+                                                        <p class="author__meta">Agent of Property</p>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <ul class="author__contact">
+                                                            <li><span class="la la-map-marker"><i class="fa fa-map-marker"></i></span>302 Av Park, New York</li>
+                                                            <li><span class="la la-phone"><i class="fa fa-phone" aria-hidden="true"></i></span><a href="#">(234) 0200 17813</a></li>
+                                                            <li><span class="la la-envelope-o"><i class="fa fa-envelope" aria-hidden="true"></i></span><a href="#">lisa@gmail.com</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <ul class="author__contact">
-                                                <li><span class="la la-map-marker"><i class="fa fa-map-marker"></i></span>302 Av Park, New York</li>
-                                                <li><span class="la la-phone"><i class="fa fa-phone" aria-hidden="true"></i></span><a href="#">(234) 0200 17813</a></li>
-                                                <li><span class="la la-envelope-o"><i class="fa fa-envelope" aria-hidden="true"></i></span><a href="#">lisa@gmail.com</a></li>
-                                            </ul>
-                                            <div class="agent-contact-form-sidebar">
+                                            <!-- <div class="agent-contact-form-sidebar">
                                                 <h4>Request Inquiry</h4>
                                                 <form name="contact_form" method="post" action="functions.php">
                                                     <input type="text" id="fname" name="full_name" placeholder="Full Name" required />
@@ -729,16 +855,151 @@
                                                     <textarea placeholder="Message" name="message" required></textarea>
                                                     <input type="submit" name="sendmessage" class="multiple-send-message" value="Submit Request" />
                                                 </form>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="main-search-field-2">
                                     <div class="widget-boxed mt-5">
-                                        <div class="widget-boxed-header">
-                                            <h4>Recent Properties</h4>
+                                        <div class="widget-boxed-header mb-5">
+                                            <h4 id="feature-properties-header">Feature Properties</h4>
                                         </div>
-                                        <div class="widget-boxed-body">
+                                        <div class="widget-boxed-body" id="feature-properties">
+                                            <div class="slick-lancers">
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 230,000</span>
+                                                                <span style="background: #33495E;">For Sale</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>New
+                                                                        York</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-1.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 6,500</span>
+                                                                <span class="rent" style="background: #33495E;">For Rent</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>Los
+                                                                        Angles</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-2.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 230,000</span>
+                                                                <span style="background:#33495E">For Sale</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>San
+                                                                        Francisco</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-3.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 6,500</span>
+                                                                <span class="rent" style="background:#33495E">For Rent</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>Miami
+                                                                        FL</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-4.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 230,000</span>
+                                                                <span style="background:#33495E">For Sale</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>Chicago
+                                                                        IL</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-5.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="agents-grid mr-0">
+                                                    <div class="listing-item compact">
+                                                        <a href="properties-details.html" class="listing-img-container">
+                                                            <div class="listing-badges">
+                                                                <span class="featured">$ 6,500</span>
+                                                                <span class="rent" style="background:#33495E">For Rent</span>
+                                                            </div>
+                                                            <div class="listing-img-content">
+                                                                <span class="listing-compact-title">House Luxury <i>Toronto
+                                                                        CA</i></span>
+                                                                <ul class="listing-hidden-content">
+                                                                    <li>Area <span>720 sq ft</span></li>
+                                                                    <li>Rooms <span>6</span></li>
+                                                                    <li>Beds <span>2</span></li>
+                                                                    <li>Baths <span>3</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <img src="images/feature-properties/fp-6.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-boxed mt-5">
+                                        <div class="widget-boxed-header">
+                                            <h4 id="recent-properties-header">Recent Properties</h4>
+                                        </div>
+                                        <div class="widget-boxed-body" id="recent-properties">
                                             <div class="recent-post">
                                                 <div class="recent-main">
                                                     <div class="recent-img">
@@ -770,139 +1031,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="widget-boxed mt-5">
-                                        <div class="widget-boxed-header mb-5">
-                                            <h4>Feature Properties</h4>
-                                        </div>
-                                        <div class="widget-boxed-body">
-                                            <div class="slick-lancers">
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 230,000</span>
-                                                                <span>For Sale</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>New York</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-1.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 6,500</span>
-                                                                <span class="rent">For Rent</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>Los Angles</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 230,000</span>
-                                                                <span>For Sale</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>San Francisco</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-3.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 6,500</span>
-                                                                <span class="rent">For Rent</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>Miami FL</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-4.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 230,000</span>
-                                                                <span>For Sale</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>Chicago IL</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-5.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="agents-grid mr-0">
-                                                    <div class="listing-item compact">
-                                                        <a href="properties-details.html" class="listing-img-container">
-                                                            <div class="listing-badges">
-                                                                <span class="featured">$ 6,500</span>
-                                                                <span class="rent">For Rent</span>
-                                                            </div>
-                                                            <div class="listing-img-content">
-                                                                <span class="listing-compact-title">House Luxury <i>Toronto CA</i></span>
-                                                                <ul class="listing-hidden-content">
-                                                                    <li>Area <span>720 sq ft</span></li>
-                                                                    <li>Rooms <span>6</span></li>
-                                                                    <li>Beds <span>2</span></li>
-                                                                    <li>Baths <span>3</span></li>
-                                                                </ul>
-                                                            </div>
-                                                            <img src="images/feature-properties/fp-6.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- Start: Specials offer -->
                                     <div class="widget-boxed popular mt-5">
                                         <div class="widget-boxed-header">
-                                            <h4>Specials of the day</h4>
+                                            <h4 id="specials-of-the-day">Specials of the day</h4>
                                         </div>
                                         <div class="widget-boxed-body">
                                             <div class="banner"><img src="images/single-property/banner.jpg" alt=""></div>
@@ -911,29 +1043,32 @@
                                     <!-- End: Specials offer -->
                                     <div class="widget-boxed popular mt-5">
                                         <div class="widget-boxed-header">
-                                            <h4>Popular Tags</h4>
+                                            <h4 id="popular-tags">Popular Tags</h4>
                                         </div>
                                         <div class="widget-boxed-body">
                                             <div class="recent-post">
-                                                <div class="tags">
-                                                    <span><a href="#" class="btn btn-outline-primary">Houses</a></span>
-                                                    <span><a href="#" class="btn btn-outline-primary">Real Home</a></span>
-                                                </div>
-                                                <div class="tags">
-                                                    <span><a href="#" class="btn btn-outline-primary">Baths</a></span>
-                                                    <span><a href="#" class="btn btn-outline-primary">Beds</a></span>
-                                                </div>
-                                                <div class="tags">
-                                                    <span><a href="#" class="btn btn-outline-primary">Garages</a></span>
-                                                    <span><a href="#" class="btn btn-outline-primary">Family</a></span>
-                                                </div>
-                                                <div class="tags">
-                                                    <span><a href="#" class="btn btn-outline-primary">Real Estates</a></span>
-                                                    <span><a href="#" class="btn btn-outline-primary">Properties</a></span>
-                                                </div>
-                                                <div class="tags no-mb">
-                                                    <span><a href="#" class="btn btn-outline-primary">Location</a></span>
-                                                    <span><a href="#" class="btn btn-outline-primary">Price</a></span>
+                                                
+                                                <!-- <div class="tags"> -->
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Houses">Houses</a></span>
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Home">Real Home</a></span>
+                                                <!-- </div> -->
+                                                <!-- <div class="tags"> -->
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Baths">Baths</a></span>
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Beds">Beds</a></span>
+                                                <!-- </div> -->
+                                                <!-- <div class="tags"> -->
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Garages">Garages</a></span>
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Family">Family</a></span>
+                                                <!-- </div> -->
+                                                <!-- <div class="tags"> -->
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Estates">Real Estates</a></span>
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Properties">Properties</a></span>
+                                                <!-- </div> -->
+                                                <!-- <div class="tags no-mb"> -->
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Location">Location</a></span>
+                                                <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Price">Price</a></span>
+                                                <!-- </div> -->
+                                                
                                                 </div>
                                             </div>
                                         </div>
@@ -1436,6 +1571,7 @@
             function handleLanguage() {
                 let language = localStorage.getItem("lang") === "Ar" ? "Arabic" : "English";
                 if(language === "Arabic") {
+                    
                     const home = document.getElementById("Home"); 
                     const listing = document.getElementById("Listing");
                     const listingGrid = document.getElementById("Listing-Grid");
@@ -1449,6 +1585,26 @@
                     const logOut = document.getElementById("Log-Out"); 
                     const editProfile = document.getElementById("Edit-Profile");
 
+                    const popular_tags = document.getElementById("popular-tags");
+                    const Price = document.getElementById("Price");
+                    const location = document.getElementById("Location");
+                    const Properties = document.getElementById("Properties");
+                    const Real_Estates = document.getElementById("Real-Estates");
+                    const Family = document.getElementById("Family");
+                    const Garages = document.getElementById("Garages");
+                    const Beds = document.getElementById("Beds");
+                    const Baths = document.getElementById("Baths");
+                    const Real_Home = document.getElementById("Real-Home");
+                    const Houses = document.getElementById("Houses");
+                    const recent_properties_header = document.getElementById("recent-properties-header");
+                    const feature_properties_header = document.querySelector("#feature-properties-header");
+                    const specials_of_the_day = document.getElementById("specials-of-the-day");
+                    const agent_information_header = document.getElementById("agent-information-header");
+
+
+
+
+
                     home.textContent = "الصفحة الرئيسية";
                     listing.textContent = "قائمة العقارات";
                     listingGrid.textContent = "عرض العقارات";
@@ -1461,23 +1617,146 @@
                     changeLanguage.textContent = "تغيير اللغة";
                     logOut.textContent = "تسجيل الخروج";
                     editProfile.textContent = "تعديل الملف الشخصى";
+
+                    popular_tags.textContent = "الكلمات الشائعة";
+                    Houses.textContent = "المنازل";
+                    Real_Home.textContent = "المنزل الحقيقي";
+                    Baths.textContent = "الحمامات";
+                    Beds.textContent = "غرف النوم";
+                    Garages.textContent = "الكراجات";
+                    Family.textContent = "عائلة";
+                    Real_Estates.textContent = "عقارات";
+                    Properties.textContent = "العقارات";
+                    location.textContent = "الموقع";
+                    Price.textContent = "السعر";
+                    recent_properties_header.textContent = "العقارات الحديثة";
+                    feature_properties_header.textContent = "العقارات المميزة";
+                    specials_of_the_day.textContent = "عروض اليوم المميزة";
+                    agent_information_header.textContent = "بيانات الوسيط العقاري";
                     
-                    input_search.placeholder = "...أدخل كلمة البحث";
-                    property_type.textContent = "نوع العقار";
-                    Location.textContent = "الموقع";
-                    search_btn.textContent = "ابحث";
-                    property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
-                    for_sale.textContent = "للبيع";
-                    for_rent.textContent = "للإيجار";
-                    Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
-                    Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
-                    area_size.textContent = "مساحة العقار";
-                    price_range.textContent = "نطاق السعر"; 
-                    advanced_features.setAttribute("data-open-title", "الميزات المتقدمة");
                 }
             }
 
             document.addEventListener("DOMContentLoaded", handleLanguage)
+        </script>
+
+        <script>
+            async function getProperty(){ 
+                const language = localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001";
+                const featureProperties = document.querySelector(".slick-lancers");
+                const recentProperties = document.querySelector("#recent-properties .recent-post");
+                const slickContainer = document.querySelector('.slick-lancers');
+                if ($(slickContainer).hasClass('slick-initialized')) {
+                    $(slickContainer).slick('unslick');
+                }
+                recentProperties.innerHTML = "";
+                featureProperties.innerHTML = "";
+                let response = await fetch(`https://hre-group.net/api/property/recent?lang=${language}`);
+                let data = await response.json();
+                for (let i = 0; i < data.length; i++) {
+                    let state;
+                    let area;
+                    let bedrooms;
+                    let bathroom;
+                    if(language === "ar_001") {
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
+                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].area} sq ft</span></li>`;
+                        bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
+                        bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
+                    }else {
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
+                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>`;
+                        bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
+                        bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
+                    }
+                    featureProperties.innerHTML += `
+                        <div class="agents-grid mr-0">
+                            <div class="listing-item compact">
+                                <a href="properties-details.html" class="listing-img-container">
+                                    
+                                    <div class="listing-badges" style="padding-top:10px">
+                                        <span class="featured" style="width:fit-content;top:0 !important;background:var(--main-color)">AED ${data[i].price}</span>
+                                        ${state}
+                                    </div>
+                                    <div class="listing-img-content">
+                                        <span class="listing-compact-title">${data[i].name}</span>
+                                        <ul class="listing-hidden-content" style="display:flex;justify-content:space-between;align-items:center;background:var(--main-color);padding-inline:10px">
+                                            ${area}
+                                            ${bedrooms}
+                                            <!-- <li>Beds <span>2</span></li> -->
+                                            ${bathroom}
+                                        </ul>
+                                    </div>
+                                    <img src="https://hre-group.net${data[i].image_url}" alt="" style="max-height:250px;height:250px">
+                                </a>
+                            </div>
+                        </div>
+                    `
+                }
+                for(let i = 0; i < 3 ;i++){ 
+                    recentProperties.innerHTML += `
+                    <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
+                        <div class="recent-img">
+                            <a href="blog-details.html"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
+                        </div>
+                        <div class="info-img" style="display:flex;flex-direction:column;gap:5px">
+                            <a href="blog-details.html" style="margin:0">
+                                <h6 style="margin:0">${data[i].name}</h6>
+                            </a>
+                            <p style="margin:0;color:var(--main-color) !important">AED ${data[i].price}</p>
+                        </div>
+                    </div>
+                    `
+                }
+
+
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id");
+                const brokerName = document.querySelector(".author-box .author__title");
+                const brokerContact = document.querySelector(".author__contact")
+                const propertyName = document.querySelector("#property-details h3");
+                const propertyLocation = document.querySelector("#property-details h5 div");
+                const property_service = document.querySelector("#property-details h6");
+                const propertyPrice = document.querySelector(".listing-title-bar .price");
+                const propertyArea = document.querySelector(".listing-title-bar .area");
+                response = await fetch(`https://hre-group.net/api/property/${id}?lang=${language}`);
+                data = await response.json();
+                console.log(data);
+
+                /////////
+                brokerName.textContent = data.broker.name;
+                brokerContact.innerHTML = `
+                <li><a href="tel:${data.broker.phone}"><i class="fas fa-phone"></i></a></li>
+                <li><a target="_blank" href="https://wa.me/971${data.broker.whatsapp.slice(1)}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
+                `;
+                /////////
+                console.log(propertyName);
+                propertyName.textContent = data.name;
+                propertyLocation.innerHTML = `
+                    <span class="country">${data.country}</span>
+                    <span class="state">${data.state}</span>
+                `;
+                property_service.textContent = `For ${data.property_service}`;
+                propertyPrice.textContent = data.property_service === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
+                propertyArea.textContent = `Area: ${data.area}sq ft`
+                /////////
+                
+                $(slickContainer).slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    dots: true,
+                    arrows: true,
+                });
+            }
+
+
+
+
+
+            document.addEventListener("DOMContentLoaded", getProperty);
+            
         </script>
         
 

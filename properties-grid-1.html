@@ -1685,7 +1685,7 @@
             }
             for(let i = 0; i< 3 ;i++){ 
                 recentProperties.innerHTML += `
-                    <div class="recent-main ${i === 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
+                    <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
                         <div class="recent-img">
                             <a href="blog-details.html"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
                         </div>
@@ -1759,16 +1759,16 @@
             const labelOutdoorShower = document.getElementById("label-outdoor-shower");
             const advanced_features = document.getElementById("advanced-features");
 
-            let Price = document.getElementById("Price")
-            let location = document.getElementById("Location")
-            let Properties = document.getElementById("Properties")
-            let Real_Estates = document.getElementById("Real-Estates")
-            let Family = document.getElementById("Family")
-            let Garages = document.getElementById("Garages")
-            let Beds = document.getElementById("Beds")
-            let Baths = document.getElementById("Baths")
-            let Real_Home = document.getElementById("Real-Home")
-            let Houses = document.getElementById("Houses")
+            const Price = document.getElementById("Price");
+            const location = document.getElementById("Location");
+            const Properties = document.getElementById("Properties");
+            const Real_Estates = document.getElementById("Real-Estates");
+            const Family = document.getElementById("Family");
+            const Garages = document.getElementById("Garages");
+            const Beds = document.getElementById("Beds");
+            const Baths = document.getElementById("Baths");
+            const Real_Home = document.getElementById("Real-Home");
+            const Houses = document.getElementById("Houses");
 
             const h4 = document.querySelector(".widget-boxed-header #main-header");
             const H4 = document.querySelector(".widget-boxed-header #main-Header");

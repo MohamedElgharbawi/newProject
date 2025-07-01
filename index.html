@@ -1771,8 +1771,6 @@
 
         </script>
 
-        
-
         <script>
             $(document).ready(function () {
             $('.slick-lancers').slick({
@@ -1892,288 +1890,387 @@
 
     </div>
     <!-- Wrapper / End -->
-    <script>
+        <script>
 
-    function handleClick(lang) {
-        localStorage.setItem("lang", lang);
-        location.reload();
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-        const home = document.getElementById("Home"); 
-        const listing = document.getElementById("Listing");
-        const listingGrid = document.getElementById("Listing-Grid");
-        const gridView = document.getElementById("Grid-View");
-        const gridFullwidth = document.getElementById("Grid-Fullwidth");
-        const contact = document.getElementById("Contact"); 
-        const login = document.getElementById("Login"); 
-        const register = document.getElementById("Register"); 
-        const signIn = document.getElementById("Sign-In"); 
-        const changeLanguage = document.getElementById("Change-Language"); 
-        const logOut = document.getElementById("Log-Out"); 
-        const editProfile = document.getElementById("Edit-Profile");
-        const firstHeader = document.getElementById("First-Header");
-        const firstParagraph = document.getElementById("first-paragraph");
-        const forSale = document.getElementById("For-Sale");
-        const forRent = document.getElementById("For-Rent");
-
-        const input_search = document.getElementById("input-search"); 
-        const property_type = document.querySelector("#property-type span.current");
-        const Location = document.querySelector("#location span.current")
-        const advanced_search = document.getElementById("advanced-search");
-        const search_btn = document.getElementById("search-btn");
-        const property_status = document.getElementById("property-status");
-        const for_sale = document.getElementById("for_sale");
-        const for_rent = document.getElementById("for_rent");
-        const Bedrooms = document.getElementById("Bedrooms");
-        const Bathrooms = document.getElementById("Bathrooms");
-        const area_size = document.getElementById("area_size");
-        const price_range = document.getElementById("price_range"); 
-
-        const labelAirConditioning = document.getElementById("label-air-conditioning");
-        const labelSwimmingPool = document.getElementById("label-swimming-pool");
-        const labelCentralHeating = document.getElementById("label-central-heating");
-        const labelLaundryRoom = document.getElementById("label-laundry-room");
-        const labelGym = document.getElementById("label-gym");
-        const labelAlarm = document.getElementById("label-alarm");
-        const labelWindowCovering = document.getElementById("label-window-covering");
-        const labelGarden = document.getElementById("label-garden");
-        const labelBBQArea = document.getElementById("label-bbq-area");
-
-        const labelWiFi = document.getElementById("label-wifi");
-        const labelTVCable = document.getElementById("label-tv-cable");
-        const labelDryer = document.getElementById("label-dryer");
-        const labelMicrowave = document.getElementById("label-microwave");
-        const labelWasher = document.getElementById("label-washer");
-        const labelRefrigerator = document.getElementById("label-refrigerator");
-        const labelOutdoorShower = document.getElementById("label-outdoor-shower");
-        const labelChildCareCenter = document.getElementById("label-child-care-center");
-        const labelKidsArea = document.getElementById("label-kids-area");
-
-        const labelCafeteria = document.getElementById("label-cafeteria");
-        const labelMedicalCenter = document.getElementById("label-medical-center");
-        const labelJaccuzi = document.getElementById("label-jaccuzi");
-        const labelSauna = document.getElementById("label-sauna");
-        const labelSteamRoom = document.getElementById("label-steam-room");
-        const labelFacilities = document.getElementById("label-facilities");
-        const labelLaundryServices = document.getElementById("label-laundry-services");
-        const labelSharedKitchen = document.getElementById("label-shared-kitchen");
-        const labelBalcony = document.getElementById("label-balcony");
-
-        const labelLobby = document.getElementById("label-lobby");
-        const labelElevators = document.getElementById("label-elevators");
-        const labelLiftCount = document.getElementById("label-lift-count");
-        const labelWaitingArea = document.getElementById("label-waiting-area");
-        const labelFloorsCount = document.getElementById("label-floors-count");
-        const labelBusinessCenter = document.getElementById("label-business-center");
-        const labelMeetingRoom = document.getElementById("label-meeting-room");
-        const labelSecurity = document.getElementById("label-security");
-        const labelSafety = document.getElementById("label-safety");
-
-        const labelCCTVSystem = document.getElementById("label-cctv-system");
-        const labelInternet = document.getElementById("label-internet");
-        const labelIntercom = document.getElementById("label-intercom");
-        const labelDoubleGlazing = document.getElementById("label-double-glazing");
-        const labelFurnishing = document.getElementById("label-furnishing");
-        const labelCentralAC = document.getElementById("label-central-ac");
-        const labelCentralHS = document.getElementById("label-central-hs");
-        const labelPowerSupply = document.getElementById("label-power-supply");
-        const labelParkingCount = document.getElementById("label-parking-count");
-
-        const labelStudyRoom = document.getElementById("label-study-room");
-        const labelStore = document.getElementById("label-store");
-        const labelWasteDisposal = document.getElementById("label-waste-disposal");
-        const labelMaintenance = document.getElementById("label-maintenance");
-        const labelCleaning = document.getElementById("label-cleaning");
-
-        if(language === "Ar") {
-            home.textContent = "الصفحة الرئيسية";
-            listing.textContent = "قائمة العقارات";
-            listingGrid.textContent = "عرض العقارات";
-            gridView.textContent = "عرض بالقائمة";
-            gridFullwidth.textContent = "عرض الشبكة الكامل";
-            contact.textContent = "التواصل";
-            login.textContent = "تسجيل الدخول";
-            register.textContent = "تسجيل";
-            signIn.textContent = "تسجيل الدخول";
-            changeLanguage.textContent = "تغيير اللغة";
-            logOut.textContent = "تسجيل الخروج";
-            editProfile.textContent = "تعديل الملف الشخصى";
-            firstHeader.textContent = "ابحث عن حلمك";
-            firstParagraph.textContent = "لدينا أكثر من مليون عقار من أجلك.";
-            forSale.textContent = "للبيع";
-            forRent.textContent = "للإيجار";
-
-            input_search.placeholder = "...أدخل كلمة البحث";
-            property_type.textContent = "نوع العقار";
-            Location.textContent = "الموقع";
-            advanced_search.textContent = "بحث متقدم";
-            search_btn.textContent = "ابحث الان";
-            property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
-            for_sale.textContent = "للبيع";
-            for_rent.textContent = "للإيجار";
-            Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
-            Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
-            area_size.textContent = "مساحة العقار";
-            price_range.textContent = "نطاق السعر"; 
-
-            labelAirConditioning.textContent = "التكييف";
-            labelSwimmingPool.textContent = "حمام السباحة";
-            labelCentralHeating.textContent = "التدفئة المركزية";
-            labelLaundryRoom.textContent = "غرفة الغسيل";
-            labelGym.textContent = "صالة رياضية";
-            labelAlarm.textContent = "نظام إنذار";
-            labelWindowCovering.textContent = "ستائر النوافذ";
-            labelGarden.textContent = "حديقة";
-            labelBBQArea.textContent = "منطقة شواء";
-
-            labelWiFi.textContent = "الواي فاي";
-            labelTVCable.textContent = "كابل التلفزيون";
-            labelDryer.textContent = "النشافة";
-            labelMicrowave.textContent = "الميكروويف";
-            labelWasher.textContent = "الغسالة";
-            labelRefrigerator.textContent = "الثلاجة";
-            labelOutdoorShower.textContent = "دُش خارجي";
-            labelChildCareCenter.textContent = "مركز رعاية الأطفال";
-            labelKidsArea.textContent = "منطقة للأطفال";
-
-            labelCafeteria.textContent = "كافتيريا";
-            labelMedicalCenter.textContent = "مركز طبي";
-            labelJaccuzi.textContent = "جاكوزي";
-            labelSauna.textContent = "ساونا";
-            labelSteamRoom.textContent = "غرفة بخار";
-            labelFacilities.textContent = "تسهيلات لذوي الهمم";
-            labelLaundryServices.textContent = "خدمات غسيل";
-            labelSharedKitchen.textContent = "مطبخ مشترك";
-            labelBalcony.textContent = "شرفة";
-
-            labelLobby.textContent = "اللوبي";
-            labelElevators.textContent = "المصاعد";
-            labelLiftCount.textContent = "عدد المصاعد";
-            labelWaitingArea.textContent = "منطقة الانتظار";
-            labelFloorsCount.textContent = "عدد الطوابق";
-            labelBusinessCenter.textContent = "مركز الأعمال";
-            labelMeetingRoom.textContent = "غرفة الاجتماعات";
-            labelSecurity.textContent = "الأمن";
-            labelSafety.textContent = "السلامة";
-
-            labelCCTVSystem.textContent = "نظام كاميرات المراقبة";
-            labelInternet.textContent = "الإنترنت";
-            labelIntercom.textContent = "الانتركم";
-            labelDoubleGlazing.textContent = "زجاج مزدوج";
-            labelFurnishing.textContent = "التأثيث";
-            labelCentralAC.textContent = "تكييف مركزي";
-            labelCentralHS.textContent = "نظام التدفئة المركزي";
-            labelPowerSupply.textContent = "إمداد الطاقة";
-            labelParkingCount.textContent = "عدد مواقف السيارات";
-
-            labelStudyRoom.textContent = "غرفة دراسة";
-            labelStore.textContent = "مخزن";
-            labelWasteDisposal.textContent = "التخلص من النفايات";
-            labelMaintenance.textContent = "الصيانة";
-            labelCleaning.textContent = "التنظيف";
-
-        }
-    }) 
-
-    async function fetchPopularPlaces(cl) {
-            try {
-                const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-                const popularPlaces = document.getElementById("popular-places");
-                const response = await fetch(`https://hre-group.net/api/popular/places?lang=${cl}`);
-                const data = await response.json();
-                const popularPlacesCount = data.length;
-                popularPlaces.innerHTML = "";
-                if(language === "Ar") {
-                    const header = document.getElementById("popular-places-header");
-                    const paragraph = document.getElementById("popular-places-paragraph");
-                    header.innerHTML = "اماكن مشهورة";
-                    paragraph.textContent = "العقارات في أشهر المناطق";
-                }
-                for(let i = 0 ; i < popularPlacesCount;i++) {
-                    let count = language === "Ar" ? `<span style="display:flex;align-items:center;gap:5px"><span style="order:-1">عقار</span>${data[i].count}</span>` : `<span>${data[i].count} Properties</span>`;
-                    popularPlaces.innerHTML += `
-                    <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
-                        <div class="small-category-2">
-                            <div class="small-category-2-thumb img-1">
-                                <a href="properties-full-grid-1.html"><img src="https://hre-group.net${data[i].image}" alt=""></a>
-                            </div>
-                            <div class="sc-2-detail">
-                                <h4 class="sc-jb-title"><a href="properties-full-grid-1.html">${data[i].name}</a></h4>
-                                <span>${count}</span>
-                            </div>
-                        </div>
-                    </div>`
-                    AOS.init();
-                }
-            }catch(e) {
-                console.log(e);
-            }
+        function handleClick(lang) {
+            localStorage.setItem("lang", lang);
+            location.reload();
         }
     
-    function handleLanguageInWhyChooseUs() {
-        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-
-        if(language === "Ar") {
-            const why_choose_us_header = document.getElementById("why-choose-us-header");
-            const why_choose_us_paragraph = document.getElementById("why-choose-us-paragraph");
-            
-            const first_secondry_header = document.getElementById("first-secondry-header");
-            const first_secondry_paragraph = document.getElementById("first-secondry-paragraph");
-            
-            const second_secondry_header = document.getElementById("second-secondry-header");
-            const second_secondry_paragraph = document.getElementById("second-secondry-paragraph");
-            
-            const third_secondry_header = document.getElementById("third-secondry-header");
-            const third_secondry_paragraph = document.getElementById("third-secondry-paragraph");
-            
-            const fourth_secondry_header = document.getElementById("fourth-secondry-header");
-            const fourth_secondry_paragraph = document.getElementById("fourth-secondry-paragraph");
-            
-
-            why_choose_us_header.textContent = "لماذا يجب أن تختارنا";
-            why_choose_us_paragraph.textContent = "نوفّر خدمة شاملة في كل مرحلة";
-            first_secondry_header.textContent = "مجموعة واسعة من العقارات";
-            first_secondry_paragraph.textContent = "من الفلل الفاخرة إلى الشقق الدافئة، اكتشف مجموعة واسعة من العقارات التي تناسب جميع الأذواق والميزانيات. منزلك الحُلم بانتظارك!";
-            second_secondry_header.textContent = "موثوق به من قبل الآلاف";
-            second_secondry_paragraph.textContent = "آلاف العملاء وضعوا ثقتهم بنا. سمعتنا مبنية على الصدق، الشفافية، ونتائج تتحدث عن نفسها.";
-            third_secondry_header.textContent = "تمويل بسهولة";
-            third_secondry_paragraph.textContent = "امتلاك العقار الذي تحلم به أصبح أسهل من أي وقت مضى. نوفر خيارات تمويل مرنة وإرشاداً احترافياً لتحقيق حلمك.";
-            fourth_secondry_header.textContent = "نحن هنا بالقرب منك";
-            fourth_secondry_paragraph.textContent = "أينما كنت، نحن بالقرب منك. لدينا فروع متعددة في مختلف المناطق، وفريقنا جاهز دائماً لدعمك في رحلتك العقارية";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", handleLanguageInWhyChooseUs);
-
-    async function fetchFeaturedProperties(cl) {
-            try {
+        document.addEventListener("DOMContentLoaded", () => {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-            const view_more_btn = document.getElementById("view-more-btn");
-            const featuredProperties = document.getElementById("featured-properties");
-            const response = await fetch(`https://hre-group.net/api/property/recent?lang=${cl}`);
-            const data = await response.json();
-            const loopCount = data.length;
-            let html = "";
+            const home = document.getElementById("Home"); 
+            const listing = document.getElementById("Listing");
+            const listingGrid = document.getElementById("Listing-Grid");
+            const gridView = document.getElementById("Grid-View");
+            const gridFullwidth = document.getElementById("Grid-Fullwidth");
+            const contact = document.getElementById("Contact"); 
+            const login = document.getElementById("Login"); 
+            const register = document.getElementById("Register"); 
+            const signIn = document.getElementById("Sign-In"); 
+            const changeLanguage = document.getElementById("Change-Language"); 
+            const logOut = document.getElementById("Log-Out"); 
+            const editProfile = document.getElementById("Edit-Profile");
+            const firstHeader = document.getElementById("First-Header");
+            const firstParagraph = document.getElementById("first-paragraph");
+            const forSale = document.getElementById("For-Sale");
+            const forRent = document.getElementById("For-Rent");
+
+            const input_search = document.getElementById("input-search"); 
+            const property_type = document.querySelector("#property-type span.current");
+            const Location = document.querySelector("#location span.current")
+            const advanced_search = document.getElementById("advanced-search");
+            const search_btn = document.getElementById("search-btn");
+            const property_status = document.getElementById("property-status");
+            const for_sale = document.getElementById("for_sale");
+            const for_rent = document.getElementById("for_rent");
+            const Bedrooms = document.getElementById("Bedrooms");
+            const Bathrooms = document.getElementById("Bathrooms");
+            const area_size = document.getElementById("area_size");
+            const price_range = document.getElementById("price_range"); 
+
+            const labelAirConditioning = document.getElementById("label-air-conditioning");
+            const labelSwimmingPool = document.getElementById("label-swimming-pool");
+            const labelCentralHeating = document.getElementById("label-central-heating");
+            const labelLaundryRoom = document.getElementById("label-laundry-room");
+            const labelGym = document.getElementById("label-gym");
+            const labelAlarm = document.getElementById("label-alarm");
+            const labelWindowCovering = document.getElementById("label-window-covering");
+            const labelGarden = document.getElementById("label-garden");
+            const labelBBQArea = document.getElementById("label-bbq-area");
+
+            const labelWiFi = document.getElementById("label-wifi");
+            const labelTVCable = document.getElementById("label-tv-cable");
+            const labelDryer = document.getElementById("label-dryer");
+            const labelMicrowave = document.getElementById("label-microwave");
+            const labelWasher = document.getElementById("label-washer");
+            const labelRefrigerator = document.getElementById("label-refrigerator");
+            const labelOutdoorShower = document.getElementById("label-outdoor-shower");
+            const labelChildCareCenter = document.getElementById("label-child-care-center");
+            const labelKidsArea = document.getElementById("label-kids-area");
+
+            const labelCafeteria = document.getElementById("label-cafeteria");
+            const labelMedicalCenter = document.getElementById("label-medical-center");
+            const labelJaccuzi = document.getElementById("label-jaccuzi");
+            const labelSauna = document.getElementById("label-sauna");
+            const labelSteamRoom = document.getElementById("label-steam-room");
+            const labelFacilities = document.getElementById("label-facilities");
+            const labelLaundryServices = document.getElementById("label-laundry-services");
+            const labelSharedKitchen = document.getElementById("label-shared-kitchen");
+            const labelBalcony = document.getElementById("label-balcony");
+
+            const labelLobby = document.getElementById("label-lobby");
+            const labelElevators = document.getElementById("label-elevators");
+            const labelLiftCount = document.getElementById("label-lift-count");
+            const labelWaitingArea = document.getElementById("label-waiting-area");
+            const labelFloorsCount = document.getElementById("label-floors-count");
+            const labelBusinessCenter = document.getElementById("label-business-center");
+            const labelMeetingRoom = document.getElementById("label-meeting-room");
+            const labelSecurity = document.getElementById("label-security");
+            const labelSafety = document.getElementById("label-safety");
+
+            const labelCCTVSystem = document.getElementById("label-cctv-system");
+            const labelInternet = document.getElementById("label-internet");
+            const labelIntercom = document.getElementById("label-intercom");
+            const labelDoubleGlazing = document.getElementById("label-double-glazing");
+            const labelFurnishing = document.getElementById("label-furnishing");
+            const labelCentralAC = document.getElementById("label-central-ac");
+            const labelCentralHS = document.getElementById("label-central-hs");
+            const labelPowerSupply = document.getElementById("label-power-supply");
+            const labelParkingCount = document.getElementById("label-parking-count");
+
+            const labelStudyRoom = document.getElementById("label-study-room");
+            const labelStore = document.getElementById("label-store");
+            const labelWasteDisposal = document.getElementById("label-waste-disposal");
+            const labelMaintenance = document.getElementById("label-maintenance");
+            const labelCleaning = document.getElementById("label-cleaning");
+
             if(language === "Ar") {
-                
-                const header = document.getElementById("featured-properties-header");
-                const paragraph = document.getElementById("featured-properties-paragraph");
-                header.innerHTML = "العقارات المميزة";
-                paragraph.innerHTML ="هذه هي عقاراتنا المميزة";
-                view_more_btn.innerHTML = "عرض المزيد";
+                home.textContent = "الصفحة الرئيسية";
+                listing.textContent = "قائمة العقارات";
+                listingGrid.textContent = "عرض العقارات";
+                gridView.textContent = "عرض بالقائمة";
+                gridFullwidth.textContent = "عرض الشبكة الكامل";
+                contact.textContent = "التواصل";
+                login.textContent = "تسجيل الدخول";
+                register.textContent = "تسجيل";
+                signIn.textContent = "تسجيل الدخول";
+                changeLanguage.textContent = "تغيير اللغة";
+                logOut.textContent = "تسجيل الخروج";
+                editProfile.textContent = "تعديل الملف الشخصى";
+                firstHeader.textContent = "ابحث عن حلمك";
+                firstParagraph.textContent = "لدينا أكثر من مليون عقار من أجلك.";
+                forSale.textContent = "للبيع";
+                forRent.textContent = "للإيجار";
+
+                input_search.placeholder = "...أدخل كلمة البحث";
+                property_type.textContent = "نوع العقار";
+                Location.textContent = "الموقع";
+                advanced_search.textContent = "بحث متقدم";
+                search_btn.textContent = "ابحث الان";
+                property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
+                for_sale.textContent = "للبيع";
+                for_rent.textContent = "للإيجار";
+                Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
+                Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
+                area_size.textContent = "مساحة العقار";
+                price_range.textContent = "نطاق السعر"; 
+
+                labelAirConditioning.textContent = "التكييف";
+                labelSwimmingPool.textContent = "حمام السباحة";
+                labelCentralHeating.textContent = "التدفئة المركزية";
+                labelLaundryRoom.textContent = "غرفة الغسيل";
+                labelGym.textContent = "صالة رياضية";
+                labelAlarm.textContent = "نظام إنذار";
+                labelWindowCovering.textContent = "ستائر النوافذ";
+                labelGarden.textContent = "حديقة";
+                labelBBQArea.textContent = "منطقة شواء";
+
+                labelWiFi.textContent = "الواي فاي";
+                labelTVCable.textContent = "كابل التلفزيون";
+                labelDryer.textContent = "النشافة";
+                labelMicrowave.textContent = "الميكروويف";
+                labelWasher.textContent = "الغسالة";
+                labelRefrigerator.textContent = "الثلاجة";
+                labelOutdoorShower.textContent = "دُش خارجي";
+                labelChildCareCenter.textContent = "مركز رعاية الأطفال";
+                labelKidsArea.textContent = "منطقة للأطفال";
+
+                labelCafeteria.textContent = "كافتيريا";
+                labelMedicalCenter.textContent = "مركز طبي";
+                labelJaccuzi.textContent = "جاكوزي";
+                labelSauna.textContent = "ساونا";
+                labelSteamRoom.textContent = "غرفة بخار";
+                labelFacilities.textContent = "تسهيلات لذوي الهمم";
+                labelLaundryServices.textContent = "خدمات غسيل";
+                labelSharedKitchen.textContent = "مطبخ مشترك";
+                labelBalcony.textContent = "شرفة";
+
+                labelLobby.textContent = "اللوبي";
+                labelElevators.textContent = "المصاعد";
+                labelLiftCount.textContent = "عدد المصاعد";
+                labelWaitingArea.textContent = "منطقة الانتظار";
+                labelFloorsCount.textContent = "عدد الطوابق";
+                labelBusinessCenter.textContent = "مركز الأعمال";
+                labelMeetingRoom.textContent = "غرفة الاجتماعات";
+                labelSecurity.textContent = "الأمن";
+                labelSafety.textContent = "السلامة";
+
+                labelCCTVSystem.textContent = "نظام كاميرات المراقبة";
+                labelInternet.textContent = "الإنترنت";
+                labelIntercom.textContent = "الانتركم";
+                labelDoubleGlazing.textContent = "زجاج مزدوج";
+                labelFurnishing.textContent = "التأثيث";
+                labelCentralAC.textContent = "تكييف مركزي";
+                labelCentralHS.textContent = "نظام التدفئة المركزي";
+                labelPowerSupply.textContent = "إمداد الطاقة";
+                labelParkingCount.textContent = "عدد مواقف السيارات";
+
+                labelStudyRoom.textContent = "غرفة دراسة";
+                labelStore.textContent = "مخزن";
+                labelWasteDisposal.textContent = "التخلص من النفايات";
+                labelMaintenance.textContent = "الصيانة";
+                labelCleaning.textContent = "التنظيف";
+
             }
-            for (let i = 0; i < loopCount; i++) {
-                const property = data[i];
-                let state = property.state === "sale" ? "sale" : "rent";
+        }) 
+
+        async function fetchPopularPlaces(cl) {
+                try {
+                    const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+                    const popularPlaces = document.getElementById("popular-places");
+                    const response = await fetch(`https://hre-group.net/api/popular/places?lang=${cl}`);
+                    const data = await response.json();
+                    const popularPlacesCount = data.length;
+                    popularPlaces.innerHTML = "";
+                    if(language === "Ar") {
+                        const header = document.getElementById("popular-places-header");
+                        const paragraph = document.getElementById("popular-places-paragraph");
+                        header.innerHTML = "اماكن مشهورة";
+                        paragraph.textContent = "العقارات في أشهر المناطق";
+                    }
+                    for(let i = 0 ; i < popularPlacesCount;i++) {
+                        let count = language === "Ar" ? `<span style="display:flex;align-items:center;gap:5px"><span style="order:-1">عقار</span>${data[i].count}</span>` : `<span>${data[i].count} Properties</span>`;
+                        popularPlaces.innerHTML += `
+                        <div class="col-xl-3 col-lg-6 col-sm-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
+                            <div class="small-category-2">
+                                <div class="small-category-2-thumb img-1">
+                                    <a href="properties-full-grid-1.html"><img src="https://hre-group.net${data[i].image}" alt=""></a>
+                                </div>
+                                <div class="sc-2-detail">
+                                    <h4 class="sc-jb-title"><a href="properties-full-grid-1.html">${data[i].name}</a></h4>
+                                    <span>${count}</span>
+                                </div>
+                            </div>
+                        </div>`
+                        AOS.init();
+                    }
+                }catch(e) {
+                    console.log(e);
+                }
+            }
+        
+        function handleLanguageInWhyChooseUs() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+
+            if(language === "Ar") {
+                const why_choose_us_header = document.getElementById("why-choose-us-header");
+                const why_choose_us_paragraph = document.getElementById("why-choose-us-paragraph");
+                
+                const first_secondry_header = document.getElementById("first-secondry-header");
+                const first_secondry_paragraph = document.getElementById("first-secondry-paragraph");
+                
+                const second_secondry_header = document.getElementById("second-secondry-header");
+                const second_secondry_paragraph = document.getElementById("second-secondry-paragraph");
+                
+                const third_secondry_header = document.getElementById("third-secondry-header");
+                const third_secondry_paragraph = document.getElementById("third-secondry-paragraph");
+                
+                const fourth_secondry_header = document.getElementById("fourth-secondry-header");
+                const fourth_secondry_paragraph = document.getElementById("fourth-secondry-paragraph");
+                
+
+                why_choose_us_header.textContent = "لماذا يجب أن تختارنا";
+                why_choose_us_paragraph.textContent = "نوفّر خدمة شاملة في كل مرحلة";
+                first_secondry_header.textContent = "مجموعة واسعة من العقارات";
+                first_secondry_paragraph.textContent = "من الفلل الفاخرة إلى الشقق الدافئة، اكتشف مجموعة واسعة من العقارات التي تناسب جميع الأذواق والميزانيات. منزلك الحُلم بانتظارك!";
+                second_secondry_header.textContent = "موثوق به من قبل الآلاف";
+                second_secondry_paragraph.textContent = "آلاف العملاء وضعوا ثقتهم بنا. سمعتنا مبنية على الصدق، الشفافية، ونتائج تتحدث عن نفسها.";
+                third_secondry_header.textContent = "تمويل بسهولة";
+                third_secondry_paragraph.textContent = "امتلاك العقار الذي تحلم به أصبح أسهل من أي وقت مضى. نوفر خيارات تمويل مرنة وإرشاداً احترافياً لتحقيق حلمك.";
+                fourth_secondry_header.textContent = "نحن هنا بالقرب منك";
+                fourth_secondry_paragraph.textContent = "أينما كنت، نحن بالقرب منك. لدينا فروع متعددة في مختلف المناطق، وفريقنا جاهز دائماً لدعمك في رحلتك العقارية";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", handleLanguageInWhyChooseUs);
+
+        async function fetchFeaturedProperties(cl) {
+                try {
+                const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+                const view_more_btn = document.getElementById("view-more-btn");
+                const featuredProperties = document.getElementById("featured-properties");
+                const response = await fetch(`https://hre-group.net/api/property/recent?lang=${cl}`);
+                const data = await response.json();
+                console.log(data);
+                const loopCount = data.length;
+                let html = "";
+                if(language === "Ar") {
+                    
+                    const header = document.getElementById("featured-properties-header");
+                    const paragraph = document.getElementById("featured-properties-paragraph");
+                    header.innerHTML = "العقارات المميزة";
+                    paragraph.innerHTML ="هذه هي عقاراتنا المميزة";
+                    view_more_btn.innerHTML = "عرض المزيد";
+                }
+                for (let i = 0; i < loopCount; i++) {
+                    const property = data[i];
+                    let state = property.state === "sale" ? "sale" : "rent";
+                    let website_type;
+                    let propertyState;
+                    let broker;
+                    let bedrooms;
+                    let bathrooms;
+                    let parking;
+                    if(language === "Ar") {
+                        website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
+                        propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
+                        broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
+                        bedrooms = `<i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bedrooms} <span style="order:-1">غرف نوم</span></span>`;
+                        bathrooms = `<i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> حمام</span></span>`;
+                        parking = `<i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> موقف سيارات</span></span>`
+                    }else {
+                        website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
+                        propertyState = property.state === "sale" ? "For Sale" : "For Rent";
+                        broker = `<p style="margin-bottom:10px">Broker: ${property.broker}</p>`;
+                        bedrooms = `<i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>`;
+                        bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
+                        parking = `<i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>`;
+                    }
+                    html += `
+                        <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 ${state}">
+                            <div class="project-single" data-aos="${i % 2 ? "fade-left" : "fade-right"}">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                            ${website_type}
+                                            <div class="homes-tag button alt ${state}" style="background:var(--main-color) !important;margin-top:15px;right:15px">
+                                                ${propertyState}
+                                            </div>
+                                            <img src="https://hre-group.net${property.image_url}" alt="property-image" class="property-image">
+                                    </div>
+                                    <div class="button-effect">
+                                        <a href="#" class="btn"><i class="fa fa-link"></i></a>
+                                        <a href="#" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                        <a href="#" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    </div>
+                                </div>
+                                <div class="homes-content d-flex justify-content-center align-items-center flex-column">
+                                    <div style="width:100% !important">
+                                        <h3><a href="single-property-1.html?id=${property.id}">${property.name}</a></h3>
+                                        <p class="homes-address" style="margin-bottom:5px">
+                                            <i class="fa fa-map-marker"></i><span>${property.location}</span>
+                                        </p>
+                                        ${broker}
+                                    </div>
+                                    <ul class="homes-list clearfix pb-3" style="width:100% !important">
+                                        <li class="the-icons">
+                                            ${bedrooms}
+                                        </li>
+                                        <li class="the-icons">
+                                            ${bathrooms}
+                                        </li>
+                                        <li class="the-icons">
+                                            <i class="flaticon-square mr-2"></i><span>${property.area} sq ft</span>
+                                        </li>
+                                        <li class="the-icons">
+                                            ${parking}
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="price-properties footer pb-0 d-flex align-items-center justify-content-between" style="flex-grow:1 !important;width:100% !important">    
+                                        <h3 class="title" style="color:var(--main-color);font-weight:bold">
+                                            AED ${property.price.toLocaleString()}
+                                        </h3>
+                                        <div class="compare" style="margin-top:0 !important">
+                                            <a href="#" title="Compare"><i class="flaticon-compare"></i></a>
+                                            <a href="#" title="Share"><i class="flaticon-share"></i></a>
+                                            <a href="#" title="Favorites"><i class="flaticon-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                featuredProperties.innerHTML = html;
+                AOS.init();
+                } catch (error) {
+                    console.error("Error fetching properties:", error);
+                }
+            }
+
+        async function fetchPopularProperties(cl) {
+            try {
+                const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+                const popularPlaces = document.getElementById("discover-popular-places");
+                const response = await fetch(`https://hre-group.net/api/property/featured?lang=${cl}`);
+                const data = await response.json();
+                const propertiesHtml = data.featured_properties.map((property, i) => {
+                const delayAttr = i <= 3 ? `data-aos-delay=${(i + 1) * 100 + 50}` : "";
+                const stateClass = property.state === "sale" ? "sale" : "rent";
                 let website_type;
                 let propertyState;
                 let broker;
                 let bedrooms;
                 let bathrooms;
                 let parking;
+                
+
                 if(language === "Ar") {
+                    const header = document.querySelector(".featured #featured-header");
+                    const paragraph = document.querySelector(".featured #featured-paragraph");
+                    header.innerHTML = "اكتشف العقارات الشائعة";
+                    paragraph.textContent = "نقدّم خدمة متكاملة في كل خطوة.";
                     website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
                     propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
                     broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
@@ -2188,579 +2285,472 @@
                     bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
                     parking = `<i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>`;
                 }
-                html += `
-                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 ${state}">
-                        <div class="project-single" data-aos="${i % 2 ? "fade-left" : "fade-right"}">
-                            <div class="project-inner project-head">
-                                <div class="homes">
-                                    <a href="single-property-1.html" class="homes-img">
-                                        ${website_type}
-                                        <div class="homes-tag button alt ${state}" style="background:var(--main-color) !important;margin-top:15px;right:15px">
-                                            ${propertyState}
-                                        </div>
-                                        <img src="https://hre-group.net${property.image_url}" alt="property-image" class="property-image">
-                                    </a>
+                return `
+                    <div class="agents-grid" data-aos="fade-up" ${delayAttr}>
+                        <div class="landscapes">
+                            <div class="project-single">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                            ${website_type}
+                                            <div class="homes-tag button alt ${stateClass}" style="background:var(--main-color) !important;margin-top:15px;right:15px">${propertyState}</div>
+                                            <img src="https://hre-group.net${property.image_url}" alt="home" class="img-responsive">
+                                    </div>
+                                    <div class="button-effect">
+                                        <a href="#" class="btn"><i class="fa fa-link"></i></a>
+                                        <a href="#" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                        <a href="#" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    </div>
                                 </div>
-                                <div class="button-effect">
-                                    <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                    <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                    <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="homes-content d-flex justify-content-center align-items-center flex-column">
-
-                                <div style="width:100% !important">
-                                    <h3><a href="single-property-1.html">${property.name}</a></h3>
+                                <div class="homes-content">
+                                    <h3><a href="single-property-1.html?id=${property.id}">${property.name}</a></h3>
                                     <p class="homes-address" style="margin-bottom:5px">
-                                        <a href="single-property-1.html">
                                             <i class="fa fa-map-marker"></i><span>${property.location}</span>
-                                        </a>
                                     </p>
-                                    ${broker}
-                                </div>
-
-                                <ul class="homes-list clearfix pb-3" style="width:100% !important">
-                                    <li class="the-icons">
-                                        ${bedrooms}
-                                    </li>
-                                    <li class="the-icons">
-                                        ${bathrooms}
-                                    </li>
-                                    <li class="the-icons">
-                                        <i class="flaticon-square mr-2"></i><span>${property.area} sq ft</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        ${parking}
-                                    </li>
-                                </ul>
-                                
-                                <div class="price-properties footer pb-0 d-flex align-items-center justify-content-between" style="flex-grow:1 !important;width:100% !important">    
-                                    <h3 class="title">
-                                        <a href="single-property-1.html" style="color:var(--main-color)">AED ${property.price.toLocaleString()}</a>
-                                    </h3>
-                                    <div class="compare" style="margin-top:0 !important">
-                                        <a href="#" title="Compare"><i class="flaticon-compare"></i></a>
-                                        <a href="#" title="Share"><i class="flaticon-share"></i></a>
-                                        <a href="#" title="Favorites"><i class="flaticon-heart"></i></a>
+                                    <p style="margin-bottom:10px">${broker}</p>
+                                    <ul class="homes-list clearfix pb-3">
+                                        <li class="the-icons">
+                                            ${bedrooms}
+                                        </li>
+                                        <li class="the-icons">
+                                            ${bathrooms}
+                                        </li>
+                                        <li class="the-icons">
+                                            <i class="flaticon-square mr-2"></i>
+                                            <span>${property.area} sq ft</span>
+                                        </li>
+                                        <li class="the-icons">
+                                            ${parking}
+                                        </li>
+                                    </ul>
+                                    <div class="price-properties footer pt-3 pb-0">
+                                        <h3 class="title mt-3" style="color:var(--main-color);font-weight:bold">
+                                            AED ${property.price}
+                                        </h3>
+                                        <div class="compare">
+                                            <a href="#" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                            <a href="#" title="Share">
+                                                <i class="flaticon-share"></i>
+                                            </a>
+                                            <a href="#" title="Favorites">
+                                                <i class="flaticon-heart"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                `;
-            }
-            featuredProperties.innerHTML = html;
-            AOS.init();
-            } catch (error) {
-                console.error("Error fetching properties:", error);
-            }
-        }
+                    `;
+            }).join("");
 
-    async function fetchPopularProperties(cl) {
-        try {
-            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-            const popularPlaces = document.getElementById("discover-popular-places");
-            const response = await fetch(`https://hre-group.net/api/property/featured?lang=${cl}`);
-            const data = await response.json();
-            const propertiesHtml = data.featured_properties.map((property, i) => {
-            const delayAttr = i <= 3 ? `data-aos-delay=${(i + 1) * 100 + 50}` : "";
-            const stateClass = property.state === "sale" ? "sale" : "rent";
-            let website_type;
-            let propertyState;
-            let broker;
-            let bedrooms;
-            let bathrooms;
-            let parking;
-            
-
-            if(language === "Ar") {
-                const header = document.querySelector(".featured #featured-header");
-                const paragraph = document.querySelector(".featured #featured-paragraph");
-                header.innerHTML = "اكتشف العقارات الشائعة";
-                paragraph.textContent = "نقدّم خدمة متكاملة في كل خطوة.";
-                website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
-                propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
-                broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
-                bedrooms = `<i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bedrooms} <span style="order:-1">غرف نوم</span></span>`;
-                bathrooms = `<i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> حمام</span></span>`;
-                parking = `<i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> موقف سيارات</span></span>`
-            }else {
-                website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
-                propertyState = property.state === "sale" ? "For Sale" : "For Rent";
-                broker = `<p style="margin-bottom:10px">Broker: ${property.broker}</p>`;
-                bedrooms = `<i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>`;
-                bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
-                parking = `<i class="flaticon-car mr-2"></i><span>${property.parking} Parking</span>`;
-            }
-            return `
-                <div class="agents-grid" data-aos="fade-up" ${delayAttr}>
-                    <div class="landscapes">
-                        <div class="project-single">
-                            <div class="project-inner project-head">
-                                <div class="homes">
-                                    <a href="single-property-1.html" class="homes-img">
-                                        ${website_type}
-                                        <div class="homes-tag button alt ${stateClass}" style="background:var(--main-color) !important;margin-top:15px;right:15px">${propertyState}</div>
-                                        <img src="https://hre-group.net${property.image_url}" alt="home" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="button-effect">
-                                    <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                    <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                    <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
-                                </div>
-                            </div>
-                            <div class="homes-content">
-                                <h3><a href="single-property-1.html">${property.name}</a></h3>
-                                <p class="homes-address" style="margin-bottom:5px">
-                                    <a href="single-property-1.html">
-                                        <i class="fa fa-map-marker"></i><span>${property.location}</span>
-                                    </a>
-                                </p>
-                                <p style="margin-bottom:10px">${broker}</p>
-                                <ul class="homes-list clearfix pb-3">
-                                    <li class="the-icons">
-                                        ${bedrooms}
-                                    </li>
-                                    <li class="the-icons">
-                                        ${bathrooms}
-                                    </li>
-                                    <li class="the-icons">
-                                        <i class="flaticon-square mr-2"></i>
-                                        <span>${property.area} sq ft</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        ${parking}
-                                    </li>
-                                </ul>
-                                <div class="price-properties footer pt-3 pb-0">
-                                    <h3 class="title mt-3">
-                                        <a href="single-property-1.html">AED ${property.price}</a>
-                                    </h3>
-                                    <div class="compare">
-                                        <a href="#" title="Compare">
-                                            <i class="flaticon-compare"></i>
-                                        </a>
-                                        <a href="#" title="Share">
-                                            <i class="flaticon-share"></i>
-                                        </a>
-                                        <a href="#" title="Favorites">
-                                            <i class="flaticon-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-        }).join("");
-
-        popularPlaces.innerHTML = propertiesHtml;
-        const slickWrapper = $(".slick-lancers");
-        if (slickWrapper.hasClass("slick-initialized")) {
-            slickWrapper.slick("unslick");
-        }
-
-        setTimeout(() => {
-            slickWrapper.slick({
-                infinite: true,
-                slidesToShow: 4,
-                autoplaySpeed: 1500,
-                autoplay:true,
-                slidesToScroll: 1,
-                dots: true,
-                arrows: false,
-                adaptiveHeight: false,
-                responsive: [
-                    {
-                        breakpoint: 1292,
-                        settings: { slidesToShow: 2, slidesToScroll: 2 }
-                    },
-                    {
-                        breakpoint: 993,
-                        settings: { slidesToShow: 2, slidesToScroll: 2 }
-                    },
-                    {
-                        breakpoint: 769,
-                        settings: { slidesToShow: 1, slidesToScroll: 1 }
-                    }
-                ]
-            });
-        }, 100)
-
-        if (AOS) AOS.refresh();
-
-    } catch (e) {
-        console.error("Error fetching featured properties:", e);
-    }
-}
-
-    async function handleAgents(cl) {
-        try {
-            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-            const agents = document.getElementById("Agents");
-            const response = await fetch(`https://hre-group.net/post/brokers?lang=${cl}`);
-            const data = await response.json();
-            const count = data.brokers.length;
-            agents.innerHTML = "";
-            if(language === "Ar") {
-                const header = document.querySelector(".team #main-header");
-                const paragraph = document.querySelector(".team #main-paragraph");
-                header.innerHTML = "تعرف على وكلائنا";
-                paragraph.textContent = "وكلاؤنا هنا لمساعدتك";
-            }
-            for (let i = 0; i < count; i++) {
-                let telephone = "";
-                if(data.brokers[i].whatsapp.startsWith("+971")) {
-                    telephone = data.brokers[i].whatsapp.split(" ").join("")
-                }else {
-                    telephone = "+971" + data.brokers[i].whatsapp.slice(1);
-                }
-
-                agents.innerHTML += 
-                    `<div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
-                    <div class="inner-box team-details">
-                        <div class="image team-head">
-                        <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
-                        <div class="team-hover">
-                            <ul class="team-social">
-                            <li style="background:var(--main-color)"><a target="_blank" href="https://wa.me/971${data.brokers[i].whatsapp.replace("+971", "0").split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
-                            <li style="background:var(--main-color)"><a target="_blank" href="tel:${telephone}"><i class="fas fa-phone" style="color: #fff;"></i></a></li>
-                            </ul>
-                        </div>
-                        </div>
-                        <div class="lower-box" style="padding:5px !important">
-                        <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
-                        <div class="designation">${data.brokers[i].responsibility}</div>
-                        </div>
-                    </div>
-                    </div>`
-            ;
-            }
-            AOS.init();
-            
-            const slickWrapper = $(".team-all");
-
+            popularPlaces.innerHTML = propertiesHtml;
+            const slickWrapper = $(".slick-lancers");
             if (slickWrapper.hasClass("slick-initialized")) {
                 slickWrapper.slick("unslick");
             }
 
-            slickWrapper.slick({
-                infinite: true,
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1500,
-                pauseOnDotsHover: false,
-                pauseOnHover: false,
-                dots: true,
-                arrows: false,
-                adaptiveHeight: false,
-                responsive: [
-                { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
-                { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-                { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-                { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-                { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-            ]
-            });
-
-            slickWrapper.on('afterChange', function(event, slick, currentSlide){
-                slickWrapper.slick('slickPlay');
-            });
-
-            function setEqualHeight() {
-                let maxHeight = 0;
-                slickWrapper.find('.slick-slide').css('height', 'auto');
-
-                slickWrapper.find('.slick-slide').each(function() {
-                    const h = $(this).outerHeight();
-                    if (h > maxHeight) maxHeight = h;
+            setTimeout(() => {
+                slickWrapper.slick({
+                    infinite: true,
+                    slidesToShow: 4,
+                    autoplaySpeed: 1500,
+                    autoplay:true,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                    adaptiveHeight: false,
+                    responsive: [
+                        {
+                            breakpoint: 1292,
+                            settings: { slidesToShow: 2, slidesToScroll: 2 }
+                        },
+                        {
+                            breakpoint: 993,
+                            settings: { slidesToShow: 2, slidesToScroll: 2 }
+                        },
+                        {
+                            breakpoint: 769,
+                            settings: { slidesToShow: 1, slidesToScroll: 1 }
+                        }
+                    ]
                 });
+            }, 100)
 
-                slickWrapper.find('.slick-slide').css('height', maxHeight + 'px');
-            }
-            setEqualHeight();
-            slickWrapper.on('setPosition', function() {
-
-
-            setEqualHeight();
-        });
+            if (AOS) AOS.refresh();
 
         } catch (e) {
-            console.log(e);
+            console.error("Error fetching featured properties:", e);
         }
     }
 
-    function handleClientsTestimonials() {
-        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-        if(language === "Ar") {
-            const header = document.querySelector(".testimonials .sec-title #main-header");
-            const paragraph = document.querySelector(".testimonials .sec-title #main-paragraph");
-            header.innerHTML = "آراء العملاء";
-            paragraph.textContent = "نحن نجمع تقييمات من عملائنا";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", handleClientsTestimonials);
-
-    async function handleOurPartners(cl) {
-        try {
-        const res = await fetch(`https://hre-group.net/api/branches?lang=${cl}`);
-        const data = await res.json();
-        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-        const header = document.querySelector(".partners .sec-title #main-header");
-        const paragraph = document.querySelector(".partners .sec-title #main-paragraph");
-        if(language === "Ar") {
-            header.innerHTML = "فروعنا";
-            paragraph.textContent = "الشركات التي تُمثّلنا";
-        }
-
-        const container = document.getElementById("our-partners");
-        if (!container || !data.branches) return;
-
-        let html = '';
-        data.branches.forEach(branch => {
-            html += `
-            <div class="item text-center" data-aos="fade-up">
-                <a href="https://hre-group.net${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
-                    <div style="border-radius:50%;overflow:hidden !important;border:1px solid var(--main-color);background:#F5F5F5 !important"><img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important;min-height:150px !important;min-width:150px !important; object-fit: contain;opacity:1 !important;border-radius:50% !important"></div>
-                    <p class="branch-name" style="margin-top: 8px;font-weight: bold;color:var(--main-color)">${branch.name}</p>
-                    <p class="branch-description"style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
-                </a>
-            </div>
-            `;
-        });
-        container.innerHTML = html;
-            $('#our-partners').owlCarousel({
-                loop: true,
-                margin: 20,
-                slideBy: 1,
-                smartSpeed: 600,
-                dragEndSpeed: true,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                dots: false,
-                slidesToScroll:1,
-                responsive: {
-                    0: { items: 1 },
-                    429:{items: 2},
-                    600: { items: 3 },
-                    992: { items: 4 },
-                    1200: { items: 4 }
+        async function handleAgents(cl) {
+            try {
+                const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+                const agents = document.getElementById("Agents");
+                const response = await fetch(`https://hre-group.net/post/brokers?lang=${cl}`);
+                const data = await response.json();
+                const count = data.brokers.length;
+                agents.innerHTML = "";
+                if(language === "Ar") {
+                    const header = document.querySelector(".team #main-header");
+                    const paragraph = document.querySelector(".team #main-paragraph");
+                    header.innerHTML = "تعرف على وكلائنا";
+                    paragraph.textContent = "وكلاؤنا هنا لمساعدتك";
                 }
-            }); 
-        } catch (err) {
-        console.error("Failed to fetch or render partners:", err);
-        }
-    }
+                for (let i = 0; i < count; i++) {
+                    let telephone = "";
+                    if(data.brokers[i].whatsapp.startsWith("+971")) {
+                        telephone = data.brokers[i].whatsapp.split(" ").join("")
+                    }else {
+                        telephone = "+971" + data.brokers[i].whatsapp.slice(1);
+                    }
 
-    async function handleSearch(cl) {
-        const locationList = document.querySelectorAll(".location + .nice-select .list");
-        const propertyTypeList = document.querySelectorAll(".property-type + .nice-select .list");
+                    agents.innerHTML += 
+                        `<div class="team-block" data-aos="fade-up" data-aos-delay="${(i + 1) * 100 + 50}">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                            <a href="agents-listing-grid.html"><img src="https://hre-group.net${data.brokers[i].image_url}" alt="" /></a>
+                            <div class="team-hover">
+                                <ul class="team-social">
+                                <li style="background:var(--main-color)"><a target="_blank" href="https://wa.me/971${data.brokers[i].whatsapp.replace("+971", "0").split(" ").join("")}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
+                                <li style="background:var(--main-color)"><a href="tel:${telephone}"><i class="fas fa-phone" style="color: #fff;"></i></a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            <div class="lower-box" style="padding:5px !important">
+                            <h3><a href="agents-listing-grid.html">${data.brokers[i].name}</a></h3>
+                            <div class="designation">${data.brokers[i].responsibility}</div>
+                            </div>
+                        </div>
+                        </div>`
+                ;
+                }
+                AOS.init();
+                
+                const slickWrapper = $(".team-all");
 
-        locationList.forEach(location => {
-            location.innerHTML = "";
-        })
+                if (slickWrapper.hasClass("slick-initialized")) {
+                    slickWrapper.slick("unslick");
+                }
 
-        propertyTypeList.forEach(e => {
-            e.innerHTML = "";
-        })
-
-        const response = await fetch(`https://hre-group.net/api/search?lang=${cl}`);
-        const data = await response.json();
-
-        locationList.forEach((ul, i) => {
-            data.locations.forEach((location, i) => {
-                ul.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
-            })
-        });
-
-        propertyTypeList.forEach((ul) => {
-            data.property_main_types.forEach((type, i) => {
-                ul.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
-            })
-        });
-
-    let advanced_filters = {
-            max_area_size: data.advanced_filters.max_area_size,
-            max_price: data.advanced_filters.max_price
-        }
-
-    document.querySelectorAll(".area-slider").forEach((slider) => {
-        if (slider.noUiSlider) slider.noUiSlider.destroy();
-
-        noUiSlider.create(slider, {
-            start: [0, advanced_filters.max_area_size],
-            connect: true,
-            range: { min: 0, max: advanced_filters.max_area_size },
-            step: 1,
-            format: {
-                to: value => Math.round(value),
-                from: value => parseInt(value),
-            },
-        });
-
-        const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
-        const minSpan = wrapper.querySelector(".area-min");
-        const maxSpan = wrapper.querySelector(".area-max");
-
-        slider.noUiSlider.on("update", (values) => {
-            if (minSpan) minSpan.innerText = values[0] + " sq ft";
-            if (maxSpan) maxSpan.innerText = values[1] + " sq ft";
-        });
-    });
-
-    document.querySelectorAll(".price-slider").forEach((slider) => {
-        if (slider.noUiSlider) slider.noUiSlider.destroy();
-
-        noUiSlider.create(slider, {
-            start: [0, advanced_filters.max_price],
-            connect: true,
-            range: { min: 0, max: advanced_filters.max_price },
-            step: 1,
-            format: {
-                to: value => Math.round(value),
-                from: value => parseInt(value),
-            },
-        });
-
-        const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
-        const minSpan = wrapper.querySelector(".price-min");
-        const maxSpan = wrapper.querySelector(".price-max");
-
-        slider.noUiSlider.on("update", (values) => {
-            if (minSpan) minSpan.innerText = "AED " + values[0];
-            if (maxSpan) maxSpan.innerText = "AED " + values[1];
-        });
-    });
-
-    }
-
-    function handleAllFunctions (lang) {
-        if(lang === "ar_001") {
-            document.querySelectorAll(".lang-tooltip").forEach(e => {
-                e.children[1].setAttribute("style", "display: none; !important");
-            })
-            document.getElementById("current-lang").innerHTML = "العربية"
-        }else {
-            document.querySelectorAll(".lang-tooltip").forEach(e => {
-                e.children[0].setAttribute("style", "display: none; !important");
-            })
-        }
-        if(lang === "ar_001") {
-            document.body.classList.add("arabic");
-        }
-        handleSearch(lang);
-        handleOurPartners(lang);
-        handleAgents(lang);
-        fetchPopularProperties(lang);
-        fetchFeaturedProperties(lang);
-        fetchPopularPlaces(lang);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        handleAllFunctions(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001");
-    });
-    
-    </script>
-
-    <script>
-        const a = document.querySelector("#lang > a");
-        a.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            document.querySelector("#lang > a + ul").classList.toggle("active");
-        });
-    </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".search-parent").forEach((btn) => {
-                btn.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const block = btn.closest(".search-block");
-            
-                    const keyword = block.querySelector("input[type='text']")?.value || "";
-            
-                    const propertyType = block.querySelector(".property-type .list .selected").dataset.value;
-            
-            
-                    const location = block.querySelector(".location .list .selected").dataset.value;
-                    
-                    const areaSlider = block.querySelector(".area-slider")?.noUiSlider;
-                    const priceSlider = block.querySelector(".price-slider")?.noUiSlider;
-
-                    const areaValues = areaSlider && areaSlider.get()
-                    ? areaSlider.get().map(v => {
-                        const n = parseInt(v);
-                        return isNaN(n) ? 0 : n;
-                        })
-                    : [0, 0];
-
-                    const priceValues = priceSlider && priceSlider.get()
-                    ? priceSlider.get().map(v => {
-                        const n = parseInt(v);
-                        return isNaN(n) ? 0 : n;
-                        })
-                    : [0, 0];
-
-                    const [minArea, maxArea] = areaValues;
-                    const [minPrice, maxPrice] = priceValues;
-            
-                    const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
-
-                    const bedrooms = block.querySelector(".beds .list .selected")?.innerHTML;
-                    const bathrooms = block.querySelector(".bath .list .selected")?.innerText;
-
-                    const checkedAmenitiesNodes = block.querySelectorAll("input[type='checkbox']:checked");
-
-                    const checkedAmenities = {};
-
-                    checkedAmenitiesNodes.forEach(cb => {
-                            checkedAmenities[cb.dataset.value] = true;
-                    });
-
-
-                    const params = new URLSearchParams({
-                        keyword,
-                        price_min:minPrice,
-                        price_max:maxPrice,
-                        bedrooms,
-                        property_type_id:propertyType,
-                        state_id:location,
-                        ...checkedAmenities,
-                        // propertyStatus,
-                        // minArea,
-                        // maxArea,
-                        // bathrooms,
-                    });
-
-                    window.location.href = `properties-grid-1.html?${params.toString()}`;
-
+                slickWrapper.slick({
+                    infinite: true,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    pauseOnDotsHover: false,
+                    pauseOnHover: false,
+                    dots: true,
+                    arrows: false,
+                    adaptiveHeight: false,
+                    responsive: [
+                    { breakpoint: 1292, settings: { slidesToShow: 5, slidesToScroll: 1 } },
+                    { breakpoint: 993, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+                    { breakpoint: 769, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+                    { breakpoint: 550, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+                    { breakpoint: 380, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+                ]
                 });
+
+                slickWrapper.on('afterChange', function(event, slick, currentSlide){
+                    slickWrapper.slick('slickPlay');
+                });
+
+                function setEqualHeight() {
+                    let maxHeight = 0;
+                    slickWrapper.find('.slick-slide').css('height', 'auto');
+
+                    slickWrapper.find('.slick-slide').each(function() {
+                        const h = $(this).outerHeight();
+                        if (h > maxHeight) maxHeight = h;
+                    });
+
+                    slickWrapper.find('.slick-slide').css('height', maxHeight + 'px');
+                }
+                setEqualHeight();
+                slickWrapper.on('setPosition', function() {
+
+
+                setEqualHeight();
             });
-        })
-        
 
-    </script>
-
-    <script>
-
-
-        function handleAddImg() {
-            const ele = document.querySelector(".mm-navbar");
-            ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
-            if(!ele.querySelector("img")) {
-                ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
-                ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
+            } catch (e) {
+                console.log(e);
             }
-        } 
+        }
 
-    </script>
+        function handleClientsTestimonials() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            if(language === "Ar") {
+                const header = document.querySelector(".testimonials .sec-title #main-header");
+                const paragraph = document.querySelector(".testimonials .sec-title #main-paragraph");
+                header.innerHTML = "آراء العملاء";
+                paragraph.textContent = "نحن نجمع تقييمات من عملائنا";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", handleClientsTestimonials);
+
+        async function handleOurPartners(cl) {
+            try {
+            const res = await fetch(`https://hre-group.net/api/branches?lang=${cl}`);
+            const data = await res.json();
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            const header = document.querySelector(".partners .sec-title #main-header");
+            const paragraph = document.querySelector(".partners .sec-title #main-paragraph");
+            if(language === "Ar") {
+                header.innerHTML = "فروعنا";
+                paragraph.textContent = "الشركات التي تُمثّلنا";
+            }
+
+            const container = document.getElementById("our-partners");
+            if (!container || !data.branches) return;
+
+            let html = '';
+            data.branches.forEach(branch => {
+                html += `
+                <div class="item text-center" data-aos="fade-up">
+                    <a href="https://hre-group.net${branch.page_link}" title="${branch.name}" style="display: flex;text-decoration:none !important;justify-content:center;align-items:center;flex-direction:column">
+                        <div style="border-radius:50%;overflow:hidden !important;border:1px solid var(--main-color);background:#F5F5F5 !important"><img src="https://hre-group.net${branch.logo}" alt="${branch.name}" style="max-height: 150px;max-width:150px !important;min-height:150px !important;min-width:150px !important; object-fit: contain;opacity:1 !important;border-radius:50% !important"></div>
+                        <p class="branch-name" style="margin-top: 8px;font-weight: bold;color:var(--main-color)">${branch.name}</p>
+                        <p class="branch-description"style="margin-top: 2px; font-size: 15px; color: #777;margin-bottom:0 !important">${branch.description}</p>
+                    </a>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+                $('#our-partners').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    slideBy: 1,
+                    smartSpeed: 600,
+                    dragEndSpeed: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    dots: false,
+                    slidesToScroll:1,
+                    responsive: {
+                        0: { items: 1 },
+                        429:{items: 2},
+                        600: { items: 3 },
+                        992: { items: 4 },
+                        1200: { items: 4 }
+                    }
+                }); 
+            } catch (err) {
+            console.error("Failed to fetch or render partners:", err);
+            }
+        }
+
+        async function handleSearch(cl) {
+            const locationList = document.querySelectorAll(".location + .nice-select .list");
+            const propertyTypeList = document.querySelectorAll(".property-type + .nice-select .list");
+
+            locationList.forEach(location => {
+                location.innerHTML = "";
+            })
+
+            propertyTypeList.forEach(e => {
+                e.innerHTML = "";
+            })
+
+            const response = await fetch(`https://hre-group.net/api/search?lang=${cl}`);
+            const data = await response.json();
+
+            locationList.forEach((ul, i) => {
+                data.locations.forEach((location, i) => {
+                    ul.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+                })
+            });
+
+            propertyTypeList.forEach((ul) => {
+                data.property_main_types.forEach((type, i) => {
+                    ul.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+                })
+            });
+
+        let advanced_filters = {
+                max_area_size: data.advanced_filters.max_area_size,
+                max_price: data.advanced_filters.max_price
+            }
+
+        document.querySelectorAll(".area-slider").forEach((slider) => {
+            if (slider.noUiSlider) slider.noUiSlider.destroy();
+
+            noUiSlider.create(slider, {
+                start: [0, advanced_filters.max_area_size],
+                connect: true,
+                range: { min: 0, max: advanced_filters.max_area_size },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
+            const minSpan = wrapper.querySelector(".area-min");
+            const maxSpan = wrapper.querySelector(".area-max");
+
+            slider.noUiSlider.on("update", (values) => {
+                if (minSpan) minSpan.innerText = values[0] + " sq ft";
+                if (maxSpan) maxSpan.innerText = values[1] + " sq ft";
+            });
+        });
+
+        document.querySelectorAll(".price-slider").forEach((slider) => {
+            if (slider.noUiSlider) slider.noUiSlider.destroy();
+
+            noUiSlider.create(slider, {
+                start: [0, advanced_filters.max_price],
+                connect: true,
+                range: { min: 0, max: advanced_filters.max_price },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            const wrapper = slider.closest(".main-search-field-2") || slider.parentElement;
+            const minSpan = wrapper.querySelector(".price-min");
+            const maxSpan = wrapper.querySelector(".price-max");
+
+            slider.noUiSlider.on("update", (values) => {
+                if (minSpan) minSpan.innerText = "AED " + values[0];
+                if (maxSpan) maxSpan.innerText = "AED " + values[1];
+            });
+        });
+
+        }
+
+        function handleAllFunctions (lang) {
+            if(lang === "ar_001") {
+                document.querySelectorAll(".lang-tooltip").forEach(e => {
+                    e.children[1].setAttribute("style", "display: none; !important");
+                })
+                document.getElementById("current-lang").innerHTML = "العربية"
+            }else {
+                document.querySelectorAll(".lang-tooltip").forEach(e => {
+                    e.children[0].setAttribute("style", "display: none; !important");
+                })
+            }
+            if(lang === "ar_001") {
+                document.body.classList.add("arabic");
+            }
+            handleSearch(lang);
+            handleOurPartners(lang);
+            handleAgents(lang);
+            fetchPopularProperties(lang);
+            fetchFeaturedProperties(lang);
+            fetchPopularPlaces(lang);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            handleAllFunctions(localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001");
+        });
+        
+        </script>
+
+        <script>
+            const a = document.querySelector("#lang > a");
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                document.querySelector("#lang > a + ul").classList.toggle("active");
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll(".search-parent").forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const block = btn.closest(".search-block");
+                
+                        const keyword = block.querySelector("input[type='text']")?.value || "";
+                
+                        const propertyType = block.querySelector(".property-type .list .selected").dataset.value;
+                
+                
+                        const location = block.querySelector(".location .list .selected").dataset.value;
+                        
+                        const areaSlider = block.querySelector(".area-slider")?.noUiSlider;
+                        const priceSlider = block.querySelector(".price-slider")?.noUiSlider;
+
+                        const areaValues = areaSlider && areaSlider.get()
+                        ? areaSlider.get().map(v => {
+                            const n = parseInt(v);
+                            return isNaN(n) ? 0 : n;
+                            })
+                        : [0, 0];
+
+                        const priceValues = priceSlider && priceSlider.get()
+                        ? priceSlider.get().map(v => {
+                            const n = parseInt(v);
+                            return isNaN(n) ? 0 : n;
+                            })
+                        : [0, 0];
+
+                        const [minArea, maxArea] = areaValues;
+                        const [minPrice, maxPrice] = priceValues;
+                
+                        const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
+
+                        const bedrooms = block.querySelector(".beds .list .selected")?.innerHTML;
+                        const bathrooms = block.querySelector(".bath .list .selected")?.innerText;
+
+                        const checkedAmenitiesNodes = block.querySelectorAll("input[type='checkbox']:checked");
+
+                        const checkedAmenities = {};
+
+                        checkedAmenitiesNodes.forEach(cb => {
+                                checkedAmenities[cb.dataset.value] = true;
+                        });
+
+
+                        const params = new URLSearchParams({
+                            keyword,
+                            price_min:minPrice,
+                            price_max:maxPrice,
+                            bedrooms,
+                            property_type_id:propertyType,
+                            state_id:location,
+                            ...checkedAmenities,
+                            // propertyStatus,
+                            // minArea,
+                            // maxArea,
+                            // bathrooms,
+                        });
+
+                        window.location.href = `properties-grid-1.html?${params.toString()}`;
+
+                    });
+                });
+            })
+            
+
+        </script>
+
+        <script>
+            function handleAddImg() {
+                const ele = document.querySelector(".mm-navbar");
+                ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
+                if(!ele.querySelector("img")) {
+                    ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
+                    ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
+                }
+            } 
+
+        </script>
+
+        <script>
+            
+        </script>
 
 </body>
 
