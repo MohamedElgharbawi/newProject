@@ -356,6 +356,21 @@
             }
         }
 
+        .homepage-4 .portfolio .project-single {
+            height: 100% !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homepage-4 .portfolio .homes-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homepage-4 .portfolio .homes-content .footer {
+            flex-grow: 1;
+        }
 
     </style>
 </head>
@@ -469,9 +484,7 @@
                     </div>
                 </section>
                 <div class="row">
-                    <div class="col-lg-8 col-md-12 blog-pots sort-row">
-
-                        <section class="headings-2 pt-0">
+                    <section class="headings-2 pt-0 col-lg-8 col-md-12" style="padding: 15px;">
                             <div class="pro-wrapper flex justify-content-between">
 
                                 <div class="detail-wrapper-body">
@@ -510,10 +523,8 @@
                                 </div>
 
                             </div>
-                        </section>
-
-
-
+                    </section>
+                    <div class="col-lg-8 col-md-12 blog-pots sort-row">
                     </div>
                     <aside class="col-lg-4 col-md-12 car">
                         <div class="widget">
@@ -1255,19 +1266,19 @@
                                     </div>
                                 </div>
                                 <div class="homes-content">
-                                    <h3><a href="single-property-1.html">${item.name}</a></h3>
-                                    <p class="homes-address mb-2">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>${item.location}</span>
-                                        </a>
-                                    </p>
-                                    ${broker}
-                                    <ul class="homes-list clearfix pb-3">
-                                        ${bedrooms}
-                                        ${bathrooms}
-                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
-                                        ${parking} 
-                                    </ul>
+                                        <h3><a href="single-property-1.html">${item.name}</a></h3>
+                                        <p class="homes-address mb-2">
+                                            <a href="single-property-1.html">
+                                                <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                            </a>
+                                        </p>
+                                        ${broker}
+                                        <ul class="homes-list clearfix pb-3">
+                                            ${bedrooms}
+                                            ${bathrooms}
+                                            <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                            ${parking} 
+                                        </ul>
                                     <div class="footer">
                                         <a href="agent-details.html">
                                             <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
@@ -1421,8 +1432,7 @@
                 countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
             }else {
                 countSearchData.innerHTML = `${searchData.count} Search results`;
-            }
-
+            } 
 
             const results = searchData.results;
             const itemsPerRow = 2;
