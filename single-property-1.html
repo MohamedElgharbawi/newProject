@@ -202,6 +202,7 @@
             display: block;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
         }
 
         #header.cloned.sticky ul li a:hover {
@@ -289,6 +290,26 @@
 
         .social a i {
             font-size: 22px;
+        }
+
+        .preloader {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            background-color: rgb(255, 255, 255);
+            z-index: 1000000000000000000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .image {
+                background-image: url("./images/preloader.gif");
+                position: relative;
+                z-index: 1000000000000000000000;
+                background-repeat: no-repeat;
+                width: 100px;
+                height: 100px;
+            }
         }
 
     </style>
@@ -1506,6 +1527,11 @@
     </footer>
 
         <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
+        <div class="preloader">
+            <div class="image"></div>
+        </div>
+
         <div class="social">
             <a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL" target="_blank" class="facebook">
                 <i class="fab fa-facebook"></i>
@@ -1614,7 +1640,6 @@
         <!-- Date Dropper Script-->
         <script>
             $('#reservation-date').dateDropper();
-
         </script>
         <!-- Time Dropper Script-->
         <script>
@@ -1663,23 +1688,11 @@
 
         </script>
 
-        <script>
-            function handleClick(lang) {
-                localStorage.setItem("lang", lang);
-                location.reload();
-            }
-        </script>
 
-        <script>
-            function handleAddImg() {
-                const ele = document.querySelector(".mm-navbar");
-                ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
-                if(!ele.querySelector("img")) {
-                    ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
-                    ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
-                }
-            } 
-        </script>
+
+
+
+
 
         <script>
             const a = document.querySelector("#lang > a");
@@ -1688,29 +1701,33 @@
                 e.stopPropagation();
                 document.querySelector("#lang > a + ul").classList.toggle("active");
             });
-        </script>
-
-        <script>
+            function handleAddImg() {
+                const ele = document.querySelector(".mm-navbar");
+                ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
+                if(!ele.querySelector("img")) {
+                    ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
+                    ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
+                }
+            } 
+            function handleClick(lang) {
+                localStorage.setItem("lang", lang);
+                location.reload();
+            }
             document.addEventListener("DOMContentLoaded", () => {
                 let lang = localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001";
                 if(lang === "ar_001") {
                     document.querySelectorAll(".lang-tooltip").forEach(e => {
                         e.children[1].setAttribute("style", "display: none; !important");
                     })
-                    document.getElementById("current-lang").innerHTML = "العربية"
-                    }else {
-                        document.querySelectorAll(".lang-tooltip").forEach(e => {
-                            e.children[0].setAttribute("style", "display: none; !important");
-                        })
-                    }
-                    if(lang === "ar_001") {
-                        document.body.classList.add("arabic");
-                    }
-                })
-        </script>
-
-        <script>
-            function handleLanguage() {
+                    document.getElementById("current-lang").innerHTML = "العربية";
+                    document.body.classList.add("arabic");
+                }else {
+                    document.querySelectorAll(".lang-tooltip").forEach(e => {
+                        e.children[0].setAttribute("style", "display: none; !important");
+                    })
+                }
+            })
+            async function handleLanguage() {
                 let language = localStorage.getItem("lang") === "Ar" ? "Arabic" : "English";
                 if(language === "Arabic") {
                     
@@ -1833,11 +1850,6 @@
                     similar_properties_header.textContent = "عقارات مشابهة";
                 }
             }
-
-            document.addEventListener("DOMContentLoaded", handleLanguage)
-        </script>
-
-        <script>
             async function getProperty(){ 
                 const language = localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001";
                 const featureProperties = document.querySelector(".slick-lancers");
@@ -2012,16 +2024,14 @@
                     arrows: true,
                 });
             }
-
-
-
-
-
-            document.addEventListener("DOMContentLoaded", getProperty);
-            
+            async function handleAllFunctions() {
+                await getProperty();
+                await handleLanguage();
+                document.querySelector(".preloader").style.display = "none";
+            }
+            document.addEventListener("DOMContentLoaded", handleAllFunctions);
         </script>
         
-
     </div>
     <!-- Wrapper / End -->
 </body>
