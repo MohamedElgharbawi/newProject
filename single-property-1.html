@@ -1782,6 +1782,7 @@
                 const images = document.getElementById("images");
                 const carousel_indicators = document.querySelector(".carousel-indicators");
                 const description = document.querySelector(".description");
+                const brokerImg = document.querySelector(".author__img");
 
                 const value_id = document.getElementById("value-id");
                 const value_property_type = document.getElementById("value-property-type");
@@ -1804,6 +1805,7 @@
 
                 /////////
                 brokerName.textContent = data.broker.name;
+                brokerImg.src = `https://hre-group.net${data.broker.image_url}`;
                 brokerContact.innerHTML = `
                 <li><a href="tel:${data.broker.phone}"><i class="fas fa-phone"></i></a></li>
                 <li><a target="_blank" href="https://wa.me/971${data.broker.whatsapp.slice(1)}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
