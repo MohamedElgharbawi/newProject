@@ -453,7 +453,6 @@ a.button.border, a.button {
 #navigation ul ul a {
     line-height: 27px !important;
     padding: 10px 30px 10px 15px !important;
-    color: #707070 !important;
 }
 #navigation ul ul li:hover {
     background-color: #f2f2f2 !important;
@@ -534,9 +533,6 @@ a.button.border, a.button {
 }
 #header.cloned.sticky .head-tr ul li:hover {
     color: #fff !important;
-}
-#navigation ul li:hover ul a, #navigation ul ul a {
-    color: #707070 !important;
 }
 #navigation.style-2.cloned .header-user-name, 
 #header.cloned.sticky .header-user-name, 

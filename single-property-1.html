@@ -528,6 +528,25 @@
                 width: 100% !important;
             }
         }
+
+        #header #navigation a {
+            color:var(--main-color) !important;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header #navigation li:hover > a {
+            color:white !important;
+            background-color: var(--main-color);
+            border-radius: 5px !important;
+        }
+
+        #header #navigation a:hover {
+            color: white !important;
+            background-color: var(--main-color) !important;
+            border-radius: 5px;
+        }
         
 
     </style>
@@ -560,20 +579,20 @@
                         <!-- Main Navigation -->
                         <nav id="navigation" class="style-1 head-tr">
                             <ul id="responsive">
-                                <li><a href="#" id="Home">Home</a></li>
+                                <li><a href="index.html" id="Home">Home</a></li>
                                     <li><a href="#" id="Listing">Listing</a>
                                         <ul>
-                                            <li><a href="#" id="Listing-Grid">Listing Grid</a>
+                                            <li><a href="#" id="Listing-Grid" style="border-radius: 0 !important;">Listing Grid</a>
                                                 <ul>
-                                                    <li><a href="properties-grid-1.html" id="Grid-View">Grid View</a></li>
-                                                    <li><a href="properties-full-grid-1.html" id="Grid-Fullwidth">Grid Fullwidth</a></li>
+                                                    <li><a href="properties-grid-1.html" id="Grid-View" style="border-radius: 0 !important;">Grid View</a></li>
+                                                    <li><a href="" id="Grid-Fullwidth" style="border-radius: 0 !important;">Grid Fullwidth</a></li> <!--properties-full-grid-1.html-->
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li ><a href="contact-us.html" id="Contact">Contact</a></li>
-                                    <li ><a href="login.html" id="Login">Login</a></li>
-                                    <li ><a href="register.html" id="Register">Register</a></li>
+                                    <li ><a href="#" id="Contact">Contact</a></li><!--contact-us.html-->
+                                    <li ><a href="#" id="Login">Login</a></li><!--login.html-->
+                                    <li ><a href="#" id="Register">Register</a></li><!--register.html-->
                             </ul>
                         </nav>
                         <!-- Main Navigation / End -->
@@ -584,7 +603,7 @@
                             <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
                         </div>
                         <ul>
-                            <li><a href="user-profile.html" id="Edit-Profile"> Edit profile</a></li>
+                            <li><a href="#" id="Edit-Profile"> Edit profile</a></li><!--user-profile.html-->
                             <!-- <li><a href="add-property.html"> Add Property</a></li> -->
                             <!-- <li><a href="payment-method.html">  Payments</a></li> -->
                             <!-- <li><a href="change-password.html"> Change Password</a></li> -->
@@ -2203,7 +2222,7 @@
                     featureProperties.innerHTML += `
                         <div class="agents-grid mr-0">
                             <div class="listing-item compact">
-                                <a href="properties-details.html" class="listing-img-container">
+                                <a href="single-property-1.html?id=${data[i].id}" class="listing-img-container">
                                     
                                     <div class="listing-badges" style="padding-top:10px">
                                         <span class="featured" style="width:fit-content;top:0 !important;background:var(--main-color)">AED ${data[i].price}</span>
@@ -2228,7 +2247,7 @@
                     recentProperties.innerHTML += `
                     <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
                         <div class="recent-img">
-                            <a href="blog-details.html"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
+                            <a href="single-property-1.html?id=${data[i].id}"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
                         </div>
                         <div class="info-img" style="display:flex;flex-direction:column;gap:5px">
                             <a href="blog-details.html" style="margin:0">
