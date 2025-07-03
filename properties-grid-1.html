@@ -424,6 +424,22 @@
             border-radius: 5px !important;
         }
 
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #eee;
+            border-top: 4px solid var(--main-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 100px auto;
+        }
+
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
     </style>
 </head>
 
@@ -578,6 +594,7 @@
                     </section>
 
                     <div class="col-lg-8 col-md-12 blog-pots sort-row">
+                        
                     </div>
                     
                     <aside class="col-lg-4 col-md-12 car">
@@ -1372,11 +1389,12 @@
 
             const searchData = await searchResponse.json();
             console.log(searchData);
+            
 
             if(language === "Ar") {
-                countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
+                countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
             }else {
-                countSearchData.innerHTML = `${searchData.count} Search results`;
+                countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
             }
 
             numOfPages = Math.ceil(searchData.count / searchData.limit);
@@ -1482,6 +1500,7 @@
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                            <li style="width:fit-content !important">Page ${page} / ${numOfPages}</li>
                             <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
                                 ${next}
                             </li>
@@ -1724,7 +1743,7 @@
             searchBtn.onclick = async function (e) {
                 // document.querySelector(".preloader").style.display = "flex";
                 e.preventDefault();
-                blogPots.innerHTML = "";
+                blogPots.innerHTML = `<div class="loader"></div>`;
 
                 const getSelectedValue = (ul) => {
                     const selected = ul.querySelector(".selected");
@@ -1762,15 +1781,12 @@
                 const searchData = await searchResponse.json();
                 numOfPages = Math.ceil(searchData.count / searchData.limit);
 
-                if(language === "Ar") {
-                    countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
-                }else {
-                    countSearchData.innerHTML = `${searchData.count} Search results`;
-                } 
+                
 
                 const results = searchData.results;
                 const itemsPerRow = 2;
                 const totalRows = Math.ceil(results.length / 2);
+                let temp = "";
 
                 for (let i = 0; i < totalRows; i++) {
                     let html = "";
@@ -1838,7 +1854,8 @@
                             </div>
                         </div>`;
                     }
-                    blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
+                    // blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
+                    temp += `<div class="row search-data">${html}</div>`;
                 }
                 let next, prev;
                 if(language === "Ar") {
@@ -1848,6 +1865,12 @@
                     next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
                     prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
                 }
+                if(language === "Ar") {
+                    countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
+                }else {
+                    countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
+                } 
+                blogPots.innerHTML = temp;
                 blogPots.innerHTML += `
                     <div class="row search-data" style="padding:0 15px">
                         <nav aria-label="..." class="agents" style="width:100%">
@@ -1862,6 +1885,7 @@
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                                <li style="width:fit-content !important">Page ${page} / ${numOfPages}</li>
                                 <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
                                     ${next}
                                 </li>
@@ -1869,7 +1893,6 @@
                         </nav>
                     </div>
                 `
-            // document.querySelector(".preloader").style.display = "none";
             };
         }
         handleSearch();
