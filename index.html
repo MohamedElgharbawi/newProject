@@ -486,6 +486,10 @@
             background-color: var(--main-color) !important;
             border-radius: 5px !important;
         }
+
+        .mm-panels * {
+            color:white !important ;
+        }
         
     </style>
 
@@ -2785,6 +2789,7 @@
         <script>
             function handleAddImg() {
                 const ele = document.querySelector(".mm-navbar");
+                console.log(ele);
                 ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
                 if(!ele.querySelector("img")) {
                     ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
