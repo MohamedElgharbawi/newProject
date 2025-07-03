@@ -424,6 +424,11 @@
             border-radius: 5px !important;
         }
 
+        .pagination ul li.disable{ 
+            opacity: .4;
+            pointer-events: none;
+        } 
+
     </style>
 </head>
 
@@ -1246,6 +1251,7 @@
         const sortCol = document.querySelector("#sort-col");
         const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
         const a = document.querySelector("#lang > a");
+        let page = 1;
         async function getFeatureProperties() {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             const featureProperties = document.querySelector(".slick-lancers");
@@ -1322,18 +1328,46 @@
                 arrows: true,
             });
         }
+        
+
+
+
+
+
+
+
+        function pagination(action) {
+            if(action === "increase") {
+                page++;
+            }else {
+                page--;
+            }
+            getData();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         async function getData() {
             const countSearchData = document.getElementById("count");
             let blogPots = document.querySelector(".blog-pots");
+            blogPots.innerHTML = "";
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-
+            let numOfPages;
+            
             const urlParams = new URLSearchParams(window.location.search);
 
-            const bodyData = {};
+            const bodyData = { };
             for (const [key, value] of urlParams.entries()) {
                 bodyData[key] = value;
             }
-            const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
+            const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}&page=${page}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1349,6 +1383,11 @@
             }else {
                 countSearchData.innerHTML = `${searchData.count} Search results`;
             }
+
+            numOfPages = Math.ceil(searchData.count / searchData.limit);
+            
+            console.log(numOfPages);
+            console.log(page);
 
 
             const results = searchData.results;
@@ -1428,33 +1467,33 @@
             }
             let next, prev;
             if(language === "Ar") {
-                next = `<a class="page-link" href="#">التالى</a>`;
-                prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
+                next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
+                prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
             }else {
-                next = `<a class="page-link" href="#">Next</a>`;
-                prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
+                next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
+                prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
             }
-            /* blogPots.innerHTML += `
-                <div class="row search-data" style="padding:15px">
-                    <nav aria-label="..." class="agents pt-55">
-                        <ul class="pagination disabled">
-                            <li class="page-item disabled">
+            blogPots.innerHTML += `
+                <div class="row search-data" style="padding:0 15px">
+                    <nav aria-label="..." class="agents" style="width:100%">
+                        <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
+                            <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
                                 ${prev}
                             </li>
-                            <li class="page-item active">
+                            <!-- <li class="page-item active">
                                 <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
+                            <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                            <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
                                 ${next}
                             </li>
                         </ul>
                     </nav>
                 </div>
-            ` */ 
+            `
         }
         async function handleLanguage() {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
@@ -1620,6 +1659,8 @@
             document.querySelector(".preloader").style.display = "none";
         }
         document.addEventListener("DOMContentLoaded", handleAllFunctions);
+        
+        
         async function handleSearch(cl) {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             const searchBtn = document.getElementById("search-data");
@@ -1631,6 +1672,7 @@
             const bathroomsList = document.querySelector("#bathrooms ul");
             let blogPots = document.querySelector(".blog-pots");
             const countSearchData = document.getElementById("count");
+            let numOfPages;
 
             locationList.innerHTML = "";
             propertyTypeList.innerHTML = "";
@@ -1723,6 +1765,7 @@
                 });
 
                 const searchData = await searchResponse.json();
+                numOfPages = Math.ceil(searchData.count / searchData.limit);
 
                 if(language === "Ar") {
                     countSearchData.innerHTML = `<span style="order:1">${searchData.count}</span>نتائج  بحث`;
@@ -1804,37 +1847,39 @@
                 }
                 let next, prev;
                 if(language === "Ar") {
-                    next = `<a class="page-link" href="#">التالى</a>`;
-                    prev = `<a class="page-link" href="#" tabindex="-1">السابق</a>`;
+                    next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
+                    prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
                 }else {
-                    next = `<a class="page-link" href="#">Next</a>`;
-                    prev = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
-                } /*
+                    next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
+                    prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
+                }
                 blogPots.innerHTML += `
-                <div class="row search-data"  style="padding:15px">
-                    <nav aria-label="..." class="agents pt-55">
-                        <ul class="pagination disabled">
-                            <li class="page-item disabled">
-                                ${prev}
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                                ${next}
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            `; */ 
+                    <div class="row search-data" style="padding:0 15px">
+                        <nav aria-label="..." class="agents" style="width:100%">
+                            <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
+                                <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
+                                    ${prev}
+                                </li>
+                                <!-- <li class="page-item active">
+                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                                <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
+                                    ${next}
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                `
             // document.querySelector(".preloader").style.display = "none";
             };
         }
         handleSearch();
+        
+        
         function handleSortCol(event, e) {
             
             event.preventDefault();
