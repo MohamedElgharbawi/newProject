@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 
@@ -1491,6 +1491,7 @@
         </script>
 
         <script>
+
             $('.job_clientSlide').owlCarousel({
                 items: 2,
                 loop: true,
@@ -2206,22 +2207,27 @@
             container.innerHTML = html;
                 $('#our-partners').owlCarousel({
                     loop: true,
-                    margin: 20,
-                    slideBy: 1,
-                    smartSpeed: 600,
-                    dragEndSpeed: true,
+                    items: 2,
+                    margin: 30,
+                    smartSpeed: 1000,
                     autoplay: true,
-                    autoplayTimeout: 3000,
+                    slideSpeed: 1000,
                     dots: false,
-                    slidesToScroll:1,
                     responsive: {
-                        0: { items: 1 },
-                        429:{items: 2},
-                        600: { items: 3 },
-                        992: { items: 4 },
-                        1200: { items: 4 }
+                        0: {
+                            items: 1
+                        },
+                        530: {
+                            items:2
+                        },
+                        725:{
+                            items:3
+                        },
+                        991: {
+                            items: 4
+                        }
                     }
-                }); 
+                });  
             } catch (err) {
             console.error("Failed to fetch or render partners:", err);
             }
